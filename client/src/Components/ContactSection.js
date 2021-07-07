@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Styled from 'styled-components';
 
+
+
 function ContactSection() {
+
   return (
     <div className="aboutUs">
         <AboutTitle>

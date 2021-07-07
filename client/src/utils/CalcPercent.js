@@ -1,7 +1,8 @@
-const goalHours = 23;
-const currentHours = 13;
+
 
 function CalcPercent(){
+    const goalHours = 23;
+    const currentHours = 13;
     let percent = " ";
     if (isNaN(goalHours) || (isNaN(currentHours))){
         percent = " ";
@@ -13,3 +14,6 @@ function CalcPercent(){
     };
 
     CalcPercent();
+
+
+export default CalcPercent;

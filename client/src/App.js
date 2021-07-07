@@ -1,5 +1,11 @@
+
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route
+} from "react-router-dom";
 // import About from "./Pages/About";
-// import Dashboard from "./Pages/Dashboard";
+import Dashboard from "./Pages/Dashboard";
 // import Contact from "./Pages/Contact";
 // import Login from "./Pages/Login";
 // import SignUp from "./Pages/SignUp";
@@ -18,17 +24,15 @@ function App() {
       <GlobalStyle />
       <Nav />
       <LandingPage />
-      {/* <Router>
-          <Navbar />
-          <Header />
-            <Route exact path="/" component={LandingPage} />
+      <Router>
+          
+            {/* <Route exact path="/" component={LandingPage} />
             <Route exact path="/About" component={About} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/Contact" component={Contact} />
-            <Route exact path="/SignUp" component={SignUp} />
+            <Route exact path="/SignUp" component={SignUp} /> */}
             <Route exact path="/Dashboard" component={Dashboard} />
-          <Footer />
-     </Router> */}
+     </Router>
     </div>
     </>
   );
