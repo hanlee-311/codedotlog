@@ -1,23 +1,24 @@
 import React from 'react';
 import Styled from 'styled-components';
+import { Link } from "react-router-dom"
 
 function Nav() {
     return (
       <StyledNav>
-          <h1 id="logo"><a href="#asd">codedotlog</a></h1>
+          <h1 id="logo"><a href="/">codedotlog</a></h1>
           <ul>
-              <li>
-                  <a href="#LandingSection">Home</a>
-              </li>
-              <li>
-                  <a href="#AboutUsSection">About</a>
-              </li>
-              <li>
-                  <a href="#ContactSection">Contact</a>
-              </li>
-              <li>
-                  <NavButton><a href="#filler">Login</a></NavButton>
-              </li>
+            <Link to="/">
+              <li>Home</li>
+            </Link>
+            <Link to="#about">
+              <li>About</li>
+            </Link>
+            <Link to="/">
+              <li>Contact</li>
+            </Link>
+            <Link to="/Login">
+              <li><NavButton>Login</NavButton></li>
+            </Link>
           </ul>
       </StyledNav>
     );

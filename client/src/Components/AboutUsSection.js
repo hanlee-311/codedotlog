@@ -3,9 +3,9 @@ import Styled from 'styled-components';
 
 function AboutUsSection() {
     return (
-     <About>
+     <About id="#about">
          <AboutHeader>
-             <h1>.about</h1>
+             <h1 id="About">.about</h1>
          </AboutHeader>
          <div className="Text">
              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, eligendi tempora. Delectus minima rerum consectetur aliquid voluptatem repellendus ea placeat.</h4>

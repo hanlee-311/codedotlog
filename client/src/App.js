@@ -16,25 +16,20 @@ import Dashboard from "./Pages/Dashboard";
 import GlobalStyle from "./Components/GlobalStyle";
 import LandingPage from "./Pages/LandingPage";
 import Nav from "./Components/Nav";
+import LoginPage from "./Pages/LoginPage";
+import SignUp from "./Pages/SignUp";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
-   <>
-    <div className="App">
+   <Router>
       <GlobalStyle />
       <Nav />
-      <LandingPage />
-      <Router>
-          
-            {/* <Route exact path="/" component={LandingPage} />
-            <Route exact path="/About" component={About} />
-            <Route exact path="/Login" component={Login} />
-            <Route exact path="/Contact" component={Contact} />
-            <Route exact path="/SignUp" component={SignUp} /> */}
-            <Route exact path="/Dashboard" component={Dashboard} />
-     </Router>
-    </div>
-    </>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/Login" component={LoginPage} />
+            <Route exact path="/SignUp" component={SignUp} />
+            {/* <Route exact path="/Dashboard" component={Dashboard} /> */}
+    </Router>
   );
 }
 
