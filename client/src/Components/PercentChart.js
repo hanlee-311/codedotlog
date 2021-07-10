@@ -28,21 +28,7 @@ console.log(goalHours);
        <Doughnut
        data={state}
           options={{
-            title:{
-              responsive: true,	
-              display:true,
-              text:'Weekly Progress',
-              fontSize:20,
-              maintainAspectRatio: false,
-            },
-            legend:{
-              display:true,
-              position:'right'
-            },
             plugins: {
-                datalabels: {
-                  display: false,   
-                },
                 doughnutlabel: {
                   labels: [{
                       text: 'CalcPercent',
