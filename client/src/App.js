@@ -1,9 +1,5 @@
 
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
 // import About from "./Pages/About";
 import Dashboard from "./Pages/Dashboard";
 // import Contact from "./Pages/Contact";
@@ -11,7 +7,13 @@ import Dashboard from "./Pages/Dashboard";
 // import SignUp from "./Pages/SignUp";
 // import LandingPage from "./Pages/LandingPage";
 // import GlobalStyle from "./components/GlobalStyle";
-
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 // Loading Pages here
 import GlobalStyle from "./Components/GlobalStyle";
 import LandingPage from "./Pages/LandingPage";
@@ -20,8 +22,30 @@ import LoginPage from "./Pages/LoginPage";
 import SignUp from "./Pages/SignUp";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('id_token');
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 function App() {
   return (
+<ApolloProvider client={client}>  
    <Router>
       <GlobalStyle />
       <Nav />
@@ -30,6 +54,7 @@ function App() {
             <Route exact path="/SignUp" component={SignUp} />
             {/* <Route exact path="/Dashboard" component={Dashboard} /> */}
     </Router>
+</ApolloProvider>
   );
 }
 
