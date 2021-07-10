@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-// import SignUpSection from '../Components/SignUpSection';
 import Auth from '../utils/auth';
 import Styled from 'styled-components';
 
 
 function SignUp() {
-    // const [details, setDetails] = useState({firstName: "", lastName: "", email: "", password: ""});
 
     const [formState, setFormState] = useState({
         firstName: '',
@@ -37,7 +35,6 @@ function SignUp() {
             const { data } = await addUser({
                 variables: { ...formState },
             });
-            console.warn('HERE', data);
             Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);

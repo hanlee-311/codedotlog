@@ -51,8 +51,7 @@ function App() {
             <Route exact path="/SignUp" component={SignUp} />
             <Route exact path="/About" component={AboutUsSection} />
             <Route exact path="/Contact" component={ContactSection} />
-            {/* <Route exact path="/Dashboard" component={Dashboard} /> */}
-            {/* <Route exact path="/SetGoal" component={GoalPage} /> */}
+            <Route exact path="/SetGoal" component={GoalPage} />
     </Router>
 </ApolloProvider>
   );
