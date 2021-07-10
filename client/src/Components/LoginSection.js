@@ -14,7 +14,7 @@ function LoginSection({ Login, error }) {
         <Form onSubmit={submitHandler}>
             <InsideForm>
                 <SignInUp>
-                    <Link to="/">
+                    <Link to="/SignUp">
                         <h4>Not already a member?</h4>
                         <h4>Sign Up!</h4> 
                     </Link>
