@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-import SignUpSection from '../Components/SignUpSection';
+// import SignUpSection from '../Components/SignUpSection';
 import Auth from '../utils/auth';
 import Styled from 'styled-components';
 

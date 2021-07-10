@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
 import Select from 'react-select';
+import Quote from '../Components/Quote';
 
 const optionsLanguage = [
     { value:'javascript', label: 'JavaScript' },
@@ -16,13 +17,17 @@ const optionsHours = [
     { value: '15+ hours', label: '15+ Hours'}
 ]
 
-function FirstGoal() {
+function FirstGoal({quoteText}) {
 
     const submitHandler = e => {
         e.preventDefault();
     }
 
     return (
+        <>
+        <QuoteHeader>
+        <Quote/>
+        </QuoteHeader>
         <Form onSubmit={submitHandler}>
             <InsideForm>
                 <FormHeader>
@@ -45,8 +50,18 @@ function FirstGoal() {
                 </div>
             </InsideForm>
         </Form>
+        </>
     )
 }
+
+const QuoteHeader = Styled.h4
+`
+  font-style: italic;  
+  color: #FFC947;
+  font-size: 2rem;
+  text-align:center;
+`
+
 
 const Form = Styled.form
 `
@@ -66,7 +81,7 @@ const InsideForm = Styled.div
 `
 const FormHeader = Styled.h2
 `
-    padding: 2rem 0;
+     padding: 3rem 0;
 `
 const FormLabel = Styled.label
 `
