@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Styled from 'styled-components';
 
 
-
 function ContactSection() {
 
   return (
