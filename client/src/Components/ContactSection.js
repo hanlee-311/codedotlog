@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Styled from 'styled-components';
 
-
 function ContactSection() {
 
   return (
@@ -9,6 +8,7 @@ function ContactSection() {
         <AboutTitle>
             <h1>.CONTACT</h1>
         </AboutTitle>
+
     </div>
    );
  }

@@ -1,7 +1,7 @@
 
 import React from 'react';
 // import About from "./Pages/About";
-import Dashboard from "./Pages/Dashboard";
+// import Dashboard from "./Pages/Dashboard";
 // import Contact from "./Pages/Contact";
 // import Login from "./Pages/Login";
 // import SignUp from "./Pages/SignUp";

@@ -1,10 +1,9 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
 
-function Footer() {
+function PercentChart({goalHours, progressHours}) {
  
-let goalHours = 50;
-let progressHours = 45;       
+console.log(goalHours);     
 
     const state = {
   labels: ["Percent Complete"],
@@ -19,7 +18,7 @@ let progressHours = 45;
       '#EFEFEF',
       '#0A1931'
       ],
-      data: [goalHours, progressHours]
+      data: [(goalHours - progressHours), progressHours]
     }
   ]
 }
@@ -65,16 +64,16 @@ let progressHours = 45;
         </> 
     )
 
-function CalcPercent(goalHours, progressHours){
-    let percent = " ";
-    if (isNaN(goalHours) || (isNaN(progressHours))){
-        percent = " ";
-    }else {
-        percent = Math.round(((progressHours/goalHours) * 100));
-    }
-    console.log(percent);
-    return percent;
-    };
+// function CalcPercent(goalHours, progressHours){
+//     let percent = " ";
+//     if (isNaN(goalHours) || (isNaN(progressHours))){
+//         percent = " ";
+//     }else {
+//         percent = Math.round(((progressHours/goalHours) * 100));
+//     }
+//     console.log(percent);
+//     return percent;
+//     };
 };
 
-export default Doughnut;
+export default PercentChart;
