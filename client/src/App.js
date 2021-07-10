@@ -23,6 +23,8 @@ import Dashboard from "./Pages/Dashboard"
 import SignUp from "./Pages/SignUp";
 import GoalPage from "./Pages/GoalPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import AboutUsSection from './Components/AboutUsSection';
+import ContactSection from './Components/ContactSection';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -55,7 +57,10 @@ function App() {
             <Route exact path="/Login" component={LoginPage} />
             <Route exact path="/Dashboard" component={Dashboard} />
             <Route exact path="/SignUp" component={SignUp} />
-            <Route exact path="/SetGoal" component={GoalPage} />
+            <Route exact path="/About" component={AboutUsSection} />
+            <Route exact path="/Contact" component={ContactSection} />
+            {/* <Route exact path="/Dashboard" component={Dashboard} /> */}
+            {/* <Route exact path="/SetGoal" component={GoalPage} /> */}
     </Router>
 </ApolloProvider>
   );
