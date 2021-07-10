@@ -32,30 +32,30 @@ function SignUp(){
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addUser({
         variables: { ...formState },
       });
-
+      console.warn('HERE', data);
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
   };
+
     return(
-              <Form onSubmit={handleFormSubmit}>
+        <Form onSubmit={handleFormSubmit}>
             <InsideForm>
                 <FormHeader>Sign Up</FormHeader>
                 {(error !== "") ? ( <div className="error">{error}</div>) : ""}
                 <FormGroup>
                     <FormLabel htmlFor="first-name">First Name:</FormLabel>
-                    <FormInput type="text" name="first-name" id="first-name" placeholder="Your first name" value={formState.firstName} onChange={handleChange} />
+                    <FormInput type="text" name="firstName" id="first-name" value={formState.firstName} onChange={handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <FormLabel htmlFor="last-name">Last Name:</FormLabel>
-                    <FormInput type="text" name="last-name" id="last-name" placeholder="Your last name" value={formState.lastName} onChange={handleChange} />
+                    <FormInput type="text" name="lastName" id="last-name" value={formState.lastName} onChange={handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <FormLabel htmlFor="email">Email:</FormLabel>
