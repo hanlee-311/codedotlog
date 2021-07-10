@@ -12,9 +12,9 @@ function AboutUsSection() {
          </div>
          <MissionText>
              <h2>Codedotlog</h2>
-             <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique veritatis voluptatibus placeat, libero consectetur sit enim ipsam deleniti porro culpa dolores sunt, possimus repellat. Voluptatem voluptate fugit consequatur soluta magnam.</h4>
-             <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique veritatis voluptatibus placeat, libero consectetur sit enim ipsam deleniti porro culpa dolores sunt, possimus repellat. Voluptatem voluptate fugit consequatur soluta magnam.</h4>
-             <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique veritatis voluptatibus placeat, libero consectetur sit enim ipsam deleniti porro culpa dolores sunt, possimus repellat. Voluptatem voluptate fugit consequatur soluta magnam.</h4>
+             <h4>The world of web developement is constantly evolving and that is why it is so important to keep your skills fresh with consistent practice.</h4>
+             <h4>As emerging developers ourselves, we wanted to create a place where aspiring developers could set goals and log their practice hours.</h4>
+             <h4>Codedotlog was born out of a desire to encourage people of all ages to set goals and keep track of their progrss.</h4>
          </MissionText>
          <div className="profilePhotos">
              <AboutTitle>our team</AboutTitle>

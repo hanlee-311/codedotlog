@@ -1,11 +1,13 @@
 import React from 'react';
-import DashboardHamburger from '../Components/DashboardHamburger';
+import PercentChart from '../Components/PercentChart';
+import CreateButton from '../Components/CreateButton';
 
 function Dashboard(){
     return(
-        <>
-        <DashboardHamburger />
-        </> 
+ <>
+ <PercentChart goalHours={5} progressHours={2} />
+ <CreateButton />
+ </>
     )
 };
 
