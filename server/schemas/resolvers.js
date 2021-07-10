@@ -11,7 +11,7 @@ const resolvers = {
         user: async (parent, { _id }) => {
             return await User.findById(_id).populate('goal');
         },
-        goals: async () => {
+        goal: async () => {
             return await Goals.find();
         },
         goals: async (parent, { _id }) => {
