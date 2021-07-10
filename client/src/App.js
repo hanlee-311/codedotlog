@@ -1,12 +1,6 @@
 
 import React from 'react';
-// import About from "./Pages/About";
-// import Dashboard from "./Pages/Dashboard";
-// import Contact from "./Pages/Contact";
-// import Login from "./Pages/Login";
-// import SignUp from "./Pages/SignUp";
-// import LandingPage from "./Pages/LandingPage";
-// import GlobalStyle from "./components/GlobalStyle";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -21,15 +15,14 @@ import Nav from "./Components/Nav";
 import LoginPage from "./Pages/LoginPage";
 import SignUp from "./Pages/SignUp";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import GoalPage from "./Pages/GoalPage";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,

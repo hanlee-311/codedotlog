@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import Styled from 'styled-components';
-import Quote from '../Components/Quote'
-function ContactSection({quoteText}) {
+function ContactSection() {
 
   return (
     <div className="aboutUs">
         <AboutTitle>
             <h1>.CONTACT</h1>
         </AboutTitle>
-        <Quote/>
 
     </div>
    );

@@ -1,12 +1,11 @@
 import React from 'react';
-
 var quoteAPI = 'https://quote-garden.herokuapp.com/api/v3/quotes?genre=motivational' 
 var item = Math.floor(Math.random() * 10); 
 var quoteText;
 
 
 function Quote() {
-      console.log(quoteAPI)
+    console.log(quoteAPI)
     fetch(quoteAPI)
     .then(function (response) {
         return response.json();
@@ -21,7 +20,7 @@ function Quote() {
  
   return (
     <>
-  <p>{quoteText}</p>
+  <h4>{quoteText}</h4>
     </>
   );
 };
