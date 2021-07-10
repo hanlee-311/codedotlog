@@ -1,6 +1,8 @@
 import React from 'react';
 import MainCharacter from '../images/MainCharacter.png';
 import Styled from 'styled-components';
+import { Link } from "react-router-dom"
+
 
 const LandingSection = () => {
     return(
@@ -17,7 +19,9 @@ const LandingSection = () => {
                     <h1>to learn.</h1>
                     </LandingText>
                     {/* <LandingButton> */}
-                    <button>Get Started</button>
+                     <Link to="/SignUp">
+              <button>Get Started</button>
+                    </Link>
                     {/* </LandingButton> */}
                 </div>
             </div>

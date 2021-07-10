@@ -1,11 +1,10 @@
 import React from 'react';
+import PercentChart from '../Components/PercentChart'
 
 function Dashboard(){
-    return(
-        <>
-      
-        </> 
-    )
+ <>
+ <PercentChart goalHours={5} progressHours={2} />
+ </>
 };
 
 export default Dashboard;
