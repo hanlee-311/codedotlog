@@ -21,12 +21,9 @@ function LoginSection({ Login, error }) {
                 </SignInUp>
                 <FormHeader>Login</FormHeader>
                 {(error !== "") ? (<div className="error">{error}</div>) : ""}
+            
                 <FormGroup>
-                    <FormLabel htmlFor="name">Name:</FormLabel>
-                    <FormInput type="text" name="name" id="name" onChange={e => setDetails({ ...details, name: e.target.value })} value={details.name} />
-                </FormGroup>
-                <FormGroup>
-                    <FormLabel htmlFor="name">Email:</FormLabel>
+                    <FormLabel htmlFor="email">Email:</FormLabel>
                     <FormInput type="email" name="email" id="email" onChange={e => setDetails({ ...details, email: e.target.value })} value={details.email} />
                 </FormGroup>
                 <FormGroup>
