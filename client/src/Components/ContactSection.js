@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 import Styled from 'styled-components';
+// import GitHub from '@material-ui/icons/GitHub';
+// import LinkedIn from '@material-ui/icons/LinkedIn';
+
+
 function ContactSection() {
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import MainCharacter from '../images/MainCharacter.png';
+import MainCharacter from '../assets/images/MainCharacter.png';
 import Styled from 'styled-components';
 import { Link } from "react-router-dom"
 
