@@ -27,27 +27,27 @@ function AboutUsSection() {
         <AboutTitle>our <span style={{color: "#FFC947"}}>team</span></AboutTitle>
         <DotTeam>
           <DotProfilePic>
-          <img src={Ryan} alt="Ryan-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: ".5rem .5rem"}}></img>
+          <img src={Ryan} alt="Ryan-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center", marginLeft: "17px"}}>Ryan Neil Angeles Vega</h4>
+          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Ryan Neil Angeles Vega</h4>
         </DotTeam>
         <DotTeam>
           <DotProfilePic>
-          <img src={Barbara} alt="Barbara-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: ".5rem .5rem"}}></img>
+          <img src={Barbara} alt="Barbara-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center", marginLeft: "17px"}}>Barbara S Kenny</h4>
+          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Barbara S Kenny</h4>
         </DotTeam>
         <DotTeam>
           <DotProfilePic>
-          <img src={Teisha} alt="Teisha-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: ".5rem .5rem"}}></img>
+          <img src={Teisha} alt="Teisha-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center", marginLeft: "17px"}}>Teisha McRae</h4>
+          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Teisha McRae</h4>
         </DotTeam>
         <DotTeam>
           <DotProfilePic>
-          <img src={Hannah} alt="Hannah-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: ".5rem .5rem"}}></img>
+          <img src={Hannah} alt="Hannah-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center", marginLeft: "17px"}}>Hannah Lee</h4>
+          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Hannah Lee</h4>
         </DotTeam>
       </div>
     </About>
