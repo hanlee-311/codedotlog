@@ -8,7 +8,7 @@ function progressPercentage({ goalHours, progressHours }) {
 
 
     return(
-        <div id="percentage-done" style={{ position: "absolute", top: "31%", left: "46%"}}>
+        <div id="percentage-done" style={{ position: "absolute", top: "52%", left: "46%"}}>
             <h4 style={{position: "relative", textAlign: "center", fontSize: "500%"}}>
                 {percentageDone}
             </h4>
