@@ -8,15 +8,16 @@ mutation addUser($firstName: String!, $lastName: String!, $email: String!, $pass
       email
     }
   }
-}
-`;
+}`;
 
-export const ADD_GOAL = gql`
-mutation addGoal($language: String!, $goalHours: Int!, $goalCreated: String!){
-  addGoal(language: $language, goalHours: $goalHours, goalCreated: $goalCreated){
-      language
-    	goalHours
-      goalCreated
+export const LOGIN_USER = gql`
+    mutation login($email: String!, $password: String!) {
+        login(email: $email, password: $password) {
+            token
+            user {
+                _id
+            }
+        }
     }
-}
+
 `;
