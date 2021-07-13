@@ -14,6 +14,7 @@ function SignUp() {
         email: '',
         password: '',
     });
+    
     const [addUser, { error, data }] = useMutation(ADD_USER);
 
     // update state based on form input changes
