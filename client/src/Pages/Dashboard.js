@@ -11,8 +11,7 @@ function Dashboard() {
         <>
             <DashboardContainer>
                 <GoalList>
-                    <GoalListItem/>
-            
+                    <GoalListItem/>            
                 </GoalList>
             <PercentChart goalHours={5} progressHours={2} />
             <CreateButton />
