@@ -16,9 +16,8 @@ mutation addGoal($language: String!, $goalHours: Int!){
   addGoal(language: $language, goalHours: $goalHours){
       language
     	goalHours
-}
-}
-`:
+   }
+}`;
 
 
 export const LOGIN_USER = gql`
@@ -30,5 +29,4 @@ export const LOGIN_USER = gql`
             }
         }
     }
-
 `;

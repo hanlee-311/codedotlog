@@ -1,9 +1,9 @@
 import React from 'react';
 import Styled from 'styled-components';
-import Hannah from '../assets/images/Hannah.jpg';
-import Ryan from '../assets/images/Ryan.jpg';
-import Barbara from '../assets/images/barbara.jpg';
-import Teisha from '../assets/images/Teisha.jpg';
+import Hannah from '../images/Hannah.jpg';
+import Ryan from '../images/Ryan.jpg';
+import Barbara from '../images/barbara.jpg';
+import Teisha from '../images/Teisha.jpg';
 
 function AboutUsSection() {
   return (
