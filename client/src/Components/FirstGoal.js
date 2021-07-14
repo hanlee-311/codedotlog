@@ -12,22 +12,12 @@ const optionsLanguage = [
     { value: 'react', label: 'React' }
 ]
 
-// const optionsHours = [
-//     { value: '1-5', label: '1-5 Hours' },
-//     { value: '6-10', label: '6-10 Hours' },
-//     { value: '11-15', label: '11-15 Hours'},
-//     { value: '15', label: '15+ Hours'}
-// ]
 
 function FirstGoal({quoteText}) {
 
-  const [langState, setLangState] = useState({
-        language: '',
-    });
+  const [langState, setLangState] = useState('');
 
-     const [goalState, setGoalState] = useState({
-        goalHours: '',
-    });
+     const [goalState, setGoalState] = useState(0);
 
     const [addGoal, { error, data }] = useMutation(ADD_GOAL);
 
@@ -36,26 +26,22 @@ function FirstGoal({quoteText}) {
         console.log(event);
         const { value } = event;
 
-        setLangState({language: value});
+        setLangState(value);
     };
   
-
       const handleChangeGoal = (event) => {
-        const { name, value } = event.target;
-        setGoalState({
-            ...goalState,
-            [name]: value,
-        });
+        const {value } = event.target;
+        setGoalState(value);
     };
 
 console.log(goalState, langState);
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
+ const goalNum = parseInt(goalState);
         try {
             const { data } = await addGoal({
-                variables: { goalState, langState },
+                variables: { language: langState, goalHours: goalNum},
             });
         } catch (e) {
             console.error(e);
@@ -76,11 +62,11 @@ console.log(goalState, langState);
                     <FormLabel htmlFor="language">
                        Choose Language 
                     </FormLabel >
-                    <Select options={optionsLanguage} type="text" name="language" id="language" value={langState.language} onChange={handleChangeLang} />
+                    <Select options={optionsLanguage} type="text" name="language" id="language" value={langState} onChange={handleChangeLang} />
                 </Dropdown>
                  <FormGroup>
                     <FormLabel htmlFor="goalHours">How many hours do you want to devote?</FormLabel>
-                    <FormInput type="text" name="goalHours" id="goalHours" value={goalState.goalHours} onChange={handleChangeGoal} />
+                    <FormInput type="text" name="goalHours" id="goalHours" value={goalState} onChange={handleChangeGoal} />
                 </FormGroup>
                 <div>
                     <button>Submit</button>
