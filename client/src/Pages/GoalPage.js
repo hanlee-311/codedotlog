@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FirstGoal from '../Components/FirstGoal';
 import Quote from '../Components/Quote';
 
-function SetFirstGoal({quoteText}) {
+function GoalPage({quoteText}) {
     return(
         <>
         <FirstGoal />
@@ -10,5 +10,4 @@ function SetFirstGoal({quoteText}) {
     )
 };
 
-export default SetFirstGoal;
-
+export default GoalPage;
