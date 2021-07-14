@@ -14,10 +14,6 @@ const goalSchema = new Schema({
       progressHours: {
         type: Number,
         trim: true,
-      },
-      goalCreated: {
-        type: Date,
-        default: Date.now
       }
 });
 
