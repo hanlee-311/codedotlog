@@ -8,6 +8,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Loading Pages here
 import GlobalStyle from "./Components/GlobalStyle";
 import LandingPage from "./Pages/LandingPage";

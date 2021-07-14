@@ -10,6 +10,16 @@ mutation addUser($firstName: String!, $lastName: String!, $email: String!, $pass
   }
 }`;
 
+
+export const ADD_GOAL = gql`
+mutation addGoal($language: String!, $goalHours: Int!){
+  addGoal(language: $language, goalHours: $goalHours){
+      language
+    	goalHours
+   }
+}`;
+
+
 export const LOGIN_USER = gql`
     mutation login($email: String!, $password: String!) {
         login(email: $email, password: $password) {
@@ -19,5 +29,4 @@ export const LOGIN_USER = gql`
             }
         }
     }
-
 `;
