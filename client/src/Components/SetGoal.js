@@ -13,7 +13,7 @@ const optionsLanguage = [
 ]
 
 
-function FirstGoal({quoteText}) {
+function SetGoal({quoteText}) {
 
   const [langState, setLangState] = useState('');
 
@@ -56,7 +56,7 @@ console.log(goalState, langState);
         <Form onSubmit={handleFormSubmit}>
             <InsideForm>
                 <FormHeader>
-                    <h2>Set Your First Goal!</h2>
+                    <h2>Set Your Goal!</h2>
                 </FormHeader>
                 <Dropdown>
                     <FormLabel htmlFor="language">
@@ -139,4 +139,4 @@ const FormGroup = Styled.div
     color: #0A1931;
 `
 
-export default FirstGoal ;
+export default SetGoal ;
