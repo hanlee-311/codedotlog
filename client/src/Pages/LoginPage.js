@@ -46,8 +46,7 @@ function LoginSection() {
             <InsideForm>
                 <SignInUp>
                     <Link to="/SignUp">
-                        <h4>Not already a member?</h4>
-                        <h4>Sign Up!</h4>
+                        <SignInUpText>Not already a member? Sign Up!</SignInUpText>
                     </Link>
                 </SignInUp>
                 <FormHeader>Login</FormHeader>
@@ -72,7 +71,7 @@ function LoginSection() {
 
 const Form = Styled.form
     `
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,16 +79,14 @@ const Form = Styled.form
 `
 const SignInUp = Styled.div
     `
-    font-size: 12px;
     display: inline-block;
-    // justify-content: space-between;
     flex-direction: row;
     overflow: hidden;
 `
-// const SignInUpText = Styled.h4
-// `
-//     flex-direction: row;
-// `
+const SignInUpText = Styled.h4
+`
+    font-size: 1rem;
+`
 const InsideForm = Styled.div
     `
     display: block;
