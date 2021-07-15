@@ -26,7 +26,7 @@ const LandingSection = () => {
                 </div>
             </div>
             <Image>
-                {/* <img src={MainCharacter} alt="mascot character" /> */}
+                <img src={MainCharacter} alt="mascot character" />
             </Image>
         </Landing>
     );

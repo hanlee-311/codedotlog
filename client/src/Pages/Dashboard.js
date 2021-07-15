@@ -9,13 +9,11 @@ import checkDay from '../utils/checkDay';
 import EditButton from '../Components/EditButton';
 
 
-<<<<<<< HEAD
-function Dashboard({goals, goals.goalHours, goals.progressHours}) {
+
+function Dashboard() {
 //      if (!goals.length) {
 //     return <h3>No Goals Yet</h3>;
 //   }
-=======
-function Dashboard() {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -26,22 +24,16 @@ function Dashboard() {
         if (checkDay()) handleShow();
     }, [])
 
->>>>>>> 085be225fc590aebe986ab4a086a5951b8b2205c
+
     return (
         <>
         <WeeklyProgressModal show={show} onClose={handleClose}/>
             <DashboardContainer>
                 <GoalList>
-<<<<<<< HEAD
-                    <GoalListItem/>
-                </GoalList>
-            <PercentChart goalHours={goals.goalHours} progressHours={2} />
-=======
                     <GoalListItem/>            
                 </GoalList>
-            <PercentChart goalHours={5} progressHours={2} />
+            <PercentChart goalHours={10}  progressHours={2} />
             <ButtonContainer>
->>>>>>> 085be225fc590aebe986ab4a086a5951b8b2205c
             <CreateButton />
             <EditButton/>
             </ButtonContainer>
