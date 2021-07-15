@@ -12,11 +12,13 @@ mutation addUser($firstName: String!, $lastName: String!, $email: String!, $pass
 
 
 export const ADD_GOAL = gql`
-mutation addGoal($language: String!, $goalHours: Int!){
-  addGoal(language: $language, goalHours: $goalHours){
+mutation addGoal($_id: ID!, $language: String!, $goalHours: Int!){
+  addGoal(_id: $_id, language: $language, goalHours: $goalHours){
+     goals{
       language
-    	goalHours
-   }
+      goalHours
+    } 
+    }
 }`;
 
 

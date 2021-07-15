@@ -29,12 +29,25 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  goals: [
-    {
-      type: Schema.Types.ObjectId,
-      ref:"Goal"
-    }
-  ]
+  goals: [{
+    language: {
+        type: String,
+        trim: true,
+      },
+      goalHours: {
+        type: Number,
+        trim: true,
+      },
+      progressHours: {
+        type: Number,
+        trim: true,
+        default: 0,
+      }
+    // {
+    //   type: Schema.Types.ObjectId,
+    //   ref:"Goal"
+    // }
+  }]
 });
 
 userSchema.pre('save', async function (next) {

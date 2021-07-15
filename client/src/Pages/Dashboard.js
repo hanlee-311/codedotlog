@@ -6,15 +6,17 @@ import GoalUI from '../Components/GoalListItem';
 import Styled from 'styled-components';
 import GoalListItem from '../Components/GoalListItem';
 
-function Dashboard() {
+function Dashboard({goals, goals.goalHours, goals.progressHours}) {
+//      if (!goals.length) {
+//     return <h3>No Goals Yet</h3>;
+//   }
     return (
         <>
             <DashboardContainer>
                 <GoalList>
                     <GoalListItem/>
-            
                 </GoalList>
-            <PercentChart goalHours={5} progressHours={2} />
+            <PercentChart goalHours={goals.goalHours} progressHours={2} />
             <CreateButton />
             </DashboardContainer>
         </>

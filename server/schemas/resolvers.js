@@ -9,14 +9,15 @@ const resolvers = {
             return await User.find();
         },
         user: async (parent, { _id }) => {
-            return await User.findById(_id).populate('goal');
+            return await User.findById(_id)
+            // .populate('goal');
         },
-        goal: async () => {
-            return await Goals.find();
-        },
-        goals: async (parent, { _id }) => {
-            return await Goal.findById(_id).populate('user');
-        },
+        // goal: async () => {
+        //     return await Goals.find();
+        // },
+        // goals: async (parent, { _id }) => {
+        //     return await Goal.findById(_id).populate('user');
+        // },
     },
     Mutation: {
         login: async (parent, { email, password }) => {
@@ -44,11 +45,26 @@ const resolvers = {
             return { token, user };
         },
         addGoal: async (parent, args) => {
-            const goal = await Goal.create(args);
-            const token = signToken(goal);
-
-            return { token, goal };
-        },
+            console.log(args);
+           const user = await User.findById(args._id)
+           user.goals.push({
+               language: args.language,
+               goalHours: args.goalHours,
+           });
+           await user.save();
+           return user;
+        }
+        // updateGoal: async (parent, args) => {
+        //     const userProgress = await User.findById(args._id);
+        //     console.log(userProgress.goals);
+        //     var goalIndex = userProgress.goals.findIndex(item => item._id == args.goalId);
+        //     // var goalIndex = userProgress.goals.map(item => item._id).indexOf(args.goalId);
+        //     console.log(item._id, args.goalId);
+        //     console.log(goalIndex);
+        //     userProgress.goals[goalIndex].progressHours = userProgress.goals[goalIndex].progressHours + args.progressHours;
+        //     await userProgress.save();
+        //     return userProgress;
+        // }
     }
 };
 

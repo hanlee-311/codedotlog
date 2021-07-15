@@ -69,9 +69,11 @@ function SignUp() {
                     <FormLabel htmlFor="password">Password:</FormLabel>
                     <FormInput type="password" name="password" id="password" placeholder="********" value={formState.password} onChange={handleChange} />
                 </FormGroup>
+                {/* <Link to="/SetGoal">                */}
                 <div>
                     <button>Sign Up!</button>
                 </div>
+                {/* </Link> */}
             </InsideForm>
         </Form>
 
