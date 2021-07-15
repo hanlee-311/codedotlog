@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import PercentChart from '../Components/PercentChart';
 import CreateButton from '../Components/CreateButton';
 // import {Doughnut} from 'react-chartjs-2';
-import GoalUI from '../Components/GoalListItem';
 import Styled from 'styled-components';
 import GoalListItem from '../Components/GoalListItem';
 import WeeklyProgressModal from '../Components/WeeklyModal';
 import checkDay from '../utils/checkDay';
+import EditButton from '../Components/EditButton';
 
 
 function Dashboard() {
@@ -28,7 +28,10 @@ function Dashboard() {
                     <GoalListItem/>            
                 </GoalList>
             <PercentChart goalHours={5} progressHours={2} />
+            <ButtonContainer>
             <CreateButton />
+            <EditButton/>
+            </ButtonContainer>
             </DashboardContainer>
         </>
     )
@@ -48,5 +51,15 @@ const GoalList = Styled.div
     flex-direction: row;
     display: flex;
     margin: 2rem;
+`
+
+const ButtonContainer = Styled.div
+`
+    display: flex;
+    flex-direction: row;
+    margin: 0 2rem;
+    min-width: 80%;
+    justify-content: space-between;
+    align-items: center
 `
 export default Dashboard;
