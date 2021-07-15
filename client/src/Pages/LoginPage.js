@@ -3,7 +3,8 @@ import Styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
+
 
 function LoginSection() {
     const [formState, setFormState] = useState({
@@ -11,12 +12,14 @@ function LoginSection() {
         password: '',
     });
 
-    const [loginUser, { data, error }] = useMutation(LOGIN_USER);
+    const [loginUser, { error }] = useMutation(LOGIN_USER);
 
     // update state based on form input changes
     const handleChange = (event) => {
         event.preventDefault();
         const { name, value } = event.target;
+
+        console.log(event.target)
 
         setFormState({
             ...formState,
@@ -28,17 +31,18 @@ function LoginSection() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        // try {
-        //     const { data } = await loginUser({
-        //         variables: { ...formState },
-        //     });
-        //     Auth.login(data.login.token);
-        // } catch (e) {
-        //     console.error(e);
-        // }
+        const form = event.currentTarget;
 
-        const { data } = loginUser({variables: {...formState}})
-        console.log(data)
+        console.log(form)
+
+        try {
+            const { data } = await loginUser({
+                variables: { ...formState },
+            });
+            Auth.login(data.login.token);
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -46,12 +50,11 @@ function LoginSection() {
             <InsideForm>
                 <SignInUp>
                     <Link to="/SignUp">
-                        <h4>Not already a member?</h4>
-                        <h4>Sign Up!</h4>
+                        <SignInUpText>Not already a member? Sign Up!</SignInUpText>
                     </Link>
                 </SignInUp>
                 <FormHeader>Login</FormHeader>
-                {(error !== "") ? (<div className="error">{error}</div>) : ""}
+                {/* {(error !== "") ? (<div className="error">{error}</div>) : ""} */}
 
                 <FormGroup>
                     <FormLabel htmlFor="email">Email:</FormLabel>
@@ -72,7 +75,7 @@ function LoginSection() {
 
 const Form = Styled.form
     `
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,16 +83,14 @@ const Form = Styled.form
 `
 const SignInUp = Styled.div
     `
-    font-size: 12px;
     display: inline-block;
-    // justify-content: space-between;
     flex-direction: row;
     overflow: hidden;
 `
-// const SignInUpText = Styled.h4
-// `
-//     flex-direction: row;
-// `
+const SignInUpText = Styled.h4
+`
+    font-size: 1rem;
+`
 const InsideForm = Styled.div
     `
     display: block;

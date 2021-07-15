@@ -4,8 +4,7 @@ import Select from 'react-select';
 import Quote from '../Components/Quote';
 import { useMutation } from '@apollo/client';
 import { ADD_GOAL } from '../utils/mutations';
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 const optionsLanguage = [
     { value:'javascript', label: 'JavaScript' },
@@ -15,7 +14,7 @@ const optionsLanguage = [
 ]
 
 
-function SetGoal({quoteText}) {
+function EditGoal({quoteText}) {
 
   const [langState, setLangState] = useState('');
 
@@ -51,14 +50,14 @@ console.log(goalState, langState);
     };
 
     return (
-        <GoalContainer>
+        <EditContainer>
         <QuoteHeader>
         <Quote/>
         </QuoteHeader>
         <Form onSubmit={handleFormSubmit}>
             <InsideForm>
                 <FormHeader>
-                    <h2>Set Your Goal!</h2>
+                    <h2>Edit Goal</h2>
                 </FormHeader>
                 <Dropdown>
                     <FormLabel htmlFor="language">
@@ -67,19 +66,19 @@ console.log(goalState, langState);
                     <Select options={optionsLanguage} type="text" name="language" id="language" value={langState} onChange={handleChangeLang} />
                 </Dropdown>
                  <FormGroup>
-                    <FormLabel htmlFor="goalHours">How many hours do you want to devote?</FormLabel>
+                    <FormLabel htmlFor="goalHours">How many hours did you devote?</FormLabel>
                     <FormInput type="text" name="goalHours" id="goalHours" value={goalState} onChange={handleChangeGoal} />
                 </FormGroup>
-                <ButtonContainerLink to="/Dashboard">
+                <ButtonContainer to="/Dashboard">
                     <button>Submit</button>
-                </ButtonContainerLink>
+                </ButtonContainer>
             </InsideForm>
         </Form>
-        </GoalContainer>
+        </EditContainer>
     )
 }
 
-const GoalContainer = Styled.div
+const EditContainer = Styled.div
 `
     display: flex;
     flex-direction: column;
@@ -150,11 +149,11 @@ const FormGroup = Styled.div
     background: #EFEFEF;
     color: #0A1931;
 `
-const ButtonContainerLink = Styled(Link)
+const ButtonContainer = Styled(Link)
 `
     display: flex;
     align-items: center;
     justify-content: center;
 `
 
-export default SetGoal ;
+export default EditGoal ;

@@ -8,6 +8,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Loading Pages here
 import GlobalStyle from "./Components/GlobalStyle";
 import LandingPage from "./Pages/LandingPage";
@@ -19,6 +21,7 @@ import GoalPage from "./Pages/GoalPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AboutUsSection from './Components/AboutUsSection';
 import ContactSection from './Components/ContactSection';
+import EditPage from './Pages/EditPage';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -26,6 +29,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
+  console.log(localStorage)
   return {
     headers: {
       ...headers,
@@ -52,6 +56,7 @@ function App() {
             <Route exact path="/About" component={AboutUsSection} />
             <Route exact path="/Contact" component={ContactSection} />
             <Route exact path="/SetGoal" component={GoalPage} />
+            <Route exact path="/EditGoal" component={EditPage} />
     </Router>
 </ApolloProvider>
   );

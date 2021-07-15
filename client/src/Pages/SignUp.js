@@ -47,8 +47,7 @@ function SignUp() {
             <InsideForm>
                 <SignInUp>
                     <Link to="/Login">
-                        <h4>Already a member?</h4>
-                        <h4>Login!</h4>
+                        <SignInUpText>Already a member? Login!</SignInUpText>
                     </Link>
                 </SignInUp>
                 <FormHeader>Sign Up</FormHeader>
@@ -83,19 +82,21 @@ function SignUp() {
 
 const Form = Styled.form
     `
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: left;
 `
 const SignInUp = Styled.div
-    `
-    font-size: 12px;
+`
     display: inline-block;
-    // justify-content: space-between;
     flex-direction: row;
     overflow: hidden;
+`
+const SignInUpText = Styled.h4
+`
+    font-size: 1rem;
 `
 
 const InsideForm = Styled.div
