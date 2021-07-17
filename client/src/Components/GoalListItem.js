@@ -1,6 +1,14 @@
 import React from 'react'
 import Styled from 'styled-components';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
+
 const GoalListItem = () => {
+   const { loading, data } = useQuery(QUERY_ME);
+   const {me} = data; 
+  console.log(me);
+  
+  
   return (
     <div>
         <GoalListBubble><Text>Text</Text></GoalListBubble>
