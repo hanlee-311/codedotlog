@@ -11,19 +11,18 @@ const GoalListItem = () => {
   };
 
   if (!loading && data){
-    console.log(data.me.goals[0]);
+    console.log(data.me.goals[1]);
   };
 
   return data.me ? (
     <div>
-      <GoalListBubble>{data.me.goals[0].language}</GoalListBubble>
-      <GoalListBubble></GoalListBubble>
-      {/* <GoalListBubble></GoalListBubble>
-      <GoalListBubble></GoalListBubble> */}
+      <GoalListBubble><Text>{data.me.goals[1].language}</Text></GoalListBubble>
     </div>
   ): null;
 };
-const GoalListBubble = Styled.span
+
+const GoalListBubble = Styled.div
+
   `
     height: 15vh;
     width: 15vh;
@@ -35,8 +34,13 @@ const GoalListBubble = Styled.span
 const Text = Styled.h2 
 `
   color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  min-height: 100%;
 `
+
+
 export default GoalListItem

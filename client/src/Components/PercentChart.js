@@ -17,7 +17,7 @@ function PercentChart() {
   const goalHours = data.me.goals[1].goalHours;
   const progressHours = data.me.goals[1].progressHours;
   const state = {
-    labels: ["Percent Complete"],
+    // labels: ["Percent Complete"],
     datasets: [
       {
         label: 'Goal Progress',
