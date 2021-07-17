@@ -3,15 +3,12 @@ import Styled from 'styled-components';
 const GoalListItem = () => {
   return (
     <div>
-      <GoalListBubble></GoalListBubble>
-      <GoalListBubble></GoalListBubble>
-      <GoalListBubble></GoalListBubble>
-      <GoalListBubble></GoalListBubble>
+        <GoalListBubble><Text>Text</Text></GoalListBubble>
     </div>
   )
 }
 
-const GoalListBubble = Styled.span
+const GoalListBubble = Styled.div
   `
     height: 15vh;
     width: 15vh;
@@ -24,5 +21,12 @@ const Text = Styled.h2
 `
   color: black;
   display: flex;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  min-height: 100%;
 `
+
+
 export default GoalListItem
