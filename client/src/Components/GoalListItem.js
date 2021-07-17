@@ -2,8 +2,7 @@ import React from 'react'
 import Styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
-
-const GoalListItem = () => {
+const GoalListItem = ({handleBubbleClick}) => {
    const { loading, data } = useQuery(QUERY_ME);
 
   if (loading) {
@@ -11,13 +10,14 @@ const GoalListItem = () => {
   };
 
   if (!loading && data){
-    console.log(data.me.goals[1]);
+    console.log(data.me.goals);
   };
 
 return data.me ? (
     <>
       {data.me.goals.map((goal) => {
-        return (<GoalListBubble><Text>{goal.language}</Text></GoalListBubble>)
+        console.log(goal._id);
+        return (<GoalListBubble onClick={handleBubbleClick} id={goal.language}><Text>{goal.language}</Text></GoalListBubble>)
       })}
     </>
  ) : null;
@@ -32,6 +32,7 @@ const GoalListBubble = Styled.div
     border-radius: 50%;
     display: inline-block;
     margin: 0 4rem;
+
   `
 const Text = Styled.h2 
 `

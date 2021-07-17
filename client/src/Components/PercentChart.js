@@ -14,8 +14,8 @@ function PercentChart() {
   if (!loading && data){
     console.log(data.me.goals);
   };
-  const goalHours = data.me.goals[1].goalHours;
-  const progressHours = data.me.goals[1].progressHours;
+  const goalHours = data?.me?.goals?.goalHours;
+  const progressHours = data?.me?.goals?.progressHours;
   const state = {
     // labels: ["Percent Complete"],
     datasets: [
