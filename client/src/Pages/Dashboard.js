@@ -24,15 +24,6 @@ function Dashboard({isEditting, setIsEditting}) {
 
 console.log(isEditting);
 
-
-// const handleEditClick = (event) => {
-//     event.preventDefault();
-//     setIsEditting(true);
-//     console.log(isEditting);
-//   };
-
-
-
     return (
         <>
         <WeeklyProgressModal show={show} onClose={handleClose}/>

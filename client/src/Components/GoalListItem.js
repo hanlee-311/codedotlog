@@ -14,11 +14,13 @@ const GoalListItem = () => {
     console.log(data.me.goals[1]);
   };
 
-  return data.me ? (
-    <div>
-      <GoalListBubble><Text>{data.me.goals[1].language}</Text></GoalListBubble>
-    </div>
-  ): null;
+return data.me ? (
+    <>
+      {data.me.goals.map((goal) => {
+        return (<GoalListBubble><Text>{goal.language}</Text></GoalListBubble>)
+      })}
+    </>
+}  ) : null;
 };
 
 const GoalListBubble = Styled.div
