@@ -11,25 +11,29 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
 function Dashboard({isEditting, setIsEditting}) {
-
+   const { loading, data } = useQuery(QUERY_ME);
+// console.log(data);
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     useEffect(() => {
-        console.log(checkDay())
+        // console.log(checkDay())
         if (checkDay()) handleShow();
     }, []);
 
 console.log(isEditting);
+const handleBubbleClick = (event) => {
+    console.log(event);
 
+};
     return (
         <>
         <WeeklyProgressModal show={show} onClose={handleClose}/>
             <DashboardContainer>
                 <GoalList>
-                    <GoalListItem></GoalListItem>         
+                    <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>         
                 </GoalList>
             <PercentChart/>
             <ButtonContainer>
