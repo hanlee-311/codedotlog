@@ -20,7 +20,7 @@ return data.me ? (
         return (<GoalListBubble><Text>{goal.language}</Text></GoalListBubble>)
       })}
     </>
-}  ) : null;
+ ) : null;
 };
 
 const GoalListBubble = Styled.div

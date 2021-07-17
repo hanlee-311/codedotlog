@@ -31,7 +31,7 @@ console.log(isEditting);
                 <GoalList>
                     <GoalListItem></GoalListItem>         
                 </GoalList>
-            <PercentChart goalHours={10}  progressHours={2} />
+            <PercentChart/>
             <ButtonContainer>
             <CreateButton/>
             <EditButton isEditting={isEditting} setIsEditting={setIsEditting}/>
