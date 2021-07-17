@@ -32,3 +32,17 @@ export const LOGIN_USER = gql`
         }
     }
 `;
+
+export const UPDATE_USER = gql`
+mutation updateGoal($goalId: ID! $progressHours: Int!){
+  updateGoal(goalId: $goalId, progressHours: $progressHours){
+    
+      goals{
+        language
+        progressHours
+        goalHours
+        _id
+      }
+    }
+}
+`;

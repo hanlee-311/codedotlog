@@ -7,13 +7,11 @@ import GoalListItem from '../Components/GoalListItem';
 import WeeklyProgressModal from '../Components/WeeklyModal';
 import checkDay from '../utils/checkDay';
 import EditButton from '../Components/EditButton';
-
-
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 
 function Dashboard() {
-//      if (!goals.length) {
-//     return <h3>No Goals Yet</h3>;
-//   }
+
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -22,7 +20,18 @@ function Dashboard() {
     useEffect(() => {
         console.log(checkDay())
         if (checkDay()) handleShow();
-    }, [])
+    }, []);
+
+const [isEditting, setIsEditting] = useState(false);
+console.log(isEditting);
+
+
+// const handleEditClick = (event) => {
+//     event.preventDefault();
+//     setIsEditting(true);
+//     console.log(isEditting);
+//   };
+
 
 
     return (
@@ -34,7 +43,7 @@ function Dashboard() {
                 </GoalList>
             <PercentChart goalHours={10}  progressHours={2} />
             <ButtonContainer>
-            <CreateButton />
+            <CreateButton/>
             <EditButton/>
             </ButtonContainer>
             </DashboardContainer>

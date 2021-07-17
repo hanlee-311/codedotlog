@@ -2,7 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Goal } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-
+const mongoose = require('mongoose');
 const resolvers = {
     Query: {
         users: async () => {
@@ -12,12 +12,12 @@ const resolvers = {
             return await User.findById(_id)
             // .populate('goal');
         },
-        // goal: async () => {
-        //     return await Goals.find();
-        // },
-        // goals: async (parent, { _id }) => {
-        //     return await Goal.findById(_id).populate('user');
-        // },
+        me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     },
     Mutation: {
         login: async (parent, { email, password }) => {
@@ -56,18 +56,21 @@ const resolvers = {
            });
            await user.save();
            return user;
+        },
+        updateGoal: async (parent, args, context) => {
+            console.log(context.user, "user")
+            const userProgress = await User.findOne({_id: context.user._id})
+            console.log(userProgress,"userProgress");
+
+            const currentGoal = userProgress.goals.find(goal=>{
+                console.log(goal._id,  mongoose.Types.ObjectId(args.goalId),goal._id == args.goalId)
+              return goal._id == args.goalId
+                
+                });
+            console.log(currentGoal)
+            await User.update({"goals._id":args.goalId},{"$set":{"goals.$.progressHours": currentGoal.progressHours + args.progressHours}});
+            return User;
         }
-        // updateGoal: async (parent, args) => {
-        //     const userProgress = await User.findById(args._id);
-        //     console.log(userProgress.goals);
-        //     var goalIndex = userProgress.goals.findIndex(item => item._id == args.goalId);
-        //     // var goalIndex = userProgress.goals.map(item => item._id).indexOf(args.goalId);
-        //     console.log(item._id, args.goalId);
-        //     console.log(goalIndex);
-        //     userProgress.goals[goalIndex].progressHours = userProgress.goals[goalIndex].progressHours + args.progressHours;
-        //     await userProgress.save();
-        //     return userProgress;
-        // }
     }
 };
 
