@@ -39,7 +39,7 @@ console.log(isEditting);
         <WeeklyProgressModal show={show} onClose={handleClose}/>
             <DashboardContainer>
                 <GoalList>
-                    <GoalListItem/>            
+                    <GoalListItem></GoalListItem>         
                 </GoalList>
             <PercentChart goalHours={10}  progressHours={2} />
             <ButtonContainer>
@@ -54,7 +54,7 @@ console.log(isEditting);
 const DashboardContainer = Styled.div
 `
     display: flex;
-    // justify-content: center;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     max-height: 90vh;
@@ -65,6 +65,12 @@ const GoalList = Styled.div
     flex-direction: row;
     display: flex;
     margin: 2rem;
+`
+
+const Text = Styled.h3
+`
+    font-size: 2rem;
+    font: white;
 `
 
 const ButtonContainer = Styled.div

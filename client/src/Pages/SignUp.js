@@ -75,8 +75,6 @@ function SignUp() {
                 {/* </Link> */}
             </InsideForm>
         </Form>
-
-
     );
 }
 
@@ -134,10 +132,4 @@ const FormInput = Styled.input
     transition: 0.4s;
 
 `
-const ForgotButton = Styled.button
-    `
-    background: none;
-    font-size: 10px;
-`
-
 export default SignUp;
