@@ -47,9 +47,9 @@ const resolvers = {
 
             return { token, user };
         },
-        addGoal: async (parent, args) => {
+        addGoal: async (parent, args, context) => {
             console.log(args);
-           const user = await User.findById(args._id)
+           const user = await User.findOne({_id: context.user._id})
            user.goals.push({
                language: args.language,
                goalHours: args.goalHours,

@@ -5,15 +5,30 @@ import Quote from '../Components/Quote';
 import { useMutation } from '@apollo/client';
 import { UPDATE_GOAL } from '../utils/mutations';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 
-const optionsGoals = [
-    { value: 'javascript', label: 'JavaScript' },
-    { value: 'html', label: 'HTML' },
-    { value: 'css', label: 'CSS' },
-    { value: 'react', label: 'React' }
-];
+
 
 function LogProgress({quoteText}) {
+    const { loading, data } = useQuery(QUERY_ME);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  };
+
+  if (!loading && data){
+    console.log(data.me.goals);
+  };
+
+const optionsGoals = data.me.goals.map((item) => {
+    return(
+        { value: item.language, label: item.language }
+    )
+});
+
+console.log(optionsGoals);
+
 
 //   const [goalState, setGoalState] = useState('');
 
@@ -38,6 +53,7 @@ function LogProgress({quoteText}) {
 //     // submit form
 //     const handleFormSubmit = async (event) => {
 //         event.preventDefault();
+            // setIsEditting(false);
 //  const progressNum = parseInt(progressState);
 //         try {
 //             const { data } = await addGoal({
@@ -49,7 +65,7 @@ function LogProgress({quoteText}) {
 //     };
 
 
-  return (
+  return data.me ? (
     <>
         <QuoteHeader>
         <Quote/>
@@ -75,8 +91,8 @@ function LogProgress({quoteText}) {
             </InsideForm>
         </Form>
         </>
-  );
-}
+  ): null;
+};
 const GoalContainer = Styled.div
 `
     display: flex;

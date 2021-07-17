@@ -1,20 +1,19 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-const EditButton = () => {
-const [isEditting, setIsEditting] = useState(false);
+const EditButton = ({isEditting, setIsEditting}) => {
 console.log(isEditting);
+const history = useHistory();
 
 const handleEditClick = (event) => {
     event.preventDefault();
     setIsEditting(true);
     console.log(isEditting);
+    history.push('/GoalPage');
   };
     return (
         <div>
-            <Link to="/GoalPage">
-            <button to="/GoalPage" onClick={handleEditClick}>Edit</button>
-            </Link>
+            <button onClick={handleEditClick}>Edit</button>
         </div>
     )
 }

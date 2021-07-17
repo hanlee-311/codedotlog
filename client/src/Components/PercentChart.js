@@ -12,7 +12,7 @@ function PercentChart() {
   };
 
   if (!loading && data){
-    console.log(data.me.goals[0]);
+    console.log(data.me.goals);
   };
   const goalHours = data.me.goals[1].goalHours;
   const progressHours = data.me.goals[1].progressHours;

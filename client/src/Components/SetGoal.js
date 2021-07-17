@@ -4,7 +4,7 @@ import Select from 'react-select';
 import Quote from '../Components/Quote';
 import { useMutation } from '@apollo/client';
 import { ADD_GOAL } from '../utils/mutations';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 const optionsLanguage = [
@@ -16,6 +16,7 @@ const optionsLanguage = [
 
 
 function SetGoal({quoteText}) {
+const history = useHistory();
 
   const [langState, setLangState] = useState('');
 
@@ -36,15 +37,17 @@ function SetGoal({quoteText}) {
         setGoalState(value);
     };
 
-console.log(goalState, langState);
+    console.log(goalState, langState);
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
- const goalNum = parseInt(goalState);
+       const goalNum = parseInt(goalState);
+       console.log(langState, goalNum);
         try {
             const { data } = await addGoal({
                 variables: { language: langState, goalHours: goalNum},
             });
+            history.push('/Dashboard');
         } catch (e) {
             console.error(e);
         }
@@ -70,9 +73,9 @@ console.log(goalState, langState);
                     <FormLabel htmlFor="goalHours">How many hours do you want to devote?</FormLabel>
                     <FormInput type="text" name="goalHours" id="goalHours" value={goalState} onChange={handleChangeGoal} />
                 </FormGroup>
-                <ButtonContainerLink to="/Dashboard">
-                    <button>Submit</button>
-                </ButtonContainerLink>
+                
+                    <button type="submit">Submit</button>
+                
             </InsideForm>
         </Form>
         </GoalContainer>
