@@ -10,7 +10,7 @@ import EditButton from '../Components/EditButton';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
-function Dashboard() {
+function Dashboard({isEditting, setIsEditting}) {
 
     const [show, setShow] = useState(false);
   
@@ -22,7 +22,6 @@ function Dashboard() {
         if (checkDay()) handleShow();
     }, []);
 
-const [isEditting, setIsEditting] = useState(false);
 console.log(isEditting);
 
 
@@ -44,7 +43,7 @@ console.log(isEditting);
             <PercentChart goalHours={10}  progressHours={2} />
             <ButtonContainer>
             <CreateButton/>
-            <EditButton/>
+            <EditButton isEditting={isEditting} setIsEditting={setIsEditting}/>
             </ButtonContainer>
             </DashboardContainer>
         </>
