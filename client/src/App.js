@@ -1,12 +1,6 @@
-
 import React, {useState} from 'react';
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
+import {ApolloClient, InMemoryCache, ApolloProvider, createHttpLink,} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,6 +16,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import AboutUsSection from './Components/AboutUsSection';
 import ContactSection from './Components/ContactSection';
 import EditPage from './Pages/EditPage';
+import PrivateRoute from './utils/privateRoutes';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -52,7 +47,6 @@ function App() {
       <Nav />
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/Login" component={LoginPage} />
-        
             <Route exact path="/Dashboard" >
              <Dashboard isEditting={isEditting} setIsEditting={setIsEditting}/>
             </Route>
@@ -63,6 +57,7 @@ function App() {
              <GoalPage isEditting={isEditting} setIsEditting={setIsEditting}/>
             </Route>
             <Route exact path="/EditGoal" component={EditPage} />
+            <Route path="*" component={(() => "404 NOT FOUND")}/>
     </Router>
 </ApolloProvider>
   );

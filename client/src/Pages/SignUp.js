@@ -5,7 +5,6 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Styled from 'styled-components';
 
-
 function SignUp() {
 
     const [formState, setFormState] = useState({

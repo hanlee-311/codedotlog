@@ -37,7 +37,6 @@ function ContactSection() {
 
     document.getElementById("messageSent").style.visibility = "visible";
     setTimeout(function(){
-      console.log('reloaded')
       window.location.reload(1);
    }, 2000);
   };
