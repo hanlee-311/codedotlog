@@ -5,18 +5,24 @@ import { QUERY_ME } from '../utils/queries';
 
 const GoalListItem = () => {
    const { loading, data } = useQuery(QUERY_ME);
-   const {me} = data; 
-  console.log(me);
-  
-  
-  return (
+
+  if (loading) {
+    return <div>Loading...</div>;
+  };
+
+  if (!loading && data){
+    console.log(data.me.goals[1]);
+  };
+
+  return data.me ? (
     <div>
-        <GoalListBubble><Text>Text</Text></GoalListBubble>
+      <GoalListBubble><Text>{data.me.goals[1].language}</Text></GoalListBubble>
     </div>
-  )
-}
+  ): null;
+};
 
 const GoalListBubble = Styled.div
+
   `
     height: 15vh;
     width: 15vh;
@@ -32,7 +38,7 @@ const Text = Styled.h2
   text-align: left;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 100%;
   min-height: 100%;
 `
 

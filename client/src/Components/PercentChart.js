@@ -1,11 +1,23 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import PercentComplete from '../Components/PercentComplete';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 
-function PercentChart({ goalHours, progressHours }) {
+function PercentChart() {
+ const { loading, data } = useQuery(QUERY_ME);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  };
+
+  if (!loading && data){
+    console.log(data.me.goals[0]);
+  };
+  const goalHours = data.me.goals[1].goalHours;
+  const progressHours = data.me.goals[1].progressHours;
   const state = {
-    labels: ["Percent Complete"],
+    // labels: ["Percent Complete"],
     datasets: [
       {
         label: 'Goal Progress',
@@ -20,11 +32,12 @@ function PercentChart({ goalHours, progressHours }) {
         data: [(goalHours - progressHours), progressHours]
       }
     ]
-  }
-  return (
+  };
+
+  return data.me ? (
     <>
       <div className="chart-container" style={{ margin: "0 auto", alignItems: "center", height: "50vh", width: "50vh" }}>
-      <PercentComplete goalHours={5} progressHours={2} />
+      <PercentComplete goalHours={goalHours} progressHours={progressHours} />
         <Doughnut
           data={state}
           options={{
@@ -41,27 +54,16 @@ function PercentChart({ goalHours, progressHours }) {
             },
             plugins: {
               datalabels: {
-                display: false,
+                display: true,
               },
-              doughnutlabel: {
-                labels: [{
-                  text: 'CalcPercent',
-                  font: {
-                    size: 20,
-                    weight: 'bold',
-                    color: 'white',
-                  }
-                }, {
-                  text: 'total'
-                }]
-              }
             }
           }
           }
         />
       </div>
     </>
-  )
+  ): null;
+};
 
   // function CalcPercent(goalHours, progressHours){
   //     let percent = " ";
@@ -73,6 +75,6 @@ function PercentChart({ goalHours, progressHours }) {
   //     console.log(percent);
   //     return percent;
   //     };
-};
+
 
 export default PercentChart;
