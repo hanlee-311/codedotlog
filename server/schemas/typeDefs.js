@@ -26,13 +26,14 @@ const typeDefs = gql`
     user(_id:ID!): User
     goal(_id: ID!): Goal
     goals: Goal
+    me: User
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addGoal(language: String!, goalHours: Int!): Goal
+    addGoal(_id: ID!, language: String!, goalHours: Int!): User
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateGoal(_id: ID!, goalHours: Int, progressHours: Int): Goal
+    updateGoal(goalId: ID!, progressHours: Int): User
     login(email: String!, password: String!): Auth
   }
 `;

@@ -6,7 +6,7 @@ const CreateButton = () => {
     return (
         <ButtonContainer>
             <ButtonHolder>
-                <Link to="/SetGoal">
+                <Link to="/GoalPage">
             <button>Create</button>
                 </Link>
             </ButtonHolder>

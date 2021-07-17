@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   ApolloClient,
@@ -44,6 +44,7 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [isEditting, setIsEditting] = useState(false)
   return (
 <ApolloProvider client={client}>  
    <Router>
@@ -51,11 +52,16 @@ function App() {
       <Nav />
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/Login" component={LoginPage} />
-            <Route exact path="/Dashboard" component={Dashboard} />
+        
+            <Route exact path="/Dashboard" >
+             <Dashboard isEditting={isEditting} setIsEditting={setIsEditting}/>
+            </Route>
             <Route exact path="/SignUp" component={SignUp} />
             <Route exact path="/About" component={AboutUsSection} />
             <Route exact path="/Contact" component={ContactSection} />
-            <Route exact path="/SetGoal" component={GoalPage} />
+            <Route exact path="/GoalPage" >
+             <GoalPage isEditting={isEditting} setIsEditting={setIsEditting}/>
+            </Route>
             <Route exact path="/EditGoal" component={EditPage} />
     </Router>
 </ApolloProvider>
