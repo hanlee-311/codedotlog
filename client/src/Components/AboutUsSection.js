@@ -4,6 +4,8 @@ import Hannah from '../images/Hannah.jpg';
 import Ryan from '../images/Ryan.jpg';
 import Barbara from '../images/barbara.jpg';
 import Teisha from '../images/Teisha.jpg';
+import GitHub from '@material-ui/icons/GitHub';
+import LinkedIn from '@material-ui/icons/LinkedIn';
 
 function AboutUsSection() {
   return (
@@ -12,42 +14,58 @@ function AboutUsSection() {
       <LittleCircle></LittleCircle>
       <LeftCircle></LeftCircle>
       <AboutHeader>
-        <h1 id="About"><span style={{color: "#FFC947"}}>.</span>about</h1>
+        <h1 id="About"><span style={{ color: "#FFC947" }}>.</span>about</h1>
       </AboutHeader>
-      <div className="Text" style={{ marginBottom: "3em"}}>
-        <h4>Code! Log it! <span style={{color: "#FFC947"}}>Never</span> lose sight of your goal!</h4>
+      <div className="Text" style={{ marginBottom: "3em" }}>
+        <h4>Code! Log it! <span style={{ color: "#FFC947" }}>Never</span> lose sight of your goal!</h4>
       </div>
       <MissionText>
-        <h2 style={{marginBottom: "1em"}}>.log(All <span style={{color: "#FFC947"}}>your</span> progress!)</h2>
-        <h4 style={{marginBottom: "1em"}}>The world of web developement is constantly <span style={{color: "#FFC947"}}>evolving</span>. That is why it is so important to keep your skills fresh with <span style={{color: "#FFC947"}}>consistent practice</span>.</h4>
-        <h4 style={{marginBottom: "1em"}}>As emerging developers ourselves, we wanted to create a place where aspiring developers could set <span style={{color: "#FFC947"}}>goals</span> and <span style={{color: "#FFC947"}}>log</span> their practice hours.</h4>
-        <h4>Codedotlog was born out of a desire to encourage people of all ages to learn new <span style={{color: "#FFC947"}}>coding skills</span>, and keep track of their progession over time.</h4>
+        <h2 style={{ marginBottom: "1em" }}>.log(All <span style={{ color: "#FFC947" }}>your</span> progress!)</h2>
+        <h4 style={{ marginBottom: "1em" }}>The world of web developement is constantly <span style={{ color: "#FFC947" }}>evolving</span>. That is why it is so important to keep your skills fresh with <span style={{ color: "#FFC947" }}>consistent practice</span>.</h4>
+        <h4 style={{ marginBottom: "1em" }}>As emerging developers ourselves, we wanted to create a place where aspiring developers could set <span style={{ color: "#FFC947" }}>goals</span> and <span style={{ color: "#FFC947" }}>log</span> their practice hours.</h4>
+        <h4>Codedotlog was born out of a desire to encourage people of all ages to learn new <span style={{ color: "#FFC947" }}>coding skills</span>, and keep track of their progession over time.</h4>
       </MissionText>
       <div className="profilePhotos">
-        <AboutTitle>our <span style={{color: "#FFC947"}}>team</span></AboutTitle>
+        <AboutTitle>our <span style={{ color: "#FFC947" }}>team</span></AboutTitle>
         <DotTeam>
           <DotProfilePic>
-          <img src={Ryan} alt="Ryan-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
+            <img src={Ryan} alt="Ryan-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Ryan Neil Angeles Vega</h4>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Ryan Neil Angeles Vega</h4>
+          <ContactBox>
+            <Contact href="https://github.com/vegaryanneil"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
         </DotTeam>
         <DotTeam>
           <DotProfilePic>
-          <img src={Barbara} alt="Barbara-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
+            <img src={Barbara} alt="Barbara-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Barbara S Kenny</h4>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Barbara S Kenny</h4>
+          <ContactBox>
+            <Contact href="https://github.com/BarbaraShea"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
         </DotTeam>
         <DotTeam>
           <DotProfilePic>
-          <img src={Teisha} alt="Teisha-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
+            <img src={Teisha} alt="Teisha-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Teisha McRae</h4>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Teisha McRae</h4>
+          <ContactBox>
+            <Contact href="https://github.com/mcraeteisha"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
         </DotTeam>
         <DotTeam>
           <DotProfilePic>
-          <img src={Hannah} alt="Hannah-Profile-pic" style={{height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%"}}></img>
+            <img src={Hannah} alt="Hannah-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
           </DotProfilePic>
-          <h4 style={{marginTop: "1em", display: "flex", justifyContent: "center"}}>Hannah Lee</h4>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Hannah Lee</h4>
+          <ContactBox>
+            <Contact href="https://github.com/hanlee-311"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
         </DotTeam>
       </div>
     </About>
@@ -125,7 +143,7 @@ const MissionText = Styled.div
   `
 
 const DotTeam = Styled.div
-    `
+  `
       height: 40vh;
       width: 40vh;
       display: inline-block;
@@ -150,7 +168,7 @@ const AboutTitle = Styled.h2
   `
 
 const BigCircle = Styled.div
-`
+  `
     height: 25vh;
     width: 25vh;
     background-color: #FFC947;
@@ -162,7 +180,7 @@ const BigCircle = Styled.div
 `
 
 const LittleCircle = Styled.div
-`  
+  `  
     height: 15vh;
     width: 15vh;
     background-color: #FFC947;
@@ -173,8 +191,8 @@ const LittleCircle = Styled.div
     z-index: -1;
 `
 
-const LeftCircle = Styled.div 
-`
+const LeftCircle = Styled.div
+  `
     height: 15vh;
     width: 15vh;
     background-color: #FFC947;
@@ -183,6 +201,17 @@ const LeftCircle = Styled.div
     left: 5%;
     top: 70%;
     z-index: -1;
+`
+
+const ContactBox = Styled.div
+  `
+    display: flex;
+    justify-content: center;
+`
+
+const Contact = Styled.a
+  `
+padding: 1em;
 `
 
 export default AboutUsSection;

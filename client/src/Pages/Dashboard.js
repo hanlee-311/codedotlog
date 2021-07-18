@@ -31,6 +31,7 @@ const handleBubbleClick = (event) => {
     return (
         <>
         <WeeklyProgressModal show={show} onClose={handleClose}/>
+        <Welcome>Welcome Back! Let's Check Your Progress!</Welcome>
             <DashboardContainer>
                 <GoalList>
                     <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>         
@@ -75,5 +76,12 @@ const ButtonContainer = Styled.div
     min-width: 80%;
     justify-content: space-between;
     align-items: center
+`
+
+const Welcome = Styled.h4
+`
+    margin: 1em 0 1em 0;
+    text-align: center;
+
 `
 export default Dashboard;

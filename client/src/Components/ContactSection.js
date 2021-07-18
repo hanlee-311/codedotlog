@@ -44,6 +44,9 @@ function ContactSection() {
   return (
 
     <ContactContainer>
+      <BigCircle></BigCircle>
+      <LittleCircle></LittleCircle>
+      <LeftCircle></LeftCircle>
       <ContactHeader>
         <h1 id="Contact"><span style={{ color: "#FFC947" }}>.</span>contact</h1>
       </ContactHeader>
@@ -69,8 +72,8 @@ function ContactSection() {
             <MessageTextArea type="text" name="message" id="message" placeholder="Please write your message to us!" onChange={handleChange} value={formState.message} />
           </FormGroup>
           <div>
-            <button>Submit</button>
-            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden" }}>Thank you! Your message has been sent.</h4>
+            <button style={{borderRadius: "6px"}}>Submit</button>
+            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden", color: "white" }}>Thank you! Your message has been sent.</h4>
           </div>
         </InsideForm>
       </Form>
@@ -113,6 +116,7 @@ const InsideForm = Styled.div
       padding: 2rem 4rem;
       background: #185ADB;
       color: #0A1931;
+      border-radius: 10px;
   `;
 
 const FormHeader = Styled.h2
@@ -157,5 +161,41 @@ const MessageTextArea = Styled.textarea
     border-radius: 6px;
     transition: 0.4s;
 `;
+
+const BigCircle = Styled.div
+`
+    height: 25vh;
+    width: 25vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 75%;
+    top: 15%;
+    z-index: -1;
+`
+
+const LittleCircle = Styled.div
+`  
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 85%;
+    top: 45%;
+    z-index: -1;
+`
+
+const LeftCircle = Styled.div 
+`
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 70%;
+    z-index: -1;
+`
 
 export default ContactSection;
