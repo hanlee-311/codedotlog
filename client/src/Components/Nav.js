@@ -9,28 +9,36 @@ function Nav() {
     <StyledNav>
       <h1 id="logo"><a href="/">codedotlog</a></h1>
       <ul>
-        <Link to="/">
-          <li>Home</li>
-        </Link>
-        <Link to="/About">
-          <li>About</li>
-        </Link>
-        <Link to="/Contact">
-          <li>Contact</li>
-        </Link>
         {Auth.loggedIn() ? (
           <>
             <Link to="/Dashboard">
               <li>Dashboard</li>
             </Link>
+            <Link to="/About">
+              <li>About</li>
+            </Link>
+            <Link to="/Contact">
+              <li>Contact</li>
+            </Link>
             <Link onClick={Auth.logout}>
               <li><NavButton>Logout</NavButton></li>
-              </Link>
+            </Link>
           </>
         ) : (
-          <Link to="/Login">
-            <li><NavButton>Login</NavButton></li>
-          </Link>
+          <>
+            <Link to="/">
+              <li>Home</li>
+            </Link>
+            <Link to="/About">
+              <li>About</li>
+            </Link>
+            <Link to="/Contact">
+              <li>Contact</li>
+            </Link>
+            <Link to="/Login">
+              <li><NavButton>Login</NavButton></li>
+            </Link>
+          </>
         )}
       </ul>
     </StyledNav>
@@ -61,6 +69,9 @@ const StyledNav = Styled.nav`
     li {
         margin-left: 5rem;
         // position: relative;
+        :hover {
+          color: #FFC947;
+        }
         @media (max-width: 1300px){
           margin-left: 0;
           padding: 1rem;

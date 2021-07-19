@@ -1,9 +1,11 @@
 import React from 'react';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import Hannah from '../images/Hannah.jpg';
 import Ryan from '../images/Ryan.jpg';
 import Barbara from '../images/barbara.jpg';
 import Teisha from '../images/Teisha.jpg';
+import GitHub from '@material-ui/icons/GitHub';
+import LinkedIn from '@material-ui/icons/LinkedIn';
 
 function AboutUsSection() {
   return (
@@ -12,6 +14,7 @@ function AboutUsSection() {
       <LittleCircle></LittleCircle>
       <LeftCircle></LeftCircle>
       <AboutHeader>
+<<<<<<< HEAD
         <h1 id="About"><span>.</span>about</h1>
       </AboutHeader>
       <div className="Text" style={{ marginBottom: "3em"}}>
@@ -48,14 +51,79 @@ function AboutUsSection() {
             <TeamImage src={Hannah} alt="Hannah-Profile-pic"></TeamImage>
           </DotProfilePic>
           <TeamName>Hannah Lee</TeamName>
+=======
+        <h1 id="About"><span style={{ color: "#FFC947" }}>.</span>about</h1>
+      </AboutHeader>
+      <div className="Text" style={{ marginBottom: "3em" }}>
+        <h4>Code! Log it! <span style={{ color: "#FFC947" }}>Never</span> lose sight of your goal!</h4>
+      </div>
+      <MissionText>
+        <h2 style={{ marginBottom: "1em" }}>.log(All <span style={{ color: "#FFC947" }}>your</span> progress!)</h2>
+        <h4 style={{ marginBottom: "1em" }}>The world of web developement is constantly <span style={{ color: "#FFC947" }}>evolving</span>. That is why it is so important to keep your skills fresh with <span style={{ color: "#FFC947" }}>consistent practice</span>.</h4>
+        <h4 style={{ marginBottom: "1em" }}>As emerging developers ourselves, we wanted to create a place where aspiring developers could set <span style={{ color: "#FFC947" }}>goals</span> and <span style={{ color: "#FFC947" }}>log</span> their practice hours.</h4>
+        <h4>Codedotlog was born out of a desire to encourage people of all ages to learn new <span style={{ color: "#FFC947" }}>coding skills</span>, and keep track of their progession over time.</h4>
+      </MissionText>
+      <div className="profilePhotos">
+        <AboutTitle>our <span style={{ color: "#FFC947" }}>team</span></AboutTitle>
+        <DotTeam>
+          <DotProfilePic>
+            <img src={Ryan} alt="Ryan-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
+          </DotProfilePic>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Ryan Neil Angeles Vega</h4>
+          <ContactBox>
+            <Contact href="https://github.com/vegaryanneil"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
+        </DotTeam>
+        <DotTeam>
+          <DotProfilePic>
+            <img src={Barbara} alt="Barbara-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
+          </DotProfilePic>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Barbara S Kenny</h4>
+          <ContactBox>
+            <Contact href="https://github.com/BarbaraShea"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
+        </DotTeam>
+        <DotTeam>
+          <DotProfilePic>
+            <img src={Teisha} alt="Teisha-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
+          </DotProfilePic>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Teisha McRae</h4>
+          <ContactBox>
+            <Contact href="https://github.com/mcraeteisha"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
+        </DotTeam>
+        <DotTeam>
+          <DotProfilePic>
+            <img src={Hannah} alt="Hannah-Profile-pic" style={{ height: "23vh", borderRadius: "50%", display: "inline-block", margin: "4% 4%" }}></img>
+          </DotProfilePic>
+          <h4 style={{ marginTop: "1em", display: "flex", justifyContent: "center" }}>Hannah Lee</h4>
+          <ContactBox>
+            <Contact href="https://github.com/hanlee-311"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+          </ContactBox>
+>>>>>>> b7623e01a3d0fbaea12f9011769ca7e9a1b3885d
         </DotTeam>
       </div>
     </About>
   );
 }
 
+const AboutAnimation = keyframes
+`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 const About = Styled.div
   `
+<<<<<<< HEAD
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -65,6 +133,18 @@ const About = Styled.div
 
         text-align: center;
         }
+=======
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    justify-content: center;
+    flex-direction: column;
+    animation-name: ${AboutAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
+>>>>>>> b7623e01a3d0fbaea12f9011769ca7e9a1b3885d
   `
 const AboutHeader = Styled.div
   `
@@ -106,6 +186,7 @@ const MissionText = Styled.div
     // border-radius: 100%;
     // }
 
+<<<<<<< HEAD
     // :before {
     //   /* This is the  size of the clouds left ear */
     //   width  : 200px;
@@ -150,6 +231,43 @@ const DotTeam = Styled.div
     
       }
     `
+=======
+    :before {
+    /* This is the  size of the clouds left ear */
+    width  : 200px;
+    height : 200px;
+    
+    /* We slightly move it to the left */
+    left    : -80px;
+    
+    /* To make sure that the bottom of the cloud
+    remains flat, we must make the bottom right
+    corner of the left ear square. */
+    border-bottom-right-radius: 0;
+    }
+    
+    :after {
+    /* This is the size of the clouds left ear */
+    width  : 175px;
+    height : 175px;
+    
+    /* We slightly move it to the right */
+    right   : -60px;
+    
+    /* To make sure that the bottom of the cloud
+    remains flat, we must make the bottom left
+    corner of the right ear square. */
+    border-bottom-left-radius: 0;
+    }
+  `
+
+const DotTeam = Styled.div
+  `
+    height: 40vh;
+    width: 40vh;
+    display: inline-block;
+  `
+>>>>>>> b7623e01a3d0fbaea12f9011769ca7e9a1b3885d
 
 const DotProfilePic = Styled.span
   `
@@ -170,6 +288,7 @@ const AboutTitle = Styled.h1
   `
 
 const BigCircle = Styled.div
+<<<<<<< HEAD
 `
     // height: 25vh;
     // width: 25vh;
@@ -218,4 +337,56 @@ const TeamImage = Styled.img
       margin: 4%;
       height: 23vh;
 `
+=======
+  `
+    height: 25vh;
+    width: 25vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 75%;
+    top: 15%;
+    z-index: -1;
+`
+
+const LittleCircle = Styled.div
+  `  
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 85%;
+    top: 45%;
+    z-index: -1;
+`
+
+const LeftCircle = Styled.div
+  `
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 70%;
+    z-index: -1;
+`
+
+const ContactBox = Styled.div
+`
+  display: flex;
+  justify-content: center;
+`
+
+const Contact = Styled.a
+  `
+  padding: 1em;
+  :hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+`
+
+>>>>>>> b7623e01a3d0fbaea12f9011769ca7e9a1b3885d
 export default AboutUsSection;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
 
@@ -37,7 +37,6 @@ function ContactSection() {
 
     document.getElementById("messageSent").style.visibility = "visible";
     setTimeout(function(){
-      console.log('reloaded')
       window.location.reload(1);
    }, 2000);
   };
@@ -45,6 +44,9 @@ function ContactSection() {
   return (
 
     <ContactContainer>
+      <BigCircle></BigCircle>
+      <LittleCircle></LittleCircle>
+      <LeftCircle></LeftCircle>
       <ContactHeader>
         <h1 id="Contact"><span>.</span>contact</h1>
       </ContactHeader>
@@ -70,8 +72,8 @@ function ContactSection() {
             <MessageTextArea type="text" name="message" id="message" placeholder="Please write your message to us!" onChange={handleChange} value={formState.message} />
           </FormGroup>
           <div>
-            <button>Submit</button>
-            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden" }}>Thank you! Your message has been sent.</h4>
+            <button style={{borderRadius: "6px"}}>Submit</button>
+            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden", color: "white" }}>Thank you! Your message has been sent.</h4>
           </div>
         </InsideForm>
       </Form>
@@ -81,6 +83,16 @@ function ContactSection() {
   );
 }
 
+const ContactAnimation = keyframes
+`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+}
+`
+
 const ContactContainer = Styled.div
   `
         min-height: 100vh;
@@ -88,6 +100,11 @@ const ContactContainer = Styled.div
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        opacity: 0;
+        animation-name: ${ContactAnimation};
+        animation-duration: 1s;
+        animation-iteration-count: once;
+        animation-fill-mode: forwards;
 
   `;
 
@@ -161,5 +178,41 @@ const MessageTextArea = Styled.textarea
     border-radius: 6px;
     transition: 0.4s;
 `;
+
+const BigCircle = Styled.div
+`
+    height: 25vh;
+    width: 25vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 75%;
+    top: 15%;
+    z-index: -1;
+`
+
+const LittleCircle = Styled.div
+`  
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 85%;
+    top: 45%;
+    z-index: -1;
+`
+
+const LeftCircle = Styled.div 
+`
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 70%;
+    z-index: -1;
+`
 
 export default ContactSection;
