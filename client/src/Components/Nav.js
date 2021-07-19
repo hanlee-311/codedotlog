@@ -51,7 +51,8 @@ const StyledNav = Styled.nav`
     margin: auto;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10rem;
+    // padding: 0 10rem;
+    width: 80%;
     a {
         color: #EFEFEF;
         text-decoration: none;
@@ -66,11 +67,14 @@ const StyledNav = Styled.nav`
         font-size: 1.5rem;
     }
     li {
-        padding-left: 5rem;
+        margin-left: 5rem;
         // position: relative;
         :hover {
           color: #FFC947;
         }
+        @media (max-width: 1300px){
+          margin-left: 0;
+          padding: 1rem;
     }
   `
 const NavButton = Styled.button`

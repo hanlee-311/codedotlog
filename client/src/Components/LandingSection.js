@@ -19,12 +19,12 @@ const LandingSection = () => {
                     <Link to="/SignUp">
                         <Button>Get Started</Button>
                     </Link>
-                    {/* </LandingButton> */}
+            
                 </div>
             </div>
-            <Image>
-                <img src={MainCharacter} alt="mascot character" />
-            </Image>
+            <ImageContainer>
+                <Image src={MainCharacter} alt="mascot character" />
+            </ImageContainer>
         </Landing>
     );
 };
@@ -35,8 +35,18 @@ const Landing = Styled.div
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 10rem;
+    margin: 0 10rem;
+    // max-width: 80vw;
     // flex: 1;
+    // width: 100vw;
+    // background-color: purple;
+    @media (max-width: 1300px){
+        display: block;
+        // padding: 2rem;
+        text-align: center;
+       margin: 0;
+    }
+    
 `
 
 const CharacterAnimation = keyframes
@@ -50,14 +60,19 @@ const CharacterAnimation = keyframes
         opacity: 1;
     }
 `
-
-const Image = Styled.div
+const ImageContainer = Styled.div
+`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+`
+const Image = Styled.img
     `
     width: auto;
     height: auto;
-    opacity: 0;
+    // opacity: 0;
     // flex: ;
-    animation-name: ${CharacterAnimation};
+    // animation-name: ${CharacterAnimation};
     animation-duration: 3s;
     animation-iteration-count: once;
     animation-delay: 0.5s;
