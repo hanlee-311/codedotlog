@@ -16,7 +16,7 @@ function Dashboard({ isEditting, setIsEditting }) {
     const { loading, data } = useQuery(QUERY_ME);
     // console.log(data);
     const [show, setShow] = useState(false);
-
+    const [goalId, setGoalId] = useState("");
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -34,8 +34,9 @@ function Dashboard({ isEditting, setIsEditting }) {
     });
 
     console.log(isEditting);
-    const handleBubbleClick = (event) => {
-        console.log(event);
+    const handleBubbleClick = (id) => {
+        setGoalId(id);
+        console.log("Here is the id:", id);
     };
 
 
@@ -50,7 +51,7 @@ function Dashboard({ isEditting, setIsEditting }) {
                     <GoalList>
                        <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
                     </GoalList>
-                    <PercentChart />
+                    <PercentChart goalId={goalId} setGoalId={setGoalId} />
                     <ButtonContainer>
                         <CreateButton />
                         <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />

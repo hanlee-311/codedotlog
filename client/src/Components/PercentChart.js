@@ -4,9 +4,9 @@ import PercentComplete from '../Components/PercentComplete';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
-function PercentChart() {
+function PercentChart({setGoalId, goalId}) {
  const { loading, data } = useQuery(QUERY_ME);
-
+console.log("goalId for precent", goalId);
   if (loading) {
     return <div>Loading...</div>;
   };
@@ -14,8 +14,11 @@ function PercentChart() {
   if (!loading && data){
     console.log(data.me.goals);
   };
-  const goalHours = data?.me?.goals?.goalHours;
-  const progressHours = data?.me?.goals?.progressHours;
+const goalArray = data?.me?.goals;
+const selectedGoal = goalArray.find(goal => goal._id == goalId);
+
+  const goalHours = selectedGoal ? selectedGoal.goalHours : goalArray[0].goalHours;
+  const progressHours = selectedGoal ? selectedGoal.progressHours : goalArray[0].progressHours;
   const state = {
     // labels: ["Percent Complete"],
     datasets: [
