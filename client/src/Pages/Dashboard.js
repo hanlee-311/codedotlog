@@ -13,34 +13,35 @@ import Loading from '../Components/Loading';
 
 
 function Dashboard({ isEditting, setIsEditting }) {
-    const Function = () => {
-        const { loading, error, data, refetch } = useQuery(QUERY_ME);
-        useEffect(() => {
-            refetch();
-        }, [refetch]);
-        const userData = data?.me;
-        console.log(userData)
-    };
-
-    Function();
-
+    
+    
     const [show, setShow] = useState(false);
-
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    
     useEffect(() => {
         // console.log(checkDay())
         if (checkDay()) handleShow();
     }, []);
 
     const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 2500);
     });
+    
+    const { loading, data } = useQuery(QUERY_ME);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    };
+
+    if (!loading && data) {
+        console.log(data.me);
+    };
 
     const handleBubbleClick = (event) => {
         console.log(event);
@@ -52,7 +53,7 @@ function Dashboard({ isEditting, setIsEditting }) {
                 <Loading /> :
                 <div>
                     <WeeklyProgressModal show={show} onClose={handleClose} />
-                    <Welcome>Welcome! Let's Check Your Progress!</Welcome>
+                    <Welcome>Welcome, {data.me.firstName}! Let's Check Your Progress!</Welcome>
                     <DashboardContainer>
                         <GoalList>
                             <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
@@ -70,7 +71,7 @@ function Dashboard({ isEditting, setIsEditting }) {
 };
 
 const DashboardAnimation = keyframes
-`
+    `
  from {
     opacity: 0;
   }
