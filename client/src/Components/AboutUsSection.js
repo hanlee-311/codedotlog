@@ -34,7 +34,7 @@ function AboutUsSection() {
           <TeamName>Ryan Neil Vega</TeamName>
           <ContactBox>
             <Contact href="https://github.com/vegaryanneil" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/ryan-neil-vega-981553163/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
           </ContactBox>
         </DotTeam>
         <DotTeam>
@@ -43,8 +43,8 @@ function AboutUsSection() {
           </DotProfilePic>
           <TeamName>Barbara S Kenny</TeamName>
           <ContactBox>
-            <Contact href="https://github.com/BarbaraShea"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://github.com/BarbaraShea" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/barbarasheakenny/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
           </ContactBox>
         </DotTeam>
         <DotTeam>
@@ -54,7 +54,7 @@ function AboutUsSection() {
           <TeamName>Teisha McRae</TeamName>
           <ContactBox>
             <Contact href="https://github.com/mcraeteisha" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/teishamcrae/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
           </ContactBox>
         </DotTeam>
         <DotTeam>
@@ -95,7 +95,6 @@ const About = Styled.div
     animation-iteration-count: once;
     animation-fill-mode: forwards;
         @media (max-width: 1300px){
-
         text-align: center;
         }
   `
@@ -256,11 +255,10 @@ const Contact = Styled.a
 `
       margin: 0 1rem;
       padding: 0;
-      background: none;
-      &:hover {
-        background: none;
+      :hover {
+        transform: translateY(-5px);
       }
-`
+    `
 const ContactBox = Styled.div
 `
       display: flex;
