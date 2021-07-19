@@ -47,8 +47,8 @@ function App() {
   const [isEditting, setIsEditting] = useState(false)
   return (
 <ApolloProvider client={client}>  
-   <Router>
       <GlobalStyle />
+   <Router>
       <Nav />
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/Login" component={LoginPage} />

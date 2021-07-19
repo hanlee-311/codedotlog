@@ -46,7 +46,7 @@ function ContactSection() {
 
     <ContactContainer>
       <ContactHeader>
-        <h1 id="Contact"><span style={{ color: "#FFC947" }}>.</span>contact</h1>
+        <h1 id="Contact"><span>.</span>contact</h1>
       </ContactHeader>
       <Form onSubmit={handleFormSubmit}>
         <InsideForm>
@@ -114,6 +114,9 @@ const InsideForm = Styled.div
       padding: 2rem 4rem;
       background: #185ADB;
       color: #0A1931;
+      max-width: 80%
+      align-items: center;
+      text-align: left;
   `;
 
 const FormHeader = Styled.h2

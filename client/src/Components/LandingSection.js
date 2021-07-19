@@ -18,16 +18,15 @@ const LandingSection = () => {
                     <LandingText>
                     <h1>to learn.</h1>
                     </LandingText>
-                    {/* <LandingButton> */}
                      <Link to="/SignUp">
               <button>Get Started</button>
                     </Link>
-                    {/* </LandingButton> */}
+            
                 </div>
             </div>
-            <Image>
-                <img src={MainCharacter} alt="mascot character" />
-            </Image>
+            <ImageContainer>
+                <Image src={MainCharacter} alt="mascot character" />
+            </ImageContainer>
         </Landing>
     );
 };
@@ -38,18 +37,33 @@ const Landing = Styled.div
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 10rem;
+    margin: 0 10rem;
+    // max-width: 80vw;
     // flex: 1;
+    // width: 100vw;
+    // background-color: purple;
+    @media (max-width: 1300px){
+        display: block;
+        // padding: 2rem;
+        text-align: center;
+       margin: 0;
+    }
+    
 `
-const Image = Styled.div
+const ImageContainer = Styled.div
 `
     width: auto;
     height: auto;
-    // flex: ;
 `
 
 const LandingText = Styled.div
 `
-    padding: .25rem;
+    margin: .25rem;
+`
+
+const Image = Styled.img
+`
+    width: 100%;
+    height: auto;
 `
 export default LandingSection;

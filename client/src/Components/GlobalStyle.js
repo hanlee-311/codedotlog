@@ -14,12 +14,19 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box
 }
 
+html{
+    @media (max-width: 1700px){
+        font-size: 60%;
+    }
+}
+
 body {
     background: var(--primary-color);
     color: var(--accent-color);
-    max-width: 80%
-    display: flex;
+    // width: 100%;
+    // display: flex;
     font-family: 'Raleway', sans-serif;
+
 }
 
 h1 {
@@ -52,6 +59,6 @@ transition: all 0.5s ease;
     background-color: var(--accent-color);
     color: var(--primary-color);
 }
-
-`;
+`
+;
 export default GlobalStyle;
