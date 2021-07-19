@@ -25,7 +25,7 @@ function Dashboard({ isEditting, setIsEditting }) {
     Function();
 
     const [show, setShow] = useState(false);
-
+    const [goalId, setGoalId] = useState("");
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -42,29 +42,32 @@ function Dashboard({ isEditting, setIsEditting }) {
         }, 2500);
     });
 
-    const handleBubbleClick = (event) => {
-        console.log(event);
+    console.log(isEditting);
+    const handleBubbleClick = (id) => {
+        setGoalId(id);
+        console.log("Here is the id:", id);
     };
+
 
     return (
         <>
-            {isLoading == true ?
-                <Loading /> :
-                <div>
-                    <WeeklyProgressModal show={show} onClose={handleClose} />
-                    <Welcome>Welcome! Let's Check Your Progress!</Welcome>
-                    <DashboardContainer>
-                        <GoalList>
-                            <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
-                        </GoalList>
-                        <PercentChart />
-                        <ButtonContainer>
-                            <CreateButton />
-                            <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
-                        </ButtonContainer>
-                    </DashboardContainer>
-                </div>
-            }
+        {isLoading==true?
+            <Loading/>:
+            <div>
+                <WeeklyProgressModal show={show} onClose={handleClose} />
+                <Welcome>Welcome! Let's Check Your Progress!</Welcome>
+                <DashboardContainer>
+                    <GoalList>
+                       <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
+                    </GoalList>
+                    <PercentChart goalId={goalId} setGoalId={setGoalId} />
+                    <ButtonContainer>
+                        <CreateButton />
+                        <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
+                    </ButtonContainer>
+                </DashboardContainer>
+            </div>
+        }
         </>
     )
 };

@@ -41,7 +41,8 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [isEditting, setIsEditting] = useState(false)
+  const [isEditting, setIsEditting] = useState(false);
+  console.log(isEditting);
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -50,12 +51,16 @@ function App() {
         <Switch>
           <PublicRoute exact path="/" component={LandingPage} />
           <PublicRoute exact path="/Login" component={LoginPage} />
-          <PrivateRoute exact path="/Dashboard" component={Dashboard} isEditting={isEditting} setIsEditting={setIsEditting} />
+          <Route exact path="/Dashboard">
+          <Dashboard isEditting={isEditting} setIsEditting={setIsEditting} />
+          </Route>
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/About" component={AboutUsSection} />
           <Route exact path="/Contact" component={ContactSection} />
-          <PrivateRoute exact path="/GoalPage" component={GoalPage} isEditting={isEditting} setIsEditting={setIsEditting} />
-          <PrivateRoute exact path="/EditGoal" component={EditPage} />
+          <Route>
+          <GoalPage exact path="/GoalPage" isEditting={isEditting} setIsEditting={setIsEditting} />
+          </Route>
+          {/* <PrivateRoute exact path="/EditGoal" component={EditPage} /> */}
           <Route path="*" component={FourZeroFour} />
         </Switch>
       </Router>
