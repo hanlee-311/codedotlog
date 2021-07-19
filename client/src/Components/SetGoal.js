@@ -39,7 +39,7 @@ function SetGoal({ quoteText }) {
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-       const goalNum = parseInt(goalState);
+        const goalNum = parseInt(goalState);
 
         console.log(langState, goalNum);
         try {
@@ -60,34 +60,33 @@ function SetGoal({ quoteText }) {
 
     return (
         <>
-        <Loading/>
-        <div>
-            <GoalContainer>
-                <QuoteHeader>
-                    <Quote />
-                </QuoteHeader>
-                <Form onSubmit={handleFormSubmit}>
-                    <InsideForm>
-                        <FormHeader>
-                            <h2>Set Your Goal!</h2>
-                        </FormHeader>
-                        <Dropdown>
-                            <FormLabel htmlFor="language">
-                                Choose Language
-                            </FormLabel >
-                            <Select options={optionsLanguage} type="text" name="language" id="language" value={langState} onChange={handleChangeLang} />
-                        </Dropdown>
-                        <FormGroup>
-                            <FormLabel htmlFor="goalHours">How many hours do you want to devote?</FormLabel>
-                            <FormInput type="text" name="goalHours" id="goalHours" value={goalState} onChange={handleChangeGoal} />
-                        </FormGroup>
-
-                        <button type="submit">Submit</button>
-
-                    </InsideForm>
-                </Form>
-            </GoalContainer>
-        </div>
+            <Loading />
+            <div>
+                <GoalContainer>
+                    <QuoteHeader>
+                        <Quote />
+                    </QuoteHeader>
+                    <Form onSubmit={handleFormSubmit}>
+                        <InsideForm>
+                            <FormHeader>
+                                <h2>Set Your Goal!</h2>
+                            </FormHeader>
+                            <Dropdown>
+                                <FormLabel htmlFor="language">
+                                    Choose Language
+                                </FormLabel >
+                                <Select options={optionsLanguage} type="text" name="language" id="language" value={langState} onChange={handleChangeLang} />
+                            </Dropdown>
+                            <FormGroup>
+                                <FormLabel htmlFor="goalHours">How many hours do you want to devote?</FormLabel>
+                                <FormInput type="text" name="goalHours" id="goalHours" value={goalState} onChange={handleChangeGoal} />
+                            </FormGroup>
+                            <button type="submit">Submit</button>
+                            <Link to="Dashboard"><NavButton>Return</NavButton></Link>
+                        </InsideForm>
+                    </Form>
+                </GoalContainer>
+            </div>
         </>
     )
 }
@@ -100,8 +99,8 @@ const GoalContainer = Styled.div
     margin-top: 3rem;
 `
 
-const QuoteAnimation = keyframes 
-`
+const QuoteAnimation = keyframes
+    `
     from {
         opacity: 0;
     }
@@ -115,6 +114,8 @@ const QuoteHeader = Styled.h4
   font-style: italic;  
   color: #FFC947;
   font-size: 2rem;
+  text-align: center;
+  margin: 0em 1em;
   opacity: 0;
   animation-name: ${QuoteAnimation};
   animation-duration: 3s;
@@ -123,7 +124,7 @@ const QuoteHeader = Styled.h4
 `;
 
 const FormAnimation = keyframes
-`
+    `
     from {
         opacity: 0;
     }
@@ -199,6 +200,14 @@ const ButtonContainerLink = Styled(Link)
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+const NavButton = Styled.button`
+    margin: 0rem;
+    color: #185ADB;
+    padding: 1rem 1rem;
+    display: inline-block;
+    margin-left: 45%;
 `
 
 export default SetGoal;
