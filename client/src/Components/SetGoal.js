@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import Select from 'react-select';
 import Quote from '../Components/Quote';
 import { useMutation } from '@apollo/client';
@@ -60,8 +60,7 @@ function SetGoal({ quoteText }) {
 
     return (
         <>
-        {isLoading==true?
-        <Loading/>:
+        <Loading/>
         <div>
             <GoalContainer>
                 <QuoteHeader>
@@ -89,7 +88,6 @@ function SetGoal({ quoteText }) {
                 </Form>
             </GoalContainer>
         </div>
-        }
         </>
     )
 }
@@ -101,13 +99,38 @@ const GoalContainer = Styled.div
     align-items: center;
     margin-top: 3rem;
 `
+
+const QuoteAnimation = keyframes 
+`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
+
 const QuoteHeader = Styled.h4
     `
   font-style: italic;  
   color: #FFC947;
   font-size: 2rem;
+  opacity: 0;
+  animation-name: ${QuoteAnimation};
+  animation-duration: 3s;
+  animation-iteration-count: once;
+  animation-fill-mode: forwards;
 `;
 
+const FormAnimation = keyframes
+`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
 
 const Form = Styled.form
     `
@@ -116,6 +139,12 @@ const Form = Styled.form
     justify-content: center;
     align-items: center;
     text-align: left;
+    opacity: 0;
+    animation-name: ${FormAnimation};
+    animation-duration: 0.5s;
+    animation-iteration-count: once;
+    animation-delay: 1.3s;
+    animation-fill-mode: forwards;
     
 `;
 const InsideForm = Styled.div

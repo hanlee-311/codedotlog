@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
 
@@ -83,6 +83,16 @@ function ContactSection() {
   );
 }
 
+const ContactAnimation = keyframes
+`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+}
+`
+
 const ContactContainer = Styled.div
   `
         min-height: 100vh;
@@ -90,6 +100,11 @@ const ContactContainer = Styled.div
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        opacity: 0;
+        animation-name: ${ContactAnimation};
+        animation-duration: 1s;
+        animation-iteration-count: once;
+        animation-fill-mode: forwards;
 
   `;
 

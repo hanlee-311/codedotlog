@@ -1,5 +1,5 @@
 import React from 'react';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import Hannah from '../images/Hannah.jpg';
 import Ryan from '../images/Ryan.jpg';
 import Barbara from '../images/barbara.jpg';
@@ -72,14 +72,28 @@ function AboutUsSection() {
   );
 }
 
+const AboutAnimation = keyframes
+`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 const About = Styled.div
   `
     min-height: 100vh;
     display: flex;
     align-items: center;
+    opacity: 0;
     justify-content: center;
     flex-direction: column;
-
+    animation-name: ${AboutAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
   `
 const AboutHeader = Styled.div
   `
