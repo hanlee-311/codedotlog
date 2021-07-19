@@ -73,7 +73,7 @@ const optionsGoals = data.me.goals.map((item) => {
         <QuoteHeader>
         <Quote/>
         </QuoteHeader>
-        <Form >
+        <Form onSubmit={handleFormSubmit}>
             <InsideForm>
                 <FormHeader>
                     <h2>Log Your Progress!</h2>

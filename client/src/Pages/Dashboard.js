@@ -38,6 +38,7 @@ function Dashboard({ isEditting, setIsEditting }) {
         console.log(event);
     };
 
+
     return (
         <>
         {isLoading==true?
@@ -47,7 +48,7 @@ function Dashboard({ isEditting, setIsEditting }) {
                 <Welcome>Welcome! Let's Check Your Progress!</Welcome>
                 <DashboardContainer>
                     <GoalList>
-                        <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
+                       <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
                     </GoalList>
                     <PercentChart />
                     <ButtonContainer>
