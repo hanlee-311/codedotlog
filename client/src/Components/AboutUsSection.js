@@ -247,9 +247,14 @@ const TeamImage = Styled.img
       height: 23vh;
       
 `
-const Contact = Styled.h1
+const Contact = Styled.button
 `
       margin: 0 1rem;
+      padding: 0;
+      background: none;
+      &:hover {
+        background: none;
+      }
 `
 const ContactBox = Styled.div
 `
