@@ -37,12 +37,10 @@ const history = useHistory();
         setGoalState(value);
     };
 
-    console.log(goalState, langState);
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
        const goalNum = parseInt(goalState);
-       console.log(langState, goalNum);
         try {
             const { data } = await addGoal({
                 variables: { language: langState, goalHours: goalNum},

@@ -17,7 +17,7 @@ return data.me ? (
     <>
       {data.me.goals.map((goal) => {
         console.log(goal._id);
-        return (<GoalListBubble onClick={handleBubbleClick} id={goal.language}><Text>{goal.language}</Text></GoalListBubble>)
+        return (<GoalListBubble id={goal.language} onClick={handleBubbleClick} ><Text>{goal.language}</Text></GoalListBubble>)
       })}
     </>
  ) : null;
