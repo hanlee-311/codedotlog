@@ -48,7 +48,7 @@ const resolvers = {
             return { token, user };
         },
         addGoal: async (parent, args, context) => {
-            console.log(args);
+            console.log("AddGoal Hit");
            const user = await User.findOne({_id: context.user._id})
            user.goals.push({
                language: args.language,
@@ -58,16 +58,11 @@ const resolvers = {
            return user;
         },
         updateGoal: async (parent, args, context) => {
-            console.log(context.user, "user")
             const userProgress = await User.findOne({_id: context.user._id})
-            console.log(userProgress,"userProgress");
-
             const currentGoal = userProgress.goals.find(goal=>{
                 console.log(goal._id,  mongoose.Types.ObjectId(args.goalId),goal._id == args.goalId)
-              return goal._id == args.goalId
-                
+              return goal._id == args.goalId      
                 });
-            console.log(currentGoal)
             await User.update({"goals._id":args.goalId},{"$set":{"goals.$.progressHours": currentGoal.progressHours + args.progressHours}});
             return User;
         }

@@ -4,65 +4,68 @@ import Select from 'react-select';
 import Quote from '../Components/Quote';
 import { useMutation } from '@apollo/client';
 import { UPDATE_GOAL } from '../utils/mutations';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
 
 
-function LogProgress({quoteText}) {
+
+function LogProgress({quoteText, setIsEditting}) {
+    const history = useHistory();
+
     const { loading, data } = useQuery(QUERY_ME);
 
+    const [idState, setIdState] = useState('');
+
+    const [progressState, setProgressState] = useState(0);
+
+    const [updateGoal, { error, selection }] = useMutation(UPDATE_GOAL);
+
+    // update state based on form input changes
+    const handleChangeGoal = (event) => {
+        console.log(event);
+        const { value } = event;
+        const goalArray = data.me.goals;
+        const selectedGoal = goalArray.find(goal => goal.language == value);
+        setIdState(selectedGoal._id);
+    };
+  
+      const handleChangeHours = (event) => {
+        const { value } = event.target;
+        setProgressState(value);
+    };
+
+console.log("goalId:", idState,"progressHours:", progressState);
+
+
+const goalId= idState;
+const progressNum = parseInt(progressState);
+console.log("goalId:", goalId,"progressHours:", progressNum);
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const { data } = await updateGoal({
+                variables: { goalId: goalId, progressHours: progressNum},
+            });
+            history.push('/Dashboard');
+
+        } catch (e) {
+            console.error(e);
+        }
+    };
   if (loading) {
     return <div>Loading...</div>;
   };
 
-  if (!loading && data){
-    console.log(data.me.goals);
-  };
 
 const optionsGoals = data.me.goals.map((item) => {
     return(
         { value: item.language, label: item.language }
     )
 });
-
-console.log(optionsGoals);
-
-
-//   const [goalState, setGoalState] = useState('');
-
-//   const [progressState, setProgressState] = useState(0);
-
-//   const [updateGoal, { error, data }] = useMutation(UPDATE_GOAL);
-
-//     // update state based on form input changes
-//     const handleChangeLang = (event) => {
-//         console.log(event);
-//         const { value } = event;
-
-//         setGoalState(value);
-//     };
-  
-//       const handleChangeGoal = (event) => {
-//         const {value } = event.target;
-//         setProgressState(value);
-//     };
-
-// console.log(goalState, progressState);
-//     // submit form
-//     const handleFormSubmit = async (event) => {
-//         event.preventDefault();
-            // setIsEditting(false);
-//  const progressNum = parseInt(progressState);
-//         try {
-//             const { data } = await addGoal({
-//                 variables: { progressHours: progressNum},
-//             });
-//         } catch (e) {
-//             console.error(e);
-//         }
-//     };
 
 
   return data.me ? (
@@ -79,15 +82,13 @@ console.log(optionsGoals);
                     <FormLabel htmlFor="language">
                        Choose Goal 
                     </FormLabel >
-                    <Select options={optionsGoals} type="text" name="language" id="language"  />
+                    <Select options={optionsGoals} type="text" name="language" id="language" value={idState} onChange={handleChangeGoal}  />
                 </Dropdown>
                  <FormGroup>
                     <FormLabel htmlFor="progressHours">How many hours?</FormLabel>
-                    <FormInput type="text" name="goalHours" id="goalHours"  />
+                    <FormInput type="text" name="progressHours" id="progressHours" value={progressState} onChange={handleChangeHours}  />
                 </FormGroup>
-                <ButtonContainerLink to="/Dashboard">
-                    <button>Submit</button>
-                </ButtonContainerLink>
+                    <button type="submit">Submit</button>
             </InsideForm>
         </Form>
         </>

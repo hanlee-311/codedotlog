@@ -33,7 +33,7 @@ export const LOGIN_USER = gql`
     }
 `;
 
-export const UPDATE_USER = gql`
+export const UPDATE_GOAL = gql`
 mutation updateGoal($goalId: ID! $progressHours: Int!){
   updateGoal(goalId: $goalId, progressHours: $progressHours){
     
