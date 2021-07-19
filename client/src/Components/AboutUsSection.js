@@ -2,7 +2,7 @@ import React from 'react';
 import Styled, { keyframes } from 'styled-components';
 import Hannah from '../images/Hannah.jpg';
 import Ryan from '../images/Ryan.jpg';
-import Barbara from '../images/barbara.jpg';
+import Barbara from '../images/Barbara2.jpg';
 import Teisha from '../images/Teisha.jpg';
 import GitHub from '@material-ui/icons/GitHub';
 import LinkedIn from '@material-ui/icons/LinkedIn';
