@@ -70,9 +70,9 @@ const Image = Styled.img
     `
     width: auto;
     height: auto;
-    // opacity: 0;
+    opacity: 0;
     // flex: ;
-    // animation-name: ${CharacterAnimation};
+    animation-name: ${CharacterAnimation};
     animation-duration: 3s;
     animation-iteration-count: once;
     animation-delay: 0.5s;
