@@ -55,11 +55,35 @@ const DashboardContainer = Styled.div
     max-height: 90vh;
     // padding: 
 `
+
 const GoalList = Styled.div
 `
     flex-direction: row;
-    display: flex;
+    display: inline-block;
     margin: 2rem;
+    max-width: 75%;
+    height: 30vh;
+    justify-content: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #0A1931; 
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #ba8e25; 
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #705616; 
+    }
+
 `
 
 const Text = Styled.h3

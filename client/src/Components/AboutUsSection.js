@@ -74,11 +74,11 @@ function AboutUsSection() {
 
 const About = Styled.div
   `
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
   `
 const AboutHeader = Styled.div
@@ -114,40 +114,40 @@ const MissionText = Styled.div
     }
 
     :before {
-      /* This is the  size of the clouds left ear */
-      width  : 200px;
-      height : 200px;
+    /* This is the  size of the clouds left ear */
+    width  : 200px;
+    height : 200px;
     
-      /* We slightly move it to the left */
-      left    : -80px;
+    /* We slightly move it to the left */
+    left    : -80px;
     
-      /* To make sure that the bottom of the cloud
-         remains flat, we must make the bottom right
-         corner of the left ear square. */
-      border-bottom-right-radius: 0;
+    /* To make sure that the bottom of the cloud
+    remains flat, we must make the bottom right
+    corner of the left ear square. */
+    border-bottom-right-radius: 0;
     }
     
     :after {
-      /* This is the size of the clouds left ear */
-      width  : 175px;
-      height : 175px;
+    /* This is the size of the clouds left ear */
+    width  : 175px;
+    height : 175px;
     
-      /* We slightly move it to the right */
-      right   : -60px;
+    /* We slightly move it to the right */
+    right   : -60px;
     
-      /* To make sure that the bottom of the cloud
-         remains flat, we must make the bottom left
-         corner of the right ear square. */
-      border-bottom-left-radius: 0;
+    /* To make sure that the bottom of the cloud
+    remains flat, we must make the bottom left
+    corner of the right ear square. */
+    border-bottom-left-radius: 0;
     }
   `
 
 const DotTeam = Styled.div
   `
-      height: 40vh;
-      width: 40vh;
-      display: inline-block;
-    `
+    height: 40vh;
+    width: 40vh;
+    display: inline-block;
+  `
 
 const DotProfilePic = Styled.span
   `
@@ -204,14 +204,18 @@ const LeftCircle = Styled.div
 `
 
 const ContactBox = Styled.div
-  `
-    display: flex;
-    justify-content: center;
+`
+  display: flex;
+  justify-content: center;
 `
 
 const Contact = Styled.a
   `
-padding: 1em;
+  padding: 1em;
+  :hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
 `
 
 export default AboutUsSection;

@@ -32,6 +32,8 @@ const GoalListBubble = Styled.div
     border-radius: 50%;
     display: inline-block;
     margin: 0 4rem;
+    top: 50%;
+    transform: translateY(-0%);
 
   `
 const Text = Styled.h2 

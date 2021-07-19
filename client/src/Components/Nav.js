@@ -68,6 +68,9 @@ const StyledNav = Styled.nav`
     li {
         padding-left: 5rem;
         // position: relative;
+        :hover {
+          color: #FFC947;
+        }
     }
   `
 const NavButton = Styled.button`
