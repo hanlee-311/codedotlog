@@ -33,8 +33,8 @@ function AboutUsSection() {
           </DotProfilePic>
           <TeamName>Ryan Neil Vega</TeamName>
           <ContactBox>
-            <Contact href="https://github.com/vegaryanneil"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://github.com/vegaryanneil" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
           </ContactBox>
         </DotTeam>
         <DotTeam>
@@ -53,8 +53,8 @@ function AboutUsSection() {
           </DotProfilePic>
           <TeamName>Teisha McRae</TeamName>
           <ContactBox>
-            <Contact href="https://github.com/mcraeteisha"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://github.com/mcraeteisha" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
           </ContactBox>
         </DotTeam>
         <DotTeam>
@@ -63,8 +63,8 @@ function AboutUsSection() {
           </DotProfilePic>
           <TeamName>Hannah Lee</TeamName>
           <ContactBox>
-            <Contact href="https://github.com/hanlee-311"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://github.com/hanlee-311" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
           </ContactBox>
         </DotTeam>
       </div>
@@ -84,11 +84,16 @@ const AboutAnimation = keyframes
 
 const About = Styled.div
   `
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    justify-content: center;
+    flex-direction: column;
+    animation-name: ${AboutAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
         @media (max-width: 1300px){
 
         text-align: center;
@@ -247,7 +252,7 @@ const TeamImage = Styled.img
       height: 23vh;
       
 `
-const Contact = Styled.button
+const Contact = Styled.a
 `
       margin: 0 1rem;
       padding: 0;
