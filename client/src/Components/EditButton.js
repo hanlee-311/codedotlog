@@ -13,7 +13,7 @@ const handleEditClick = (event) => {
   };
     return (
         <div>
-            <button onClick={handleEditClick}>Edit</button>
+            <button onClick={handleEditClick}>Update</button>
         </div>
     )
 }

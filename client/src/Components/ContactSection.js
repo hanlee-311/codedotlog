@@ -129,7 +129,9 @@ const InsideForm = Styled.div
       display: block;
       position: relative;
       padding: 2rem 4rem;
-      background: #185ADB;
+      background-color: rgba(255, 255, 255, .15); 
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
       color: #0A1931;
       max-width: 80%
       align-items: center;
@@ -154,7 +156,6 @@ const FormGroup = Styled.div
       display: block;
       position: relative;
       padding: 0.5rem 4rem;
-      background: #185ADB;
       color: #0A1931;
   `;
 

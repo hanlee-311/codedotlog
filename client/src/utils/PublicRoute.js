@@ -9,22 +9,19 @@ const PublicRoute = ({
     return (
         <Route
             {...rest}
-            render={props => {
-                if (auth.loggedIn()) {
+            render={props => (
+                auth.loggedIn() ?
                     <Redirect
-                            to={{
-                                pathname: "/Dashboard",
-                                state: {
-                                    from: props.location
-                                }
-                            }}
-                        />
-                } else {
-                    return (
-                        <Component {...props} />
-                    );
-                }
-            }}
+                        to={{
+                            pathname: "/Dashboard",
+                            state: {
+                                from: props.location
+                            }
+                        }}
+                    />
+                    :
+                    <Component {...props} />
+            )}
         />
     );
 };

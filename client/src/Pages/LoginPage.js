@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import { Link } from "react-router-dom";
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -47,6 +47,9 @@ function LoginSection() {
 
     return (
         <Form onSubmit={handleFormSubmit}>
+            <BigCircle></BigCircle>
+            <LittleCircle></LittleCircle>
+            <LeftCircle></LeftCircle>
             <InsideForm>
                 <SignInUp>
                     <Link to="/SignUp">
@@ -71,7 +74,17 @@ function LoginSection() {
             </InsideForm>
         </Form>
     );
-}
+};
+
+const FormAnimation = keyframes
+    `
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
 
 const Form = Styled.form
     `
@@ -80,6 +93,10 @@ const Form = Styled.form
     justify-content: center;
     align-items: center;
     text-align: left;
+    animation-name: ${FormAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
 `
 const SignInUp = Styled.div
     `
@@ -88,7 +105,7 @@ const SignInUp = Styled.div
     overflow: hidden;
 `
 const SignInUpText = Styled.h4
-`
+    `
     font-size: 1rem;
 `
 const InsideForm = Styled.div
@@ -97,6 +114,7 @@ const InsideForm = Styled.div
     position: relative;
     padding: 2rem 4rem;
     background: #EFEFEF;
+    border-radius: 10px;
     color: #0A1931;
 `
 const FormHeader = Styled.h2
@@ -130,6 +148,51 @@ const ForgotButton = Styled.button
     `
     background: none;
     font-size: 10px;
+`
+
+const BigCircle = Styled.div
+    `
+    height: 25vh;
+    width: 25vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 75%;
+    top: 15%;
+    z-index: -1;
+    @media (max-width: 1300px){
+        display: none;
+        }
+`
+
+const LittleCircle = Styled.div
+    `  
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 85%;
+    top: 45%;
+    z-index: -1;
+    @media (max-width: 1300px){
+    display: none;
+    }
+`
+
+const LeftCircle = Styled.div
+    `
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 70%;
+    z-index: -1;
+    @media (max-width: 1300px){
+        display: none;
+        }
 `
 
 export default LoginSection;
