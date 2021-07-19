@@ -108,6 +108,7 @@ const MissionText = Styled.div
   `
     align-items: center;
     max-width: 80%;
+    border-radius: 5px;
     // border: solid 5px black;
     // background-color: red;
     padding: 0 1rem;

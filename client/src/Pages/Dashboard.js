@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PercentChart from '../Components/PercentChart';
 import CreateButton from '../Components/CreateButton';
 // import {Doughnut} from 'react-chartjs-2';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import GoalListItem from '../Components/GoalListItem';
 import WeeklyProgressModal from '../Components/WeeklyModal';
 import checkDay from '../utils/checkDay';
@@ -13,8 +13,17 @@ import Loading from '../Components/Loading';
 
 
 function Dashboard({ isEditting, setIsEditting }) {
-    const { loading, data } = useQuery(QUERY_ME);
-    // console.log(data);
+    const Function = () => {
+        const { loading, error, data, refetch } = useQuery(QUERY_ME);
+        useEffect(() => {
+            refetch();
+        }, [refetch]);
+        const userData = data?.me;
+        console.log(userData)
+    };
+
+    Function();
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -33,33 +42,42 @@ function Dashboard({ isEditting, setIsEditting }) {
         }, 2500);
     });
 
-    console.log(isEditting);
     const handleBubbleClick = (event) => {
         console.log(event);
     };
 
     return (
         <>
-        {isLoading==true?
-            <Loading/>:
-            <div>
-                <WeeklyProgressModal show={show} onClose={handleClose} />
-                <Welcome>Welcome! Let's Check Your Progress!</Welcome>
-                <DashboardContainer>
-                    <GoalList>
-                        <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
-                    </GoalList>
-                    <PercentChart />
-                    <ButtonContainer>
-                        <CreateButton />
-                        <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
-                    </ButtonContainer>
-                </DashboardContainer>
-            </div>
-        }
+            {isLoading == true ?
+                <Loading /> :
+                <div>
+                    <WeeklyProgressModal show={show} onClose={handleClose} />
+                    <Welcome>Welcome! Let's Check Your Progress!</Welcome>
+                    <DashboardContainer>
+                        <GoalList>
+                            <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
+                        </GoalList>
+                        <PercentChart />
+                        <ButtonContainer>
+                            <CreateButton />
+                            <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
+                        </ButtonContainer>
+                    </DashboardContainer>
+                </div>
+            }
         </>
     )
 };
+
+const DashboardAnimation = keyframes
+`
+ from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
 
 const DashboardContainer = Styled.div
     `
@@ -67,8 +85,11 @@ const DashboardContainer = Styled.div
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-height: 90vh;
-    // padding: 
+    max-height: 90vh; 
+    animation-name: ${DashboardAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
 `
 
 const GoalList = Styled.div
