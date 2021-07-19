@@ -60,14 +60,19 @@ const CharacterAnimation = keyframes
         opacity: 1;
     }
 `
-
-const Image = Styled.div
+const ImageContainer = Styled.div
+`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+`
+const Image = Styled.img
     `
     width: auto;
     height: auto;
-    opacity: 0;
+    // opacity: 0;
     // flex: ;
-    animation-name: ${CharacterAnimation};
+    // animation-name: ${CharacterAnimation};
     animation-duration: 3s;
     animation-iteration-count: once;
     animation-delay: 0.5s;

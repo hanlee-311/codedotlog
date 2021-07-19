@@ -43,27 +43,6 @@ const client = new ApolloClient({
 function App() {
   const [isEditting, setIsEditting] = useState(false)
   return (
-<<<<<<< HEAD
-<ApolloProvider client={client}>  
-      <GlobalStyle />
-   <Router>
-      <Nav />
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/Login" component={LoginPage} />
-        
-            <Route exact path="/Dashboard" >
-             <Dashboard isEditting={isEditting} setIsEditting={setIsEditting}/>
-            </Route>
-            <Route exact path="/SignUp" component={SignUp} />
-            <Route exact path="/About" component={AboutUsSection} />
-            <Route exact path="/Contact" component={ContactSection} />
-            <Route exact path="/GoalPage" >
-             <GoalPage isEditting={isEditting} setIsEditting={setIsEditting}/>
-            </Route>
-            <Route exact path="/EditGoal" component={EditPage} />
-    </Router>
-</ApolloProvider>
-=======
     <ApolloProvider client={client}>
       <Router>
         <GlobalStyle />
@@ -81,7 +60,6 @@ function App() {
         </Switch>
       </Router>
     </ApolloProvider>
->>>>>>> b7623e01a3d0fbaea12f9011769ca7e9a1b3885d
   );
 }
 
