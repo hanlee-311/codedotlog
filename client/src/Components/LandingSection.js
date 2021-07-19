@@ -1,26 +1,23 @@
 import React from 'react';
 import MainCharacter from '../images/MainCharacter.png';
 import Styled from 'styled-components';
-import { Link } from "react-router-dom"
+import { keyframes } from 'styled-components';
+import { Link } from "react-router-dom";
 
 
 const LandingSection = () => {
-    return(
+    return (
         <Landing>
             <div className="description">
                 <div className="title">
                     <LandingText>
-                    <h1>There's <span className="yellowEmp">always</span></h1>
-                    </LandingText>
-                    <LandingText>
-                    <h1>one <span className="yellowEmp">more</span> thing</h1>
-                    </LandingText>
-                    <LandingText>
-                    <h1>to learn.</h1>
+                        <h1>There's <span className="yellowEmp">always</span></h1>
+                        <h1>one <span className="yellowEmp">more</span> thing</h1>
+                        <h1>to learn.</h1>
                     </LandingText>
                     {/* <LandingButton> */}
-                     <Link to="/SignUp">
-              <button>Get Started</button>
+                    <Link to="/SignUp">
+                        <Button>Get Started</Button>
                     </Link>
                     {/* </LandingButton> */}
                 </div>
@@ -33,7 +30,7 @@ const LandingSection = () => {
 };
 
 const Landing = Styled.div
-`
+    `
     min-height: 90vh;
     display: flex;
     align-items: center;
@@ -41,15 +38,75 @@ const Landing = Styled.div
     padding: 0 10rem;
     // flex: 1;
 `
-const Image = Styled.div
+
+const CharacterAnimation = keyframes
+    `
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 `
+
+const Image = Styled.div
+    `
     width: auto;
     height: auto;
+    opacity: 0;
     // flex: ;
+    animation-name: ${CharacterAnimation};
+    animation-duration: 3s;
+    animation-iteration-count: once;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+`
+
+const TextAnimation = keyframes
+    `
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 `
 
 const LandingText = Styled.div
-`
+    `
     padding: .25rem;
+    opacity: 0;
+    animation-name: ${TextAnimation};
+    animation-duration: 3s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
 `
+
+const ButtonAnimation = keyframes
+    `
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+`
+
+const Button = Styled.button
+    `
+    opacity: 0;
+    animation-name: ${ButtonAnimation};
+    animation-duration: 3s;
+    animation-iteration-count: once;
+    animation-delay: .7s;
+    animation-fill-mode: forwards;
+`
+
+
 export default LandingSection;
