@@ -1,12 +1,6 @@
+import React, { useEffect, useState } from 'react';
 
-import React, {useState} from 'react';
-
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,10 +12,13 @@ import LoginPage from "./Pages/LoginPage";
 import Dashboard from "./Pages/Dashboard";
 import SignUp from "./Pages/SignUp";
 import GoalPage from "./Pages/GoalPage";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AboutUsSection from './Components/AboutUsSection';
 import ContactSection from './Components/ContactSection';
 import EditPage from './Pages/EditPage';
+import PrivateRoute from './utils/privateRoutes';
+import PublicRoute from './utils/PublicRoute';
+import FourZeroFour from './Components/404';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,25 +43,23 @@ const client = new ApolloClient({
 function App() {
   const [isEditting, setIsEditting] = useState(false)
   return (
-<ApolloProvider client={client}>  
-   <Router>
-      <GlobalStyle />
-      <Nav />
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/Login" component={LoginPage} />
-        
-            <Route exact path="/Dashboard" >
-             <Dashboard isEditting={isEditting} setIsEditting={setIsEditting}/>
-            </Route>
-            <Route exact path="/SignUp" component={SignUp} />
-            <Route exact path="/About" component={AboutUsSection} />
-            <Route exact path="/Contact" component={ContactSection} />
-            <Route exact path="/GoalPage" >
-             <GoalPage isEditting={isEditting} setIsEditting={setIsEditting}/>
-            </Route>
-            <Route exact path="/EditGoal" component={EditPage} />
-    </Router>
-</ApolloProvider>
+    <ApolloProvider client={client}>
+      <Router>
+        <GlobalStyle />
+        <Nav />
+        <Switch>
+          <PublicRoute exact path="/" component={LandingPage} />
+          <PublicRoute exact path="/Login" component={LoginPage} />
+          <PrivateRoute exact path="/Dashboard" component={Dashboard} isEditting={isEditting} setIsEditting={setIsEditting} />
+          <Route exact path="/SignUp" component={SignUp} />
+          <Route exact path="/About" component={AboutUsSection} />
+          <Route exact path="/Contact" component={ContactSection} />
+          <PrivateRoute exact path="/GoalPage" component={GoalPage} isEditting={isEditting} setIsEditting={setIsEditting} />
+          <PrivateRoute exact path="/EditGoal" component={EditPage} />
+          <Route path="*" component={FourZeroFour} />
+        </Switch>
+      </Router>
+    </ApolloProvider>
   );
 }
 

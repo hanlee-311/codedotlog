@@ -5,7 +5,6 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Styled from 'styled-components';
 
-
 function SignUp() {
 
     const [formState, setFormState] = useState({
@@ -36,7 +35,7 @@ function SignUp() {
             const { data } = await addUser({
                 variables: { ...formState },
             });
-            Auth.login(data.addUser.token);
+            Auth.signup(data.addUser.token);
         } catch (e) {
             console.error(e);
         }

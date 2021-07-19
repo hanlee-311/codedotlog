@@ -23,6 +23,11 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
+  signup(idToken) {
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/GoalPage');
+  }
+
   login(idToken) {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/Dashboard');
@@ -30,7 +35,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
-    window.location.reload();
+    window.location.assign('/');
   }
 }
 
