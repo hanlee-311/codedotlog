@@ -5,15 +5,13 @@ var item = Math.floor(Math.random() * 10);
 
 function Quote() {
   const [quoteText, quoteTextUpdater] = useState("");
-  console.log(quoteAPI)
-  fetch(quoteAPI)
+    fetch(quoteAPI)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      quoteTextUpdater(data.data[item].quoteText);
-      console.log(quoteText);
-    }).catch((err) => console.warn(err))
+        quoteTextUpdater(data.data[item].quoteText);
+    }).catch((err) => console.warn(err)) 
 
 
   return (

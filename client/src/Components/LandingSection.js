@@ -1,5 +1,5 @@
 import React from 'react';
-import MainCharacter from '../images/MainCharacter.png';
+import MainCharacter from '../images/MainCharacter2.png';
 import Styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import { Link } from "react-router-dom";

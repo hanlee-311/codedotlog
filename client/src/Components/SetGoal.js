@@ -36,11 +36,11 @@ function SetGoal({ quoteText }) {
         setGoalState(value);
     };
 
-    console.log(goalState, langState);
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        const goalNum = parseInt(goalState);
+       const goalNum = parseInt(goalState);
+
         console.log(langState, goalNum);
         try {
             const { data } = await addGoal({
