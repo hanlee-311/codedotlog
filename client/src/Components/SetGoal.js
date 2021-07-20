@@ -62,11 +62,14 @@ function SetGoal({ quoteText }) {
         setTimeout(() => {
             setIsLoading(false);
         }, 2500);
+        setTimeout(() => {
+            setIsLoading(true);
+        }, 5000);
     });
 
     return (
         <>
-            <Loading />
+            <Loading/>
             <div>
                 <GoalContainer>
                     <QuoteHeader>
@@ -152,7 +155,6 @@ const Form = Styled.form
     animation-iteration-count: once;
     animation-delay: 1.3s;
     animation-fill-mode: forwards;
-    
 `;
 const InsideForm = Styled.div
     `
@@ -200,12 +202,6 @@ const FormGroup = Styled.div
     padding: 2rem 4rem;
     background: #EFEFEF;
     color: #0A1931;
-`
-const ButtonContainerLink = Styled(Link)
-    `
-    display: flex;
-    align-items: center;
-    justify-content: center;
 `
 
 const NavButton = Styled.button`

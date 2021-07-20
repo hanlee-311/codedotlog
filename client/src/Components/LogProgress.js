@@ -1,5 +1,5 @@
-import React, { useState }  from 'react';
-import Styled from 'styled-components';
+import React, { useState, useEffect }  from 'react';
+import Styled, { keyframes } from 'styled-components';
 import Select from 'react-select';
 import Quote from '../Components/Quote';
 import { useMutation } from '@apollo/client';
@@ -7,9 +7,7 @@ import { UPDATE_GOAL } from '../utils/mutations';
 import { Link, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
-
-
-
+import Loading from "./Loading";
 
 function LogProgress({quoteText, setIsEditting}) {
     const history = useHistory();
@@ -21,6 +19,17 @@ function LogProgress({quoteText, setIsEditting}) {
     const [progressState, setProgressState] = useState(0);
 
     const [updateGoal, { error, selection }] = useMutation(UPDATE_GOAL);
+
+    const [isLoading, setIsLoading] = useState(true);
+    
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2500);
+        setTimeout(() => {
+            setIsLoading(true);
+        }, 5000);
+    });
 
     // update state based on form input changes
     const handleChangeGoal = (event) => {
@@ -70,6 +79,8 @@ const optionsGoals = data.me.goals.map((item) => {
 
   return data.me ? (
     <>
+    <Loading/>
+    <div>
         <QuoteHeader>
         <Quote/>
         </QuoteHeader>
@@ -92,9 +103,21 @@ const optionsGoals = data.me.goals.map((item) => {
                     <Link to="Dashboard"><NavButton>Return</NavButton></Link>
             </InsideForm>
         </Form>
+        </div>
         </>
   ): null;
 };
+
+const QuoteAnimation = keyframes
+    `
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
+
 const GoalContainer = Styled.div
 `
     display: flex;
@@ -107,8 +130,24 @@ const QuoteHeader = Styled.h4
   font-style: italic;  
   color: #FFC947;
   font-size: 2rem;
+  text-align: center;
+  margin: 0em 1em;
+  opacity: 0;
+  animation-name: ${QuoteAnimation};
+  animation-duration: 3s;
+  animation-iteration-count: once;
+  animation-fill-mode: forwards;
 `;
 
+const FormAnimation = keyframes
+    `
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
 
 const Form = Styled.form
 `
@@ -117,7 +156,12 @@ const Form = Styled.form
     justify-content: center;
     align-items: center;
     text-align: left;
-    
+    opacity: 0;
+    animation-name: ${FormAnimation};
+    animation-duration: 0.5s;
+    animation-iteration-count: once;
+    animation-delay: 1.3s;
+    animation-fill-mode: forwards;
 `;
 const InsideForm = Styled.div 
 `
