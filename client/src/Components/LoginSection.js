@@ -45,6 +45,7 @@ const Form = Styled.form
     justify-content: center;
     align-items: center;
     text-align: left;
+    border-radius: 10px;
 `
 const SignInUp = Styled.div
     `
@@ -62,7 +63,7 @@ const InsideForm = Styled.div
     `
     display: block;
     position: relative;
-    padding: 2rem 4rem;
+    padding: 2rem 0rem;
     background: #EFEFEF;
     color: #0A1931;
 `
