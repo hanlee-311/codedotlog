@@ -89,6 +89,7 @@ const optionsGoals = data.me.goals.map((item) => {
                     <FormInput type="text" name="progressHours" id="progressHours" value={progressState} onChange={handleChangeHours}  />
                 </FormGroup>
                     <button type="submit">Submit</button>
+                    <Link to="Dashboard"><NavButton>Return</NavButton></Link>
             </InsideForm>
         </Form>
         </>
@@ -170,6 +171,14 @@ const ButtonContainerLink = Styled(Link)
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+const NavButton = Styled.button`
+    margin: 0rem;
+    color: #185ADB;
+    padding: 1rem 1rem;
+    display: inline-block;
+    margin-left: 45%;
 `
 
 export default LogProgress;
