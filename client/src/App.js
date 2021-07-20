@@ -19,6 +19,7 @@ import EditPage from './Pages/EditPage';
 import PrivateRoute from './utils/privateRoutes';
 import PublicRoute from './utils/PublicRoute';
 import FourZeroFour from './Components/404';
+import Footer from './Components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -57,6 +58,7 @@ function App() {
           <PrivateRoute exact path="/GoalPage" component={GoalPage} data={{isEditting:isEditting, setIsEditting:setIsEditting}}/>
           <Route path="*" component={FourZeroFour} />
         </Switch>
+        <Footer/>
       </Router>
     </ApolloProvider>
   );
