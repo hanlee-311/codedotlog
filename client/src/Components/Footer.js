@@ -9,9 +9,9 @@ function Footer() {
   );
 };
 
-const Container = Styled.Footer
+const Container = Styled.div
 `
-
+ 
 `
 
 export default Footer;
