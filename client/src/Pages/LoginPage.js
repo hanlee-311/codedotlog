@@ -80,6 +80,8 @@ const Form = Styled.form
     justify-content: center;
     align-items: center;
     text-align: left;
+    max-width: 100%;
+    
 `
 const SignInUp = Styled.div
     `

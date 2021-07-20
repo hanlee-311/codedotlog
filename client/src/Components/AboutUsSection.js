@@ -13,61 +13,66 @@ function AboutUsSection() {
       <BigCircle></BigCircle>
       <LittleCircle></LittleCircle>
       <LeftCircle></LeftCircle>
+      <TopAbout>
+
       <AboutHeader>
         <h1 id="About"><span>.</span>about</h1>
       </AboutHeader>
-      <div className="Text" style={{ marginBottom: "3em"}}>
-        <h4>Code! Log it! <span>Never</span> lose sight of your goal!</h4>
+      <div className="Text" style={{ marginBottom: "2rem"}}>
+        <h2>Code! Log it! <span>Never</span> lose sight of your goal!</h2>
+        {/* <h2>.log(All <span>your</span> progress!)</h2> */}
       </div>
       <MissionText>
-        <h2>.log(All <span>your</span> progress!)</h2>
-        <h4>The world of web developement is constantly <span>evolving</span>. That is why it is so important to keep your skills fresh with <span>consistent practice</span>.</h4>
-        <h4>As emerging developers ourselves, we wanted to create a place where aspiring developers could set <span>goals</span> and <span>log</span> their practice hours.</h4>
-        <h4>Codedotlog was born out of a desire to encourage people of all ages to learn new <span>coding skills</span>, and keep track of their progession over time.</h4>
+        <p>The world of web developement is constantly <span>evolving</span>. That is why it is so important to keep your skills fresh with <span>consistent practice</span>.</p>
+        <p>As emerging developers ourselves, we wanted to create a place where aspiring developers could set <span>goals</span> and <span>log</span> their practice hours.</p>
+        <p>Codedotlog was born out of a desire to encourage people of all ages to learn new <span>coding skills</span>, and keep track of their progession over time.</p>
       </MissionText>
-      <div className="profilePhotos">
-        <AboutTitle>.<span>team</span></AboutTitle>
-        <DotTeam>
-          <DotProfilePic>
-          <TeamImage src={Ryan} alt="Ryan-Profile-pic"></TeamImage>
-          </DotProfilePic>
-          <TeamName>Ryan Neil Vega</TeamName>
-          <ContactBox>
-            <Contact href="https://github.com/vegaryanneil" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/ryan-neil-vega-981553163/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-          </ContactBox>
-        </DotTeam>
-        <DotTeam>
-          <DotProfilePic>
-            <TeamImage src={Barbara} alt="Barbara-Profile-pic"></TeamImage>
-          </DotProfilePic>
-          <TeamName>Barbara S Kenny</TeamName>
-          <ContactBox>
-            <Contact href="https://github.com/BarbaraShea" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/barbarasheakenny/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-          </ContactBox>
-        </DotTeam>
-        <DotTeam>
-          <DotProfilePic>
-          <TeamImage src={Teisha} alt="Teisha-Profile-pic"></TeamImage>
-          </DotProfilePic>
-          <TeamName>Teisha McRae</TeamName>
-          <ContactBox>
-            <Contact href="https://github.com/mcraeteisha" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/teishamcrae/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-          </ContactBox>
-        </DotTeam>
-        <DotTeam>
-          <DotProfilePic>
-            <TeamImage src={Hannah} alt="Hannah-Profile-pic"></TeamImage>
-          </DotProfilePic>
-          <TeamName>Hannah Lee</TeamName>
-          <ContactBox>
-            <Contact href="https://github.com/hanlee-311" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-            <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
-          </ContactBox>
-        </DotTeam>
-      </div>
+      </TopAbout>
+      {/* <div className="profilePhotos"> */}
+      <BottomAbout>
+            <AboutTitle>.<span>team</span></AboutTitle>
+              <DotTeam>
+                <DotProfilePic>
+                <TeamImage src={Ryan} alt="Ryan-Profile-pic"></TeamImage>
+                </DotProfilePic>
+                <TeamName>Ryan Neil Vega</TeamName>
+                <ContactBox>
+                  <Contact href="https://github.com/vegaryanneil" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                  <Contact href="https://www.linkedin.com/in/ryan-neil-vega-981553163/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                </ContactBox>
+              </DotTeam>
+              <DotTeam>
+                <DotProfilePic>
+                  <TeamImage src={Barbara} alt="Barbara-Profile-pic"></TeamImage>
+                </DotProfilePic>
+                <TeamName>Barbara S Kenny</TeamName>
+                <ContactBox>
+                  <Contact href="https://github.com/BarbaraShea" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                  <Contact href="https://www.linkedin.com/in/barbarasheakenny/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                </ContactBox>
+              </DotTeam>
+              <DotTeam>
+                <DotProfilePic>
+                <TeamImage src={Teisha} alt="Teisha-Profile-pic"></TeamImage>
+                </DotProfilePic>
+                <TeamName>Teisha McRae</TeamName>
+                <ContactBox>
+                  <Contact href="https://github.com/mcraeteisha" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                  <Contact href="https://www.linkedin.com/in/teishamcrae/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                </ContactBox>
+              </DotTeam>
+              <DotTeam>
+                <DotProfilePic>
+                  <TeamImage src={Hannah} alt="Hannah-Profile-pic"></TeamImage>
+                </DotProfilePic>
+                <TeamName>Hannah Lee</TeamName>
+                <ContactBox>
+                  <Contact href="https://github.com/hanlee-311" target="_blank"><GitHub fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                  <Contact href="https://www.linkedin.com/in/hannah-lee-9b4889144/" target="_blank"><LinkedIn fontSize="large" style={{ color: "#FFC947" }} /></Contact>
+                </ContactBox>
+              </DotTeam>
+      </BottomAbout>
+      {/* </div> */}
     </About>
   );
 }
@@ -84,12 +89,12 @@ const AboutAnimation = keyframes
 
 const About = Styled.div
   `
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    // min-height: 100vh;
+    // display: flex;
+    // align-items: center;
     opacity: 0;
-    justify-content: center;
-    flex-direction: column;
+    // justify-content: center;
+    // flex-direction: column;
     animation-name: ${AboutAnimation};
     animation-duration: 1s;
     animation-iteration-count: once;
@@ -100,19 +105,43 @@ const About = Styled.div
   `
 const AboutHeader = Styled.div
   `
-    align-items: center;
-    justify-content: center;
-    margin: 3rem 0;
+    margin-bottom: 2rem;
   `
+const TopAbout = Styled.div
+`
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        // justify-content: center;
+        @media (max-width: 1300px){
+          margin: 0 0 5rem 0;
+        }
+        
+`
+
+const BottomAbout = Styled.div
+`
+        height: 100vh;
+        // width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        @media (max-width: 1300px){
+        align-items: center;
+        flex-direction: column;
+        }
+`
 const MissionText = Styled.div
   `
-    align-items: center;
-    max-width: 80%;
-    // border: solid 5px black;
-    // background-color: red;
+    max-width: 60%;
     padding: 0 1rem;
     background-color: rgba(255, 255, 255, .15); 
     backdrop-filter: blur(5px);
+    font-size: 1.5rem;
+    margin: 0 0 4rem 0;
+
     
   // max-width: 55%;
     // // background-color: #020408;
@@ -195,46 +224,58 @@ const DotProfilePic = Styled.span
 
 const AboutTitle = Styled.h1
   `
-    align-items: center;
-    text-align: center;
-    margin: 2rem;
-    // margin-bottom: 3rem;
+    margin: 3rem 0;
+    @media (max-width: 1300px){
+      margin: 6rem 0;
+      // padding: 3rem 0;
+    }
+    
   `
 
 const BigCircle = Styled.div
 `
-    // height: 25vh;
-    // width: 25vh;
-    // background-color: #FFC947;
-    // border-radius: 50%;
-    // position: absolute;
-    // left: 75%;
-    // top: 15%;
-    // z-index: -1;
+    height: 25vh;
+    width: 25vh;
+    background-color: #185ADB;
+    border-radius: 50%;
+    position: absolute;
+    left: 75%;
+    top: 15%;
+    z-index: -1;
+    @media (max-width: 1300px){
+      display: none;
+      }
 `
 
 const LittleCircle = Styled.div
 `  
-    // height: 15vh;
-    // width: 15vh;
-    // background-color: #FFC947;
-    // border-radius: 50%;
-    // position: absolute;
-    // left: 85%;
-    // top: 45%;
-    // z-index: -1;
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 85%;
+    top: 45%;
+    z-index: -1;
+    @media (max-width: 1300px){
+      display: none;
+      }
+    
 `
 
 const LeftCircle = Styled.div 
 `
-    // height: 15vh;
-    // width: 15vh;
-    // background-color: #FFC947;
-    // border-radius: 50%;
-    // position: absolute;
-    // left: 5%;
-    // top: 70%;
-    // z-index: -1;
+    height: 15vh;
+    width: 15vh;
+    background-color: #FFC947;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 70%;
+    z-index: -1;
+    @media (max-width: 1300px){
+      display: none;
+      }
 `
 const TeamName = Styled.h4
 `

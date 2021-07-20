@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 function ContactSection() {
@@ -71,10 +71,10 @@ function ContactSection() {
             <FormLabel>Message:</FormLabel>
             <MessageTextArea type="text" name="message" id="message" placeholder="Please write your message to us!" onChange={handleChange} value={formState.message} />
           </FormGroup>
-          <div>
-            <button style={{borderRadius: "6px"}}>Submit</button>
+          <ButtonContainer>
+            <button>Submit</button>
+          </ButtonContainer>
             <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden", color: "white" }}>Thank you! Your message has been sent.</h4>
-          </div>
         </InsideForm>
       </Form>
     </ContactContainer>
@@ -95,8 +95,8 @@ const ContactAnimation = keyframes
 
 const ContactContainer = Styled.div
   `
-        min-height: 100vh;
         display: flex;
+        // max-height: 80vh;
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -109,37 +109,43 @@ const ContactContainer = Styled.div
   `;
 
 const ContactHeader = Styled.div
-  `
+  ` 
+    display: flex;  
+    text-align: center;
     align-items: center;
     justify-content: center;
-    margin: 3rem 0;
+    margin: 2rem 0;
   `;
 
 const Form = Styled.form
   `
-      height: 100vh;
+      // height: 90vh;
       display: flex;
       align-items: flex-start;
       justify-content: center;
       text-align: left;
+      // width: 90%
   `;
 
 const InsideForm = Styled.div
   `
-      display: block;
+      display: flex;
+      flex-direction: column;
       position: relative;
-      padding: 2rem 4rem;
-      background: #185ADB;
+      padding: .5rem 3rem;
+      background: #EFEFEF;
       color: #0A1931;
-      max-width: 80%
-      align-items: center;
+      // width: 80%
+      align-items: left;
       text-align: left;
+      border-radius: 6px;
   `;
 
 const FormHeader = Styled.h2
   `
-      padding: 2rem 0;
-      color: #EFEFEF;
+      padding: .5rem 0;
+      color: #0A1931;
+      text-align: center;
   `;
 
 const FormLabel = Styled.label
@@ -154,7 +160,7 @@ const FormGroup = Styled.div
       display: block;
       position: relative;
       padding: 0.5rem 4rem;
-      background: #185ADB;
+      background: #EFEFEF;
       color: #0A1931;
   `;
 
@@ -181,6 +187,7 @@ const MessageTextArea = Styled.textarea
 
 const BigCircle = Styled.div
 `
+    display: flex;
     height: 25vh;
     width: 25vh;
     background-color: #FFC947;
@@ -189,10 +196,14 @@ const BigCircle = Styled.div
     left: 75%;
     top: 15%;
     z-index: -1;
+    @media (max-width: 1300px){
+      display: none;
+    }
 `
 
 const LittleCircle = Styled.div
-`  
+`   
+    display: flex;
     height: 15vh;
     width: 15vh;
     background-color: #FFC947;
@@ -201,10 +212,14 @@ const LittleCircle = Styled.div
     left: 85%;
     top: 45%;
     z-index: -1;
+    @media (max-width: 1300px){
+    display: none;
+    }
 `
 
 const LeftCircle = Styled.div 
-`
+` 
+    display: flex;
     height: 15vh;
     width: 15vh;
     background-color: #FFC947;
@@ -213,6 +228,15 @@ const LeftCircle = Styled.div
     left: 5%;
     top: 70%;
     z-index: -1;
+    @media (max-width: 1300px){
+      display: none;
+    }
 `
-
+const ButtonContainer = Styled.div
+`
+  display: flex;    
+  align-item: center;
+  text-align: center;
+  justify-content: center;
+`
 export default ContactSection;

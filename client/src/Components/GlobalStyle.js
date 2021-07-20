@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html{
-    @media (max-width: 1700px){
+    @media (max-width: 1300px){
         font-size: 60%;
     }
 }
@@ -46,6 +46,7 @@ span {
 button {
 padding: 1rem 2rem;
 margin: 2rem 0;
+border-radius: 6px;
 background:var(--emphasis-color);
 color: var(--second-color);
 border: none;
@@ -58,6 +59,7 @@ transition: all 0.5s ease;
 &:hover{
     background-color: var(--accent-color);
     color: var(--primary-color);
+    transform: translateY(-5px);
 }
 `
 ;
