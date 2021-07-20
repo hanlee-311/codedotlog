@@ -6,11 +6,7 @@ import { QUERY_ME } from '../utils/queries';
 function WeeklyProgressModal(props) {
     const { data } = useQuery(QUERY_ME);
     console.log(data);
-    // const language = data?.me?.language;
-    // const progress = data?.me?.progressHours;
-    // const goalHours = data?.me?.goalHours;
 
-    // console.log(language, progress, goalHours);
     return (
         <>
             <Modal show={props.show} onHide={props.onClose}>
