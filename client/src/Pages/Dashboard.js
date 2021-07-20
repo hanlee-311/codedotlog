@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PercentChart from '../Components/PercentChart';
 import CreateButton from '../Components/CreateButton';
 // import {Doughnut} from 'react-chartjs-2';
-import Styled from 'styled-components';
+import Styled, { keyframes } from 'styled-components';
 import GoalListItem from '../Components/GoalListItem';
 import WeeklyProgressModal from '../Components/WeeklyModal';
 import checkDay from '../utils/checkDay';
@@ -13,30 +13,42 @@ import Loading from '../Components/Loading';
 
 
 function Dashboard({ isEditting, setIsEditting }) {
-    const { loading, data } = useQuery(QUERY_ME);
-    // console.log(data);
+   
     const [show, setShow] = useState(false);
+    const [goalId, setGoalId] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    
     useEffect(() => {
         // console.log(checkDay())
         if (checkDay()) handleShow();
     }, []);
 
     const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 2500);
     });
+    
+    const { loading, data } = useQuery(QUERY_ME);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    };
+
+    if (!loading && data) {
+        console.log(data.me);
+    };
 
     console.log(isEditting);
-    const handleBubbleClick = (event) => {
-        console.log(event);
+    const handleBubbleClick = (id) => {
+        setGoalId(id);
+        console.log("Here is the id:", id);
     };
+
 
     return (
         <>
@@ -44,12 +56,12 @@ function Dashboard({ isEditting, setIsEditting }) {
             <Loading/>:
             <div>
                 <WeeklyProgressModal show={show} onClose={handleClose} />
-                <Welcome>Welcome! Let's Check Your Progress!</Welcome>
+                <Welcome>Welcome, {data.me.firstName}! Let's Check Your Progress!</Welcome>
                 <DashboardContainer>
                     <GoalList>
-                        <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
+                       <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
                     </GoalList>
-                    <PercentChart />
+                    <PercentChart goalId={goalId} setGoalId={setGoalId} />
                     <ButtonContainer>
                         <CreateButton />
                         <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
@@ -61,14 +73,27 @@ function Dashboard({ isEditting, setIsEditting }) {
     )
 };
 
+const DashboardAnimation = keyframes
+    `
+ from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 const DashboardContainer = Styled.div
     `
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-height: 90vh;
-    // padding: 
+    max-height: 90vh; 
+    animation-name: ${DashboardAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
 `
 
 const GoalList = Styled.div
