@@ -12,6 +12,8 @@ function LoginSection() {
         password: '',
     });
 
+    const [errMessage, setErrorMessage] = useState("");
+
     const [loginUser, { error }] = useMutation(LOGIN_USER);
 
     // update state based on form input changes
@@ -41,6 +43,7 @@ function LoginSection() {
             });
             Auth.login(data.login.token);
         } catch (e) {
+            setErrorMessage("Credentials were incorrect.");
             console.error(e);
         }
     };
@@ -57,8 +60,6 @@ function LoginSection() {
                     </Link>
                 </SignInUp>
                 <FormHeader>Login</FormHeader>
-                {/* {(error !== "") ? (<div className="error">{error}</div>) : ""} */}
-
                 <FormGroup>
                     <FormLabel htmlFor="email">Email:</FormLabel>
                     <FormInput type="email" name="email" id="email" onChange={handleChange} value={formState.email} />
@@ -70,6 +71,7 @@ function LoginSection() {
                 <div>
                     <button>Login</button>
                     <ForgotButton>forgot your password?</ForgotButton>
+                    <p>{errMessage}</p>
                 </div>
             </InsideForm>
         </Form>

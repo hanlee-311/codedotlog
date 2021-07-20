@@ -17,7 +17,6 @@ const GoalListItem = ({ handleBubbleClick }) => {
   return data.me ? (
     <>
       {data.me.goals.map((goal) => {
-        console.log(goal._id);
         return (<GoalListBubble id={goal._id} onClick={() => handleBubbleClick(goal._id)} ><Text>{goal.language}</Text></GoalListBubble>)
       })}
     </>

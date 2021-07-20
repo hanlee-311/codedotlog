@@ -6,6 +6,7 @@ import Auth from '../utils/auth';
 import Styled, { keyframes } from 'styled-components';
 
 function SignUp() {
+    const [errMessage, setErrorMessage] = useState("");
 
     const [formState, setFormState] = useState({
         firstName: '',
@@ -37,6 +38,7 @@ function SignUp() {
             });
             Auth.signup(data.addUser.token);
         } catch (e) {
+            setErrorMessage("Credentials did not fit parameters. Please try again.");
             console.error(e);
         }
     };
@@ -70,11 +72,10 @@ function SignUp() {
                     <FormLabel htmlFor="password">Password:</FormLabel>
                     <FormInput type="password" name="password" id="password" placeholder="********" value={formState.password} onChange={handleChange} />
                 </FormGroup>
-                {/* <Link to="/SetGoal">                */}
                 <div>
                     <button>Sign Up!</button>
                 </div>
-                {/* </Link> */}
+                <p>{errMessage}</p>
             </InsideForm>
         </Form>
     );
