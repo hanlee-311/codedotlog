@@ -21,7 +21,6 @@ function Dashboard({ isEditting, setIsEditting }) {
     const handleShow = () => setShow(true);
     
     useEffect(() => {
-        // console.log(checkDay())
         if (checkDay()) handleShow();
     }, []);
 

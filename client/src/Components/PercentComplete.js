@@ -3,8 +3,6 @@ import React from 'react';
 function progressPercentage({ goalHours, progressHours }) {
     const percentageDone = Math.round(progressHours / goalHours * 100) + "%";
 
-    // const [percentageDone, percentageDoneUpdater] = useState("");
-
 
 
     return(
