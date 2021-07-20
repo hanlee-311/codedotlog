@@ -12,7 +12,13 @@ const optionsLanguage = [
     { value: 'javascript', label: 'JavaScript' },
     { value: 'html', label: 'HTML' },
     { value: 'css', label: 'CSS' },
-    { value: 'react', label: 'React' }
+    { value: 'react', label: 'React' },
+    { value: 'perl', label: 'Perl' },
+    { value: 'c++', label: 'C++' },
+    { value: 'java', label: 'Java' },
+    { value: 'ruby', label: 'Ruby' },
+    { value: 'webAssembly', label: 'WebAssembly' },
+    { value: 'python', label: 'Python' },
 ]
 
 

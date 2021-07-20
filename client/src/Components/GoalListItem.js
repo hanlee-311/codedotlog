@@ -35,7 +35,13 @@ const GoalListBubble = Styled.div
     margin: 0 4rem;
     top: 50%;
     transform: translateY(-0%);
+    :active {
+        background-color: #185ADB;
+      };
+    :visited {
+        background-color: #185ADB;
 
+    }
   `
 const Text = Styled.h2
   `

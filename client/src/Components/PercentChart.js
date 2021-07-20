@@ -68,16 +68,5 @@ const selectedGoal = goalArray.find(goal => goal._id == goalId);
   ): null;
 };
 
-  // function CalcPercent(goalHours, progressHours){
-  //     let percent = " ";
-  //     if (isNaN(goalHours) || (isNaN(progressHours))){
-  //         percent = " ";
-  //     }else {
-  //         percent = Math.round(((progressHours/goalHours) * 100));
-  //     }
-  //     console.log(percent);
-  //     return percent;
-  //     };
-
 
 export default PercentChart;

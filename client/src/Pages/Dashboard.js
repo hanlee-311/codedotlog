@@ -21,9 +21,9 @@ function Dashboard({ isEditting, setIsEditting }) {
     const handleShow = () => setShow(true);
     
     useEffect(() => {
-        // console.log(checkDay())
         if (checkDay()) handleShow();
     }, []);
+
 
     const [isLoading, setIsLoading] = useState(true);
     
@@ -33,20 +33,20 @@ function Dashboard({ isEditting, setIsEditting }) {
         }, 2500);
     });
     
-    const { loading, data } = useQuery(QUERY_ME);
+    const { loading, data } = useQuery(QUERY_ME, {
+    pollInterval: 1000,
+  });
 
-    if (loading) {
-        return <div>Loading...</div>;
-    };
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // };
 
-    if (!loading && data) {
-        console.log(data.me);
-    };
+    // if (!loading && data) {
+    //     console.log(data.me);
+    // };
 
-    console.log(isEditting);
     const handleBubbleClick = (id) => {
         setGoalId(id);
-        console.log("Here is the id:", id);
     };
 
 
