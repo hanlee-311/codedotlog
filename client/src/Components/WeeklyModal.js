@@ -1,9 +1,11 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Styled from 'styled-components';
-
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 function WeeklyProgressModal(props) {
-
+    const { data } = useQuery(QUERY_ME);
+    console.log(data);
 
     return (
         <>
@@ -14,7 +16,16 @@ function WeeklyProgressModal(props) {
                     </StyledTitle>
                 </Modal.Header>
                 <StyledBody>
-                <Modal.Body>Here's a look at your progress over the past week:</Modal.Body>
+                    <Modal.Body>Hi, {data.me.firstName}! Here's a look at your progress over the past week:
+                            {data.me.goals.map((goal) => {
+                                return (
+                                    <ul>  
+                                        <li key={goal._id}>
+                                            {`${goal.language}: ${goal.progressHours} of ${goal.goalHours} hours complete!`}
+                                        </li>
+                                    </ul>)
+                                })}
+                    </Modal.Body>
                 </StyledBody>
                 <Modal.Footer>
                     <button variant="secondary" onClick={props.onClose}>
@@ -23,9 +34,7 @@ function WeeklyProgressModal(props) {
                 </Modal.Footer>
             </Modal>
         </>
-    );
-}
-
+    )};
 const StyledTitle = Styled.div
     `
     color: #185ADB;
@@ -34,6 +43,4 @@ const StyledBody = Styled.div
     `
     color: #0A1931;
     `
-    
-
 export default WeeklyProgressModal;
