@@ -23,10 +23,7 @@ html{
 body {
     background: var(--primary-color);
     color: var(--accent-color);
-    // width: 100%;
-    // display: flex;
     font-family: 'Raleway', sans-serif;
-
 }
 
 h1 {
@@ -63,4 +60,5 @@ transition: all 0.5s ease;
 }
 `
 ;
+
 export default GlobalStyle;

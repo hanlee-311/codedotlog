@@ -4,15 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
 const GoalListItem = ({ handleBubbleClick }) => {
-  const { loading, data } = useQuery(QUERY_ME);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  };
-
-  if (!loading && data) {
-    console.log(data.me.goals);
-  };
+  const { data } = useQuery(QUERY_ME);
 
   return data.me ? (
     <>
@@ -24,7 +16,6 @@ const GoalListItem = ({ handleBubbleClick }) => {
 };
 
 const GoalListBubble = Styled.div
-
   `
     height: 15vh;
     width: 15vh;

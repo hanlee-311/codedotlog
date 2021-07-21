@@ -4,17 +4,17 @@ import Styled from 'styled-components';
 function progressPercentage({ goalHours, progressHours }) {
     const percentageDone = Math.round(progressHours / goalHours * 100) + "%";
 
-    return(
+    return (
         <Container>
-            <h4 style={{position: "relative", textAlign: "center", fontSize: "500%"}}>
+            <h4 style={{ position: "relative", textAlign: "center", fontSize: "500%" }}>
                 {percentageDone}
             </h4>
         </Container>
     )
 };
 
-const Container = Styled.div 
-`
+const Container = Styled.div
+    `
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,6 +24,6 @@ const Container = Styled.div
         -webkit-transform: translate(50%, 0%);
         transform: translate(-50%, 460%);
     }
-`
+`;
 
 export default progressPercentage;

@@ -4,7 +4,6 @@ import Styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import { Link } from "react-router-dom";
 
-
 const LandingSection = () => {
     return (
         <Landing>
@@ -15,11 +14,9 @@ const LandingSection = () => {
                         <h1>one <span className="yellowEmp">more</span> thing</h1>
                         <h1>to learn.</h1>
                     </LandingText>
-                    {/* <LandingButton> */}
                     <Link to="/SignUp">
                         <Button>Get Started</Button>
                     </Link>
-            
                 </div>
             </div>
             <ImageContainer>
@@ -36,13 +33,8 @@ const Landing = Styled.div
     align-items: center;
     justify-content: space-between;
     margin: 0 10rem;
-    // max-width: 80vw;
-    // flex: 1;
-    // width: 100vw;
-    // background-color: purple;
     @media (max-width: 1300px){
         display: block;
-        // padding: 2rem;
         text-align: center;
        margin: 0;
     }
@@ -60,18 +52,19 @@ const CharacterAnimation = keyframes
         opacity: 1;
     }
 `
+
 const ImageContainer = Styled.div
-`
+    `
     display:flex;
     align-items: center;
     justify-content: center;
 `
+
 const Image = Styled.img
     `
     width: auto;
     height: auto;
     opacity: 0;
-    // flex: ;
     animation-name: ${CharacterAnimation};
     animation-duration: 3s;
     animation-iteration-count: once;
@@ -122,6 +115,5 @@ const Button = Styled.button
     animation-delay: .7s;
     animation-fill-mode: forwards;
 `
-
 
 export default LandingSection;
