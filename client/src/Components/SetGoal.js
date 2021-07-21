@@ -28,10 +28,10 @@ function SetGoal({ quoteText }) {
     const [goalState, setGoalState] = useState(0);
     const [addGoal, { error, data }] = useMutation(ADD_GOAL);
     const [isLoading, setIsLoading] = useState(true);
+    const [errMessage, setErrorMessage] = useState("");
 
     // update state based on form input changes
     const handleChangeLang = (event) => {
-        console.log(event);
         const { value } = event;
 
         setLangState(value);
@@ -46,27 +46,33 @@ function SetGoal({ quoteText }) {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         const goalNum = parseInt(goalState);
-
-        console.log(langState, goalNum);
-        try {
-            const { data } = await addGoal({
-                variables: { language: langState, goalHours: goalNum },
-            });
-            history.push('/Dashboard');
-        } catch (e) {
-            console.error(e);
-        }
+        
+        if(goalNum===0 || langState==='' || isNaN(goalNum)===true){
+            setErrorMessage("Please select language and hours.");
+        } else {
+            try {
+                const { data } = await addGoal({
+                    variables: { language: langState, goalHours: goalNum },
+                });
+                history.push('/Dashboard');
+            } catch (e) {
+                console.error(e);
+            }
+        };
     };
 
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 2500);
+        setTimeout(() => {
+            setIsLoading(true);
+        }, 5000);
     });
 
     return (
         <>
-            <Loading />
+            <Loading/>
             <div>
                 <GoalContainer>
                     <QuoteHeader>
@@ -81,14 +87,15 @@ function SetGoal({ quoteText }) {
                                 <FormLabel htmlFor="language">
                                     Choose Language
                                 </FormLabel >
-                                <Select options={optionsLanguage} type="text" name="language" id="language" value={langState} onChange={handleChangeLang} />
+                                <Select options={optionsLanguage} type="text" name="language" id="language" inValue={langState} onChange={handleChangeLang} />
                             </Dropdown>
                             <FormGroup>
                                 <FormLabel htmlFor="goalHours">How many hours do you want to devote?</FormLabel>
                                 <FormInput type="text" name="goalHours" id="goalHours" value={goalState} onChange={handleChangeGoal} />
                             </FormGroup>
-                            <button type="submit">Submit</button>
                             <Link to="Dashboard"><NavButton>Return</NavButton></Link>
+                            <button type="submit">Submit</button>
+                            <p>{errMessage}</p>
                         </InsideForm>
                     </Form>
                 </GoalContainer>
@@ -152,7 +159,6 @@ const Form = Styled.form
     animation-iteration-count: once;
     animation-delay: 1.3s;
     animation-fill-mode: forwards;
-    
 `;
 const InsideForm = Styled.div
     `
@@ -201,19 +207,13 @@ const FormGroup = Styled.div
     background: #EFEFEF;
     color: #0A1931;
 `
-const ButtonContainerLink = Styled(Link)
-    `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
 
 const NavButton = Styled.button`
-    margin: 0rem;
+    margin-right: 7rem;
     color: #185ADB;
-    padding: 1rem 1rem;
+    padding: 1rem 1.7rem;
     display: inline-block;
-    margin-left: 45%;
+    margin-left: 8%;
 `
 
 export default SetGoal;

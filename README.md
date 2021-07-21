@@ -20,6 +20,7 @@ As developers:
 * We wanted to build an application that would help us and our peers to continue and track our coding learning post graduation. 
 * We wanted to build an application with a sleek, clean design that would be eye-catching and easy to use.
 
+
 ## Technologies Used
 * React
 * MongoDB and the Mongoose ODM
@@ -29,6 +30,7 @@ As developers:
 * DayJS
 * Heroku
  
+ 
 ## Work Completed
 
 * Barbara worked on JavaScript and the logic for connecting our front-end and back-end.
@@ -36,10 +38,19 @@ As developers:
 * Ryan worked on Styled Components, CSS, and our Presentation.
 * Teisha worked on Front-End Components, the Weekly Modal, and the README file.
  
-## Learnings and Issues
+ 
+## Challenges and Successes
 
-Some of the learnings we're taking away from this project are:
-1. 
+Some of the challenges we experienced with this project were:
+1. Making the project responsive with CSS.
+2. Figuring out how to lift up the state and pass it through multiple components to dynamically render data to the chart.
+3. The update goal mutation, 
+
+There were also many successes to this project:
+1. Ryan's inital design gave us a great base to work from and made it easy for the project to come together.
+2. Getting our private routes to work, as well as our APIs and contact form
+3. Deployment to Heroku
+4. Our overall communication as a team. We kept each other up to date on what we were working on and where we were blocked. We also did a great job at helping each other become unblocked and figuring out bugs and issues.
 
 
 ## Future Application Updates
@@ -56,4 +67,7 @@ Barbara Kenny, Hannah Lee, Ryan Neil Vega, Teisha McRae
 ![Website Screenshot](https://user-images.githubusercontent.com/73713665/126229395-46e6a410-8ee9-4e57-ae58-265f6c16ce74.png)
 ![Website Screenshot](https://user-images.githubusercontent.com/73713665/126229398-db3a09c8-424e-4265-93a8-1a1134b6febf.png)
 ![Website Screenshot](https://user-images.githubusercontent.com/73713665/126229399-bd45b8a6-b42e-47c6-bcb0-c10bfebb944d.png)
+![Website Screenshot](https://user-images.githubusercontent.com/73713665/126411569-4c587f56-a10d-4329-b0e5-86b67cce4b47.png)
+![Website Screenshot](https://user-images.githubusercontent.com/73713665/126411574-0425c6c3-72e6-4238-a8ec-71b3003a0eed.png)
+
 

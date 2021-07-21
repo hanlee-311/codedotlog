@@ -3,20 +3,22 @@ import { Doughnut } from 'react-chartjs-2';
 import PercentComplete from '../Components/PercentComplete';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
+import GoalInformation from './GoalInformation';
 
-function PercentChart({setGoalId, goalId}) {
- const { loading, data } = useQuery(QUERY_ME);
-console.log("goalId for precent", goalId);
+function PercentChart({ setGoalId, goalId }) {
+  const { loading, data } = useQuery(QUERY_ME);
+ 
   if (loading) {
     return <div>Loading...</div>;
   };
 
-  if (!loading && data){
+  if (!loading && data) {
     console.log(data.me.goals);
   };
-const goalArray = data?.me?.goals;
-const selectedGoal = goalArray.find(goal => goal._id == goalId);
+  const goalArray = data?.me?.goals;
+  const selectedGoal = goalArray.find(goal => goal._id == goalId);
 
+  const language = selectedGoal? selectedGoal.language : goalArray[0].language;
   const goalHours = selectedGoal ? selectedGoal.goalHours : goalArray[0].goalHours;
   const progressHours = selectedGoal ? selectedGoal.progressHours : goalArray[0].progressHours;
   const state = {
@@ -40,7 +42,8 @@ const selectedGoal = goalArray.find(goal => goal._id == goalId);
   return data.me ? (
     <>
       <div className="chart-container" style={{ margin: "0 auto", alignItems: "center", height: "50vh", width: "50vh" }}>
-      <PercentComplete goalHours={goalHours} progressHours={progressHours} />
+        <GoalInformation goalHours={goalHours} progressHours={progressHours} language={language}/>
+        <PercentComplete goalHours={goalHours} progressHours={progressHours} />
         <Doughnut
           data={state}
           options={{
@@ -65,7 +68,7 @@ const selectedGoal = goalArray.find(goal => goal._id == goalId);
         />
       </div>
     </>
-  ): null;
+  ) : null;
 };
 
 
