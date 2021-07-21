@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PercentChart from '../Components/PercentChart';
 import CreateButton from '../Components/CreateButton';
-// import {Doughnut} from 'react-chartjs-2';
 import Styled, { keyframes } from 'styled-components';
 import GoalListItem from '../Components/GoalListItem';
 import WeeklyProgressModal from '../Components/WeeklyModal';
@@ -13,68 +12,59 @@ import Loading from '../Components/Loading';
 
 
 function Dashboard({ isEditting, setIsEditting }) {
-   
+
     const [show, setShow] = useState(false);
     const [goalId, setGoalId] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
+
     useEffect(() => {
         if (checkDay()) handleShow();
     }, []);
 
-
     const [isLoading, setIsLoading] = useState(true);
-    
+
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 2500);
     });
-    
+
     const { loading, data } = useQuery(QUERY_ME, {
-    pollInterval: 1000,
-  });
-
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // };
-
-    // if (!loading && data) {
-    //     console.log(data.me);
-    // };
+        pollInterval: 1000,
+    });
 
     const handleBubbleClick = (id) => {
         setGoalId(id);
     };
 
-
     return (
         <>
-        {isLoading==true?
-            <Loading/>:
-            <div>
-                <WeeklyProgressModal show={show} onClose={handleClose} />
-                <Welcome>Welcome, {data.me.firstName}! Let's Check Your Progress!</Welcome>
-                <DashboardContainer>
-                    <GoalList>
-                       <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
-                    </GoalList>
-                    <PercentChart goalId={goalId} setGoalId={setGoalId} />
-                    <ButtonContainer>
-                        <CreateButton />
-                        <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
-                    </ButtonContainer>
-                </DashboardContainer>
-            </div>
-        }
+            {isLoading == true ?
+                <Loading /> :
+                <div>
+                    <WeeklyProgressModal show={show} onClose={handleClose} />
+                    <Welcome>Welcome, {data.me.firstName}! Let's Check Your Progress!</Welcome>
+                    <GoalTitle>-Your Goals-</GoalTitle>
+                    <DashboardContainer>
+                        <GoalList>
+                            <GoalListItem handleBubbleClick={handleBubbleClick}></GoalListItem>
+                        </GoalList>
+                        <PercentChart goalId={goalId} setGoalId={setGoalId} />
+                        <ButtonContainer>
+                            <CreateButton />
+                            <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
+                        </ButtonContainer>
+                    </DashboardContainer>
+                </div>
+            }
         </>
     )
 };
 
 const DashboardAnimation = keyframes
-    `
+`
  from {
     opacity: 0;
   }
@@ -84,7 +74,7 @@ const DashboardAnimation = keyframes
 `
 
 const DashboardContainer = Styled.div
-    `
+`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,12 +87,12 @@ const DashboardContainer = Styled.div
 `
 
 const GoalList = Styled.div
-    `
+`
     flex-direction: row;
     display: inline-block;
     margin: 2rem;
     max-width: 75%;
-    height: 30vh;
+    min-height: 24vh;
     justify-content: center;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -123,17 +113,16 @@ const GoalList = Styled.div
     &::-webkit-scrollbar-thumb:hover {
         background: #705616; 
     }
-
 `
 
 const Text = Styled.h3
-    `
+`
     font-size: 2rem;
     font: white;
 `
 
 const ButtonContainer = Styled.div
-    `
+`
     display: flex;
     flex-direction: row;
     margin: 0 2rem;
@@ -143,9 +132,16 @@ const ButtonContainer = Styled.div
 `
 
 const Welcome = Styled.h4
-    `
+`
     margin: 1em 0 1em 0;
     text-align: center;
-
+    font-size: 180%;
 `
+
+const GoalTitle = Styled.h4
+`
+    padding: .1em;
+    text-align: center;
+`
+
 export default Dashboard;

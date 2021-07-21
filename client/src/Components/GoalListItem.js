@@ -17,7 +17,6 @@ const GoalListItem = ({ handleBubbleClick }) => {
   return data.me ? (
     <>
       {data.me.goals.map((goal) => {
-        console.log(goal._id);
         return (<GoalListBubble id={goal._id} onClick={() => handleBubbleClick(goal._id)} ><Text>{goal.language}</Text></GoalListBubble>)
       })}
     </>
@@ -32,15 +31,20 @@ const GoalListBubble = Styled.div
     background-color: #FFC947;
     border-radius: 50%;
     display: inline-block;
-    margin: 0 4rem;
+    margin: 1.5rem 4rem;
     top: 50%;
     transform: translateY(-0%);
+    transition: all .2s ease-in-out; 
+    :hover {
+      background-color: #185ADB;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
     :active {
         background-color: #185ADB;
       };
     :visited {
         background-color: #185ADB;
-
     }
   `
 const Text = Styled.h2
@@ -52,6 +56,7 @@ const Text = Styled.h2
   align-items: center;
   font-size: 100%;
   min-height: 100%;
+
 `
 
 
