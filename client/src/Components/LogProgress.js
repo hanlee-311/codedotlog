@@ -45,7 +45,6 @@ console.log("goalId:", goalId,"progressHours:", progressNum);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
             const { data } = await updateGoal({
                 variables: { goalId: goalId, progressHours: progressNum},
