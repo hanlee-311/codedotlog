@@ -11,16 +11,20 @@ import { QUERY_ME } from '../utils/queries';
 import Loading from '../Components/Loading';
 import Footer from '../Components/Footer';
 
-function Dashboard({ isEditting, setIsEditting }) {
+function Dashboard({ isEditting, setIsEditting, modal, setModal }) {
 
     const [show, setShow] = useState(false);
     const [goalId, setGoalId] = useState("");
+ 
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     useEffect(() => {
-        if (checkDay()) handleShow();
+        if (checkDay() && modal===false) {
+            handleShow()
+              setModal(true)
+            };
     }, []);
 
     const [isLoading, setIsLoading] = useState(true);

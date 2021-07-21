@@ -39,6 +39,7 @@ const client = new ApolloClient({
 
 function App() {
   const [isEditting, setIsEditting] = useState(false);
+     const [modal, setModal] = useState(false)
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -47,7 +48,7 @@ function App() {
         <Switch>
           <PublicRoute exact path="/" component={LandingPage} />
           <PublicRoute exact path="/Login" component={LoginPage} />
-          <PrivateRoute exact path="/Dashboard" component={Dashboard} data={{ isEditting: isEditting, setIsEditting: setIsEditting }} />
+          <PrivateRoute exact path="/Dashboard" component={Dashboard} data={{isEditting:isEditting, setIsEditting:setIsEditting, setModal:setModal, modal:modal}}/>
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/About" component={AboutUsSection} />
           <Route exact path="/Contact" component={ContactSection} />
