@@ -31,14 +31,22 @@ function SignUp() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        try {
-            const { data } = await addUser({
-                variables: { ...formState },
-            });
-            Auth.signup(data.addUser.token);
-        } catch (e) {
+        if (!formState.firstName == '' || !formState.lastName == '' || !formState.email == ''){
+            if(formState.password.length <= 6) {
+                setErrorMessage("Password must be more than 5 characters!")
+            } else {
+                try {
+                    const { data } = await addUser({
+                        variables: { ...formState },
+                    });
+                    Auth.signup(data.addUser.token);
+                } catch (e) {
+                    setErrorMessage("This email is already in use.");
+                    console.error(e);
+                }
+            }
+        } else {
             setErrorMessage("Credentials did not fit parameters. Please try again.");
-            console.error(e);
         }
     };
 

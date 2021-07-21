@@ -124,6 +124,9 @@ const ButtonContainer = Styled.div
     min-width: 80%;
     justify-content: space-between;
     align-items: center
+    @media (max-width: 1300px){
+        margin-bottom: 1em;
+    }
 `;
 
 const Welcome = Styled.h4

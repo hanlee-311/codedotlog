@@ -4,6 +4,7 @@ import PercentComplete from '../Components/PercentComplete';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import GoalInformation from './GoalInformation';
+import Styled from 'styled-components';
 
 function PercentChart({ setGoalId, goalId }) {
   const { loading, data } = useQuery(QUERY_ME);
@@ -33,8 +34,8 @@ function PercentChart({ setGoalId, goalId }) {
 
   return data.me ? (
     <>
-      <div className="chart-container" style={{ margin: "0 auto", alignItems: "center", height: "50vh", width: "50vh" }}>
         <GoalInformation goalHours={goalHours} progressHours={progressHours} language={language} />
+      <Container className="chart-container">
         <PercentComplete goalHours={goalHours} progressHours={progressHours} />
         <Doughnut
           data={state}
@@ -58,9 +59,17 @@ function PercentChart({ setGoalId, goalId }) {
           }
           }
         />
-      </div>
+      </Container>
     </>
   ) : null;
 };
+
+const Container = Styled.div
+`
+  margin: 0 auto;
+  align-items: center;
+  height: 50vh;
+  width: 50vh;
+`
 
 export default PercentChart;
