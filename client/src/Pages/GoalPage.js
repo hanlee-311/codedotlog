@@ -9,7 +9,7 @@ function GoalPage({quoteText, isEditting, setIsEditting}) {
 
     return(
         <>
-          {isEditting ? <LogProgress/> : <SetGoal/>}
+          {isEditting ? <LogProgress setIsEditting={setIsEditting} isEditting={isEditting}/> : <SetGoal/>}
         </>
     )
 };

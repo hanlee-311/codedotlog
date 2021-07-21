@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import Loading from "./Loading";
 
-function LogProgress({ quoteText, setIsEditting }) {
+function LogProgress({ quoteText, isEditting, setIsEditting }) {
     const history = useHistory();
     const { loading, data } = useQuery(QUERY_ME);
     const [idState, setIdState] = useState('');
@@ -46,6 +46,8 @@ function LogProgress({ quoteText, setIsEditting }) {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        setIsEditting(false);
+        console.log(isEditting);
 
 
         if (idState === '' || progressNum === 0 || isNaN(progressNum)===true) {
@@ -95,7 +97,7 @@ function LogProgress({ quoteText, setIsEditting }) {
                             <FormLabel htmlFor="progressHours">How many hours?</FormLabel>
                             <FormInput type="text" name="progressHours" id="progressHours" value={progressState} onChange={handleChangeHours} />
                         </FormGroup>
-                        <Link to="Dashboard"><NavButton>Return</NavButton></Link>
+                        <Link to="Dashboard" onClick={()=>setIsEditting(false)}><NavButton>Return</NavButton></Link>
                         <button type="submit">Submit</button>
                         <p>{errMessage}</p>
                     </InsideForm>
