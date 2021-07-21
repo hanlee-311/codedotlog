@@ -8,7 +8,7 @@ function GoalInformation({ goalHours, progressHours, language }) {
 
     return (
         <InformationContainer>
-            <h3 style={{marginBottom: "1em", textAlign:"center"}}>{language}</h3>
+            <h3 style={{ marginBottom: "1em", textAlign: "center" }}>{language}</h3>
             <Progress>
                 <ColorBox style={{ backgroundColor: "#FFC947" }} />
                 <p>= {progress} hrs complete</p>
