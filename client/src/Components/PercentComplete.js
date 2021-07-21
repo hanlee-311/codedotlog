@@ -6,7 +6,7 @@ function progressPercentage({ goalHours, progressHours }) {
 
     return (
         <Container>
-            <h4 style={{ position: "relative", textAlign: "center", fontSize: "500%" }}>
+            <h4 style={{ position: "relative", textAlign: "center", fontSize: "450%", verticalAlign: "center" }}>
                 {percentageDone}
             </h4>
         </Container>
@@ -16,13 +16,13 @@ function progressPercentage({ goalHours, progressHours }) {
 const Container = Styled.div
     `
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(50%, 0%);
-    transform: translate(-50%, 180%);
-    @media (max-width: 950px){
-        -webkit-transform: translate(50%, 0%);
-        transform: translate(-50%, 460%);
+    verticle-align: center;
+    width: 50vh;
+    height: 50vh;
+    line-height: 50vh;
+    padding: 19.7vh 0vh;
+    @media (max-width: 1300px) {
+        font-size: 190%;
     }
 `;
 

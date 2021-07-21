@@ -7,7 +7,7 @@ function Footer() {
     <>
       <Phantom />
       <Container>
-        <p style={{height:"4em", textAlign: "center", verticalAlign:"middle"}}><Computer/> ©2021 uncc trilogy bootcamp</p>
+        <p style={{height:"4em", textAlign: "center", verticalAlign:"middle"}}><Computer/> ©2021 uncch trilogy bootcamp</p>
       </Container>
     </>
   );

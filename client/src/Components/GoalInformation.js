@@ -27,13 +27,14 @@ const InformationContainer = Styled.div
     border: solid white 2px;
     border-radius: 5px;
     padding: 2em 1em 1em;
-    margin-left: -25%;
+    margin-left: -62%;
     position: absolute;
     @media (max-width: 950px){
         position: static;
         max-width: 50%;
-        -webkit-transform: translate(100%, 0%);
-        transform: translate(100%, 0%);
+        margin-left: 0%;
+        -webkit-transform: translate(0%, 0%);
+        transform: translate(0%, 0%);
         margin-bottom: 1em;
     }
 `
