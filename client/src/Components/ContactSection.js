@@ -74,7 +74,7 @@ function ContactSection() {
           <ButtonContainer>
             <button>Submit</button>
           </ButtonContainer>
-            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden", color: "white" }}>Thank you! Your message has been sent.</h4>
+            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden", color: "black", alignSelf:"center" }}>Thank you! Your message has been sent.</h4>
         </InsideForm>
       </Form>
     </ContactContainer>
@@ -95,17 +95,15 @@ const ContactAnimation = keyframes
 
 const ContactContainer = Styled.div
   `
-        display: flex;
-        // max-height: 80vh;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        opacity: 0;
-        animation-name: ${ContactAnimation};
-        animation-duration: 1s;
-        animation-iteration-count: once;
-        animation-fill-mode: forwards;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    animation-name: ${ContactAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: once;
+    animation-fill-mode: forwards;
   `;
 
 const ContactHeader = Styled.div
@@ -119,33 +117,30 @@ const ContactHeader = Styled.div
 
 const Form = Styled.form
   `
-      // height: 90vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: left;
-      // width: 90%
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
   `;
 
 const InsideForm = Styled.div
   `
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding: .5rem 3rem;
-      background: #EFEFEF;
-      color: #0A1931;
-      // width: 80%
-      align-items: left;
-      text-align: left;
-      border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: .5rem 3rem;
+    background: #EFEFEF;
+    color: #0A1931;
+    align-items: left;
+    text-align: left;
+    border-radius: 6px;
   `;
 
 const FormHeader = Styled.h2
   `
-      padding: .5rem 0;
-      color: #0A1931;
-      text-align: center;
+    padding: .5rem 0;
+    color: #0A1931;
+    text-align: center;
   `;
 
 const FormLabel = Styled.label
@@ -157,11 +152,11 @@ const FormLabel = Styled.label
 
 const FormGroup = Styled.div
   `
-      display: block;
-      position: relative;
-      padding: 0.5rem 4rem;
-      background: #EFEFEF;
-      color: #0A1931;
+    display: block;
+    position: relative;
+    padding: 0.5rem 4rem;
+    background: #EFEFEF;
+    color: #0A1931;
   `;
 
 const FormInput = Styled.input

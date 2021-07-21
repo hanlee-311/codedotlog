@@ -93,8 +93,8 @@ function SetGoal({ quoteText }) {
                                 <FormLabel htmlFor="goalHours">How many hours do you want to devote?</FormLabel>
                                 <FormInput type="text" name="goalHours" id="goalHours" value={goalState} onChange={handleChangeGoal} />
                             </FormGroup>
-                            <button type="submit">Submit</button>
                             <Link to="Dashboard"><NavButton>Return</NavButton></Link>
+                            <button type="submit">Submit</button>
                             <p>{errMessage}</p>
                         </InsideForm>
                     </Form>
@@ -209,11 +209,11 @@ const FormGroup = Styled.div
 `
 
 const NavButton = Styled.button`
-    margin: 0rem;
+    margin-right: 7rem;
     color: #185ADB;
-    padding: 1rem 1rem;
+    padding: 1rem 1.7rem;
     display: inline-block;
-    margin-left: 45%;
+    margin-left: 8%;
 `
 
 export default SetGoal;

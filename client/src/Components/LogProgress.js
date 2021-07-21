@@ -94,8 +94,8 @@ function LogProgress({ quoteText, setIsEditting }) {
                             <FormLabel htmlFor="progressHours">How many hours?</FormLabel>
                             <FormInput type="text" name="progressHours" id="progressHours" value={progressState} onChange={handleChangeHours} />
                         </FormGroup>
-                        <button type="submit">Submit</button>
                         <Link to="Dashboard"><NavButton>Return</NavButton></Link>
+                        <button type="submit">Submit</button>
                         <p>{errMessage}</p>
                     </InsideForm>
                 </Form>
@@ -214,11 +214,11 @@ const ButtonContainerLink = Styled(Link)
 `
 
 const NavButton = Styled.button`
-    margin: 0rem;
-    color: #185ADB;
-    padding: 1rem 1rem;
-    display: inline-block;
-    margin-left: 45%;
+margin-right: 7rem;
+color: #185ADB;
+padding: 1rem 1.7rem;
+display: inline-block;
+margin-left: 8%;
 `
 
 export default LogProgress;

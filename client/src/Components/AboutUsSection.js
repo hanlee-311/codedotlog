@@ -14,7 +14,6 @@ function AboutUsSection() {
       <LittleCircle></LittleCircle>
       <LeftCircle></LeftCircle>
       <TopAbout>
-
       <AboutHeader>
         <h1 id="About"><span>.</span>about</h1>
       </AboutHeader>
@@ -28,7 +27,6 @@ function AboutUsSection() {
         <p>Codedotlog was born out of a desire to encourage people of all ages to learn new <span>coding skills</span>, and keep track of their progession over time.</p>
       </MissionText>
       </TopAbout>
-      {/* <div className="profilePhotos"> */}
       <BottomAbout>
             <AboutTitle>.<span>team</span></AboutTitle>
               <DotTeam>
@@ -72,7 +70,6 @@ function AboutUsSection() {
                 </ContactBox>
               </DotTeam>
       </BottomAbout>
-      {/* </div> */}
     </About>
   );
 }
@@ -89,12 +86,7 @@ const AboutAnimation = keyframes
 
 const About = Styled.div
   `
-    // min-height: 100vh;
-    // display: flex;
-    // align-items: center;
     opacity: 0;
-    // justify-content: center;
-    // flex-direction: column;
     animation-name: ${AboutAnimation};
     animation-duration: 1s;
     animation-iteration-count: once;
@@ -109,20 +101,16 @@ const AboutHeader = Styled.div
   `
 const TopAbout = Styled.div
 `
-        height: 100vh;
         display: flex;
         align-items: center;
         flex-direction: column;
-        // justify-content: center;
         @media (max-width: 1300px){
           margin: 0 0 5rem 0;
         }
-        
 `
 
 const BottomAbout = Styled.div
 `
-        height: 100vh;
         // width: 90%;
         display: flex;
         justify-content: center;
@@ -141,59 +129,6 @@ const MissionText = Styled.div
     backdrop-filter: blur(5px);
     font-size: 1.5rem;
     margin: 0 0 4rem 0;
-
-    
-  // max-width: 55%;
-    // // background-color: #020408;
-    // color: #EFEFEF;
-    // margin: 3rem 0;;
-    // padding: 2.5em;
-    // padding-top: 5em;
-    // line-height: 1.5;
-
-    // text-align: center;
-    // margin    : 0 100px;
-    // position: relative;
-    // background-color: #020408;
-    // border-radius: 100% 100% 0 0;
-
-    // :before,
-    // :after {
-    // content: '';
-    // position: absolute;
-    // bottom  : 0;
-    // z-index : -1;
-    // background-color: #020408;
-    // border-radius: 100%;
-    // }
-
-    // :before {
-    //   /* This is the  size of the clouds left ear */
-    //   width  : 200px;
-    //   height : 200px;
-    
-    //   /* We slightly move it to the left */
-    //   left    : -80px;
-    
-    //   /* To make sure that the bottom of the cloud
-    //      remains flat, we must make the bottom right
-    //      corner of the left ear square. */
-    //   border-bottom-right-radius: 0;
-    // }
-    
-    // :after {
-    //   /* This is the size of the clouds left ear */
-    //   width  : 175px;
-    //   height : 175px;
-    
-    //   /* We slightly move it to the right */
-    //   right   : -60px;
-    
-    //   /* To make sure that the bottom of the cloud
-    //      remains flat, we must make the bottom left
-    //      corner of the right ear square. */
-    //   border-bottom-left-radius: 0;
-    // }
   `
 
 const DotTeam = Styled.div
@@ -225,11 +160,13 @@ const DotProfilePic = Styled.span
 const AboutTitle = Styled.h1
   `
     margin: 3rem 0;
+    @media (max-width: 1600px){
+      visibility: hidden;
+    }
     @media (max-width: 1300px){
       margin: 6rem 0;
-      // padding: 3rem 0;
+      visibility: visible;
     }
-    
   `
 
 const BigCircle = Styled.div
@@ -271,7 +208,7 @@ const LeftCircle = Styled.div
     border-radius: 50%;
     position: absolute;
     left: 5%;
-    top: 70%;
+    top: 60%;
     z-index: -1;
     @media (max-width: 1300px){
       display: none;
