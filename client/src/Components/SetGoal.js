@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_GOAL } from '../utils/mutations';
 import { Link, useHistory } from 'react-router-dom';
 import Loading from './Loading';
-
+import Footer from './Footer';
 
 const optionsLanguage = [
     { value: 'javascript', label: 'JavaScript' },
@@ -21,7 +21,6 @@ const optionsLanguage = [
     { value: 'python', label: 'Python' },
 ]
 
-
 function SetGoal({ quoteText }) {
     const history = useHistory();
     const [langState, setLangState] = useState('');
@@ -30,7 +29,6 @@ function SetGoal({ quoteText }) {
     const [isLoading, setIsLoading] = useState(true);
     const [errMessage, setErrorMessage] = useState("");
 
-    // update state based on form input changes
     const handleChangeLang = (event) => {
         const { value } = event;
 
@@ -42,7 +40,6 @@ function SetGoal({ quoteText }) {
         setGoalState(value);
     };
 
-    // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         const goalNum = parseInt(goalState);
@@ -100,6 +97,7 @@ function SetGoal({ quoteText }) {
                     </Form>
                 </GoalContainer>
             </div>
+            <Footer/>
         </>
     )
 }
@@ -110,7 +108,7 @@ const GoalContainer = Styled.div
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;
-`
+`;
 
 const QuoteAnimation = keyframes
     `
@@ -120,7 +118,7 @@ const QuoteAnimation = keyframes
     to {
         opacity: 1;
     }
-`
+`;
 
 const QuoteHeader = Styled.h4
     `
@@ -144,7 +142,7 @@ const FormAnimation = keyframes
     to {
         opacity: 1;
     }
-`
+`;
 
 const Form = Styled.form
     `
@@ -160,6 +158,7 @@ const Form = Styled.form
     animation-delay: 1.3s;
     animation-fill-mode: forwards;
 `;
+
 const InsideForm = Styled.div
     `
     display: block;
@@ -168,19 +167,20 @@ const InsideForm = Styled.div
     background: #EFEFEF;
     color: #0A1931;
 `;
+
 const FormHeader = Styled.h2
     `
      padding: 2rem 0;
      justify-content: center;
      display: flex;
-
 `;
+
 const FormLabel = Styled.label
     `
     display: block;
     margin-bottom: 5px;
-
 `;
+
 const Dropdown = Styled.div
     `
     display: block;
@@ -189,6 +189,7 @@ const Dropdown = Styled.div
     background: #EFEFEF;
     color: #0A1931;
 `;
+
 const FormInput = Styled.input
     `
     display: block;
@@ -206,7 +207,7 @@ const FormGroup = Styled.div
     padding: 2rem 4rem;
     background: #EFEFEF;
     color: #0A1931;
-`
+`;
 
 const NavButton = Styled.button`
     margin-right: 7rem;
@@ -214,6 +215,6 @@ const NavButton = Styled.button`
     padding: 1rem 1.7rem;
     display: inline-block;
     margin-left: 8%;
-`
+`;
 
 export default SetGoal;

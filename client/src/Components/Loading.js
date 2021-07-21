@@ -12,14 +12,13 @@ const Loading = () => {
     )
 };
 
-const LoadScreen = Styled.div 
-`
+const LoadScreen = Styled.div
+    `
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 `
-
 
 export default Loading;

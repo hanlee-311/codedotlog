@@ -8,6 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import Loading from "./Loading";
+import Footer from './Footer';
 
 function LogProgress({ quoteText, isEditting, setIsEditting }) {
     const history = useHistory();
@@ -27,9 +28,7 @@ function LogProgress({ quoteText, isEditting, setIsEditting }) {
         }, 5000);
     });
 
-    // update state based on form input changes
     const handleChangeGoal = (event) => {
-        console.log(event);
         const { value } = event;
         const goalArray = data.me.goals;
         const selectedGoal = goalArray.find(goal => goal.language == value);
@@ -50,7 +49,7 @@ function LogProgress({ quoteText, isEditting, setIsEditting }) {
         console.log(isEditting);
 
 
-        if (idState === '' || progressNum === 0 || isNaN(progressNum)===true) {
+        if (idState === '' || progressNum === 0 || isNaN(progressNum) === true) {
             setErrorMessage("Please select language and hours.");
         } else {
             try {
@@ -103,6 +102,7 @@ function LogProgress({ quoteText, isEditting, setIsEditting }) {
                     </InsideForm>
                 </Form>
             </div>
+            <Footer />
         </>
     ) : null;
 };
@@ -117,13 +117,6 @@ const QuoteAnimation = keyframes
     }
 `
 
-const GoalContainer = Styled.div
-    `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-`
 const QuoteHeader = Styled.h4
     `
   font-style: italic;  
@@ -146,7 +139,7 @@ const FormAnimation = keyframes
     to {
         opacity: 1;
     }
-`
+`;
 
 const Form = Styled.form
     `
@@ -162,6 +155,7 @@ const Form = Styled.form
     animation-delay: 1.3s;
     animation-fill-mode: forwards;
 `;
+
 const InsideForm = Styled.div
     `
     display: block;
@@ -170,6 +164,7 @@ const InsideForm = Styled.div
     background: #EFEFEF;
     color: #0A1931;
 `;
+
 const FormHeader = Styled.h2
     `
      padding: 2rem 0;
@@ -177,12 +172,14 @@ const FormHeader = Styled.h2
      display: flex;
 
 `;
+
 const FormLabel = Styled.label
     `
     display: block;
     margin-bottom: 5px;
 
 `;
+
 const Dropdown = Styled.div
     `
     display: block;
@@ -191,6 +188,7 @@ const Dropdown = Styled.div
     background: #EFEFEF;
     color: #0A1931;
 `;
+
 const FormInput = Styled.input
     `
     display: block;
@@ -208,20 +206,15 @@ const FormGroup = Styled.div
     padding: 2rem 4rem;
     background: #EFEFEF;
     color: #0A1931;
-`
-const ButtonContainerLink = Styled(Link)
-    `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
+`;
 
-const NavButton = Styled.button`
-margin-right: 7rem;
-color: #185ADB;
-padding: 1rem 1.7rem;
-display: inline-block;
-margin-left: 8%;
-`
+const NavButton = Styled.button
+    `
+    margin-right: 7rem;
+    color: #185ADB;
+    padding: 1rem 1.7rem;
+    display: inline-block;
+    margin-left: 8%;
+`;
 
 export default LogProgress;

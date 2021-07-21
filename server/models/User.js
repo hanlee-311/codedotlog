@@ -43,10 +43,6 @@ const userSchema = new Schema({
         trim: true,
         default: 0,
       }
-    // {
-    //   type: Schema.Types.ObjectId,
-    //   ref:"Goal"
-    // }
   }]
 });
 

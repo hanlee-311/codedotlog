@@ -9,6 +9,6 @@ function checkDay() {
     else {
         return false
     };
-}
+};
     
 export default checkDay;

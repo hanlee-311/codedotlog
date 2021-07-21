@@ -40,9 +40,11 @@ function WeeklyProgressModal(props) {
 const StyledTitle = Styled.div
     `
     color: #185ADB;
-    `
+    `;
+
 const StyledBody = Styled.div
     `
     color: #0A1931;
-    `
+    `;
+
 export default WeeklyProgressModal;

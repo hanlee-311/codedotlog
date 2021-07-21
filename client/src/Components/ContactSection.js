@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
-// import { Link } from 'react-router-dom';
-
+import Footer from './Footer';
 
 function ContactSection() {
 
@@ -13,7 +12,6 @@ function ContactSection() {
     message: '',
   });
 
-  // update state based on form input changes
   const handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -24,7 +22,6 @@ function ContactSection() {
     });
   };
 
-  // submit form
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,55 +33,55 @@ function ContactSection() {
       });
 
     document.getElementById("messageSent").style.visibility = "visible";
-    setTimeout(function(){
+    setTimeout(function () {
       window.location.reload(1);
-   }, 2000);
+    }, 2000);
   };
 
   return (
-
-    <ContactContainer>
-      <BigCircle></BigCircle>
-      <LittleCircle></LittleCircle>
-      <LeftCircle></LeftCircle>
-      <ContactHeader>
-        <h1 id="Contact"><span>.</span>contact</h1>
-      </ContactHeader>
-      <Form onSubmit={handleFormSubmit}>
-        <InsideForm>
-          <FormHeader>
-            <h2>We would love to hear from you.</h2>
-          </FormHeader>
-          <FormGroup>
-            <FormLabel>First Name:</FormLabel>
-            <FormInput type="text" name="firstName" id="first-name" placeholder="First Name" value={formState.firstName} onChange={handleChange} />
-          </FormGroup>
-          <FormGroup>
-            <FormLabel>Last Name:</FormLabel>
-            <FormInput type="text" name="lastName" id="last-name" placeholder="Last Name" value={formState.lastName} onChange={handleChange} />
-          </FormGroup>
-          <FormGroup>
-            <FormLabel>Email:</FormLabel>
-            <FormInput type="email" name="email" id="email" placeholder="Your email" value={formState.email} onChange={handleChange} />
-          </FormGroup>
-          <FormGroup>
-            <FormLabel>Message:</FormLabel>
-            <MessageTextArea type="text" name="message" id="message" placeholder="Please write your message to us!" onChange={handleChange} value={formState.message} />
-          </FormGroup>
-          <ButtonContainer>
-            <button>Submit</button>
-          </ButtonContainer>
-            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden", color: "black", alignSelf:"center" }}>Thank you! Your message has been sent.</h4>
-        </InsideForm>
-      </Form>
-    </ContactContainer>
-
-
+    <>
+      <ContactContainer>
+        <BigCircle></BigCircle>
+        <LittleCircle></LittleCircle>
+        <LeftCircle></LeftCircle>
+        <ContactHeader>
+          <h1 id="Contact"><span>.</span>contact</h1>
+        </ContactHeader>
+        <Form onSubmit={handleFormSubmit}>
+          <InsideForm>
+            <FormHeader>
+              <h2>We would love to hear from you.</h2>
+            </FormHeader>
+            <FormGroup>
+              <FormLabel>First Name:</FormLabel>
+              <FormInput type="text" name="firstName" id="first-name" placeholder="First Name" value={formState.firstName} onChange={handleChange} />
+            </FormGroup>
+            <FormGroup>
+              <FormLabel>Last Name:</FormLabel>
+              <FormInput type="text" name="lastName" id="last-name" placeholder="Last Name" value={formState.lastName} onChange={handleChange} />
+            </FormGroup>
+            <FormGroup>
+              <FormLabel>Email:</FormLabel>
+              <FormInput type="email" name="email" id="email" placeholder="Your email" value={formState.email} onChange={handleChange} />
+            </FormGroup>
+            <FormGroup>
+              <FormLabel>Message:</FormLabel>
+              <MessageTextArea type="text" name="message" id="message" placeholder="Please write your message to us!" onChange={handleChange} value={formState.message} />
+            </FormGroup>
+            <ButtonContainer>
+              <button>Submit</button>
+            </ButtonContainer>
+            <h4 id="messageSent" style={{ display: "inline", paddingLeft: "1em", visibility: "hidden", color: "black", alignSelf: "center" }}>Thank you! Your message has been sent.</h4>
+          </InsideForm>
+        </Form>
+      </ContactContainer>
+      <Footer />
+    </>
   );
 }
 
 const ContactAnimation = keyframes
-`
+  `
   from {
     opacity: 0;
   }
@@ -104,6 +101,9 @@ const ContactContainer = Styled.div
     animation-duration: 1s;
     animation-iteration-count: once;
     animation-fill-mode: forwards;
+    @media (max-width: 1300px){
+      margin-bottom: 12em;
+    }
   `;
 
 const ContactHeader = Styled.div
@@ -181,7 +181,7 @@ const MessageTextArea = Styled.textarea
 `;
 
 const BigCircle = Styled.div
-`
+  `
     display: flex;
     height: 25vh;
     width: 25vh;
@@ -197,7 +197,7 @@ const BigCircle = Styled.div
 `
 
 const LittleCircle = Styled.div
-`   
+  `   
     display: flex;
     height: 15vh;
     width: 15vh;
@@ -212,8 +212,8 @@ const LittleCircle = Styled.div
     }
 `
 
-const LeftCircle = Styled.div 
-` 
+const LeftCircle = Styled.div
+  ` 
     display: flex;
     height: 15vh;
     width: 15vh;
@@ -228,7 +228,7 @@ const LeftCircle = Styled.div
     }
 `
 const ButtonContainer = Styled.div
-`
+  `
   display: flex;    
   align-item: center;
   text-align: center;

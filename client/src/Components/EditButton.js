@@ -1,21 +1,20 @@
-import React, {useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-const EditButton = ({isEditting, setIsEditting}) => {
-console.log(isEditting);
-const history = useHistory();
+const EditButton = ({ isEditting, setIsEditting }) => {
+    const history = useHistory();
 
-const handleEditClick = (event) => {
-    event.preventDefault();
-    setIsEditting(true);
-    console.log(isEditting);
-    history.push('/GoalPage');
-  };
+    const handleEditClick = (event) => {
+        event.preventDefault();
+        setIsEditting(true);
+        history.push('/GoalPage');
+    };
+
     return (
         <div>
             <button onClick={handleEditClick}>Update</button>
         </div>
     )
-}
+};
 
 export default EditButton

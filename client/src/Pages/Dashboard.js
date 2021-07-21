@@ -9,7 +9,7 @@ import EditButton from '../Components/EditButton';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import Loading from '../Components/Loading';
-
+import Footer from '../Components/Footer';
 
 function Dashboard({ isEditting, setIsEditting, modal, setModal }) {
 
@@ -61,6 +61,7 @@ function Dashboard({ isEditting, setIsEditting, modal, setModal }) {
                             <EditButton isEditting={isEditting} setIsEditting={setIsEditting} />
                         </ButtonContainer>
                     </DashboardContainer>
+                    <Footer />
                 </div>
             }
         </>
@@ -68,17 +69,17 @@ function Dashboard({ isEditting, setIsEditting, modal, setModal }) {
 };
 
 const DashboardAnimation = keyframes
-`
+    `
  from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
-`
+`;
 
 const DashboardContainer = Styled.div
-`
+    `
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,10 +89,10 @@ const DashboardContainer = Styled.div
     animation-duration: 1s;
     animation-iteration-count: once;
     animation-fill-mode: forwards;
-`
+`;
 
 const GoalList = Styled.div
-`
+    `
     flex-direction: row;
     display: inline-block;
     margin: 2rem;
@@ -117,35 +118,29 @@ const GoalList = Styled.div
     &::-webkit-scrollbar-thumb:hover {
         background: #705616; 
     }
-`
-
-const Text = Styled.h3
-`
-    font-size: 2rem;
-    font: white;
-`
+`;
 
 const ButtonContainer = Styled.div
-`
+    `
     display: flex;
     flex-direction: row;
     margin: 0 2rem;
     min-width: 80%;
     justify-content: space-between;
     align-items: center
-`
+`;
 
 const Welcome = Styled.h4
-`
+    `
     margin: 1em 0 1em 0;
     text-align: center;
     font-size: 180%;
-`
+`;
 
 const GoalTitle = Styled.h4
-`
+    `
     padding: .1em;
     text-align: center;
-`
+`;
 
 export default Dashboard;

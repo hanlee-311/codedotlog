@@ -4,7 +4,7 @@ import LandingSection from "../Components/LandingSection";
 function Header() {
   return (
     <>
-    <LandingSection/>
+      <LandingSection />
     </>
   );
 }
