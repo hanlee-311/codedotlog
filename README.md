@@ -67,6 +67,7 @@ Barbara Kenny, Hannah Lee, Ryan Neil Vega, Teisha McRae
 ![Website Screenshot](https://user-images.githubusercontent.com/73713665/126229395-46e6a410-8ee9-4e57-ae58-265f6c16ce74.png)
 ![Website Screenshot](https://user-images.githubusercontent.com/73713665/126229398-db3a09c8-424e-4265-93a8-1a1134b6febf.png)
 ![Website Screenshot](https://user-images.githubusercontent.com/73713665/126229399-bd45b8a6-b42e-47c6-bcb0-c10bfebb944d.png)
-![Website Screenshot](https://user-images.githubusercontent.com/73713665/126408742-1287913b-f311-43fc-9208-cec91841e0a9.png)
-![Website Screenshot](https://user-images.githubusercontent.com/73713665/126408741-d4276e36-1993-464b-b611-f0a0685ab82e.png)
+![Website Screenshot](https://user-images.githubusercontent.com/73713665/126411569-4c587f56-a10d-4329-b0e5-86b67cce4b47.png)
+![Website Screenshot](https://user-images.githubusercontent.com/73713665/126411574-0425c6c3-72e6-4238-a8ec-71b3003a0eed.png)
+
 
